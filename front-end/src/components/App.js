@@ -2,7 +2,6 @@ import Grid from '../scripts/Grid'
 import React, { useState } from 'react';
 import '../styles/grid.css'
 
-
 function App() {
   
   const SIZE_X = 10;
