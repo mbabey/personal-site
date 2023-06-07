@@ -1,5 +1,4 @@
-import Cell from './Cell'
-import Entity from './Entity';
+import Cell from './Cell';
 
 /**
  * Grid.

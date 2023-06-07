@@ -4,13 +4,14 @@
  */
 class Cell {
 
-  static #MAX_HEIGHT = 1000;
+  // The maximum altitude for a cell.
+  static #MAX_ALTITUDE = 1000;
 
   // The X and Y coordinates of the Cell.
   #coordinate_x;
   #coordinate_y;
 
-  // The altitude of the Cell, from 0 to MAX_HEIGHT.
+  // The altitude of the Cell, from 0 to MAX_ALTITUDE.
   #altitude;
 
   // Whether the Cell has something inside of it.
@@ -24,7 +25,7 @@ class Cell {
   constructor(coord_x, coord_y) {
     this.#coordinate_x = coord_x;
     this.#coordinate_y = coord_y;
-    this.#altitude = Math.floor(Math.random() * Cell.#MAX_HEIGHT);
+    this.#altitude = Math.floor(Math.random() * Cell.#MAX_ALTITUDE);
     this.#populated = false;
   }
 
