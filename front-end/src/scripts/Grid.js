@@ -46,7 +46,7 @@ class Grid {
       return row.map(cell => {
         const location = cell.get_coordinates();
         const altitude = cell.get_altitude();
-        return <div key={location}  className={`cell`}>
+        return <div key={location} className={`cell ${cell.get_populated() ? 'populated' : ''}`}>
           {location[0]}, {location[1]}, {altitude}
         </div>
       })

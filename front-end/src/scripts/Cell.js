@@ -1,4 +1,7 @@
-// A Cell in a Grid.
+/** 
+ * Cell.
+ * A Cell in a Grid.
+ */
 class Cell {
 
   static #MAX_HEIGHT = 1000;
@@ -10,6 +13,9 @@ class Cell {
   // The altitude of the Cell, from 0 to MAX_HEIGHT.
   #altitude;
 
+  // Whether the Cell has something inside of it.
+  #populated;
+
   /**
    * Contruct a Cell. Randomly generate an altitude.
    * @param {Integer} coord_x the X coordinate
@@ -19,6 +25,7 @@ class Cell {
     this.#coordinate_x = coord_x;
     this.#coordinate_y = coord_y;
     this.#altitude = Math.floor(Math.random() * Cell.#MAX_HEIGHT);
+    this.#populated = false;
   }
 
   /**
@@ -35,6 +42,21 @@ class Cell {
    */
   get_altitude() {
     return this.#altitude;
+  }
+
+  /**
+   * Toggle the populated state of this Cell.
+   */
+  toggle_populated() {
+    this.#populated = !this.#populated;
+  }
+
+  /**
+   * Get the populated state of this Cell.
+   * @returns the populated state of this Cell.
+   */
+  get_populated() {
+    return this.#populated;
   }
 }
 

@@ -19,6 +19,7 @@ class Entity {
   constructor(grid, cell) {
     this.#world = grid;
     this.#location = cell;
+    this.#location.toggle_populated();
   }
 
   /**
@@ -45,7 +46,10 @@ class Entity {
     
     // in here, perform pathfinding optimized for minumum change in altitude.
 
+    // Leave the old cell and enter the new cell.
+    this.#location.toggle_populated();
     this.set_location(new_cell);
+    this.#location.toggle_populated();
   }
 }
 
