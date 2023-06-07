@@ -31,15 +31,17 @@ function create_entity(size_x, size_y, world) {
 }
 
 function get_start_location(size_x, size_y) {
-  // Pick a random edge Cell; put an Entity in the edge Cell.
-  // If the random Cell is the top or the bottom, pick a random cell along the cross axis.
-  let edge_cell_y = Math.floor(Math.random() * size_y);
+  let edge_cell_y;
   let edge_cell_x;
-  if (edge_cell_y === 0 || edge_cell_y === size_y - 1) {
-    edge_cell_x = Math.floor(Math.random() * size_x);
-  } else { // Otherwise, pick either the left or the right side of the Grid.
-    const res = Math.random();
-    if (res >= 0.5) {
+
+  // Pick a random edge Cell on the vertical axis and horizontal axis.
+  edge_cell_y = Math.floor(Math.random() * size_y);
+  edge_cell_x = Math.floor(Math.random() * size_x);
+
+  /* If the random vertical Cell is not the top or the bottom, 
+     pick either the left or the right side of the Grid for the horizontal Cell. */
+  if (!(edge_cell_y === 0 || edge_cell_y === size_y - 1)) {
+    if (edge_cell_x >= size_x / 2) {
       edge_cell_x = size_x - 1;
     } else {
       edge_cell_x = 0;
