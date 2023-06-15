@@ -18,7 +18,7 @@ class Grid {
   constructor(size_x, size_y) {
     // Initialize the empty world.
     this.#world = [...Array(size_x)].map(e => Array(size_y));
-    
+
     // Fill the world with Cells.
     for (let x = 0; x < size_x; ++x) {
       for (let y = 0; y < size_y; ++y) {
@@ -46,8 +46,11 @@ class Grid {
       return row.map(cell => {
         const location = cell.get_coordinates();
         const altitude = cell.get_altitude();
-        return <div key={location} className={`cell ${cell.get_populated() ? 'populated' : ''}`}>
-          {location[0]}, {location[1]}, {altitude}
+        return <div
+          key={location}
+          className={`cell ${cell.get_populated() ? 'populated' : ''} ${cell.get_targeted() ? 'target' : ''}`}
+          style={{ backgroundColor: `rgba(0, 0, 0, ${(altitude / Cell.MAX_ALTITUDE) * 0.8})` }}
+        >
         </div>
       })
     });
