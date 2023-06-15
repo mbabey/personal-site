@@ -32,8 +32,8 @@ function App() {
 function create_entity_and_target(size_x, size_y, world) {
   const start_location = get_start_location(size_x, size_y);
   console.log(start_location);
-  const entity_start_cell = world.get_cell(start_location.edge_cell_horizontal, start_location.edge_cell_vertical);
-  const entity_target_cell = world.get_cell(start_location.edge_cell_vertical, start_location.edge_cell_horizontal);
+  const entity_start_cell = world.get_cell(start_location.edge_cell_vertical, start_location.edge_cell_horizontal);
+  const entity_target_cell = world.get_cell(start_location.edge_cell_horizontal, start_location.edge_cell_vertical);
 
   entity_target_cell.toggle_target();
   
@@ -53,16 +53,16 @@ function get_start_location(size_x, size_y) {
   let edge_cell_vertical;
 
   // Pick a random edge Cell on the vertical axis and horizontal axis.
-  edge_cell_horizontal = Math.floor(Math.random() * size_y);
-  edge_cell_vertical = Math.floor(Math.random() * size_x);
+  edge_cell_vertical = Math.floor(Math.random() * size_y);
+  edge_cell_horizontal = Math.floor(Math.random() * size_x);
 
   /* If the random vertical Cell is not the top or the bottom, 
      pick either the left or the right side of the Grid for the horizontal Cell. */
-  if (!(edge_cell_horizontal === 0 || edge_cell_horizontal === size_y - 1)) {
-    if (edge_cell_vertical >= size_x / 2) {
-      edge_cell_vertical = size_x - 1;
+  if (!(edge_cell_vertical === 0 || edge_cell_vertical === size_y - 1)) {
+    if (edge_cell_horizontal >= size_x / 2) {
+      edge_cell_horizontal = size_x - 1;
     } else {
-      edge_cell_vertical = 0;
+      edge_cell_horizontal = 0;
     }
   }
 
