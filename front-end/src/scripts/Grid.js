@@ -46,9 +46,11 @@ class Grid {
       return row.map(cell => {
         const location = cell.get_coordinates();
         const altitude = cell.get_altitude();
+        const populated = cell.get_populated();
+        const target = cell.get_target();
         return <div
           key={location}
-          className={`cell ${cell.get_populated() ? 'populated' : ''} ${cell.get_targeted() ? 'target' : ''}`}
+          className={`cell ${populated ? 'populated' : ''} ${target ? 'target' : ''}`}
           style={{ backgroundColor: `rgba(0, 0, 0, ${(altitude / Cell.MAX_ALTITUDE) * 0.8})` }}
         >
         </div>

@@ -11,3 +11,7 @@
 .populated {
   background-color: red !important;
 }
+
+.target {
+  background-color: yellow !important;
+}

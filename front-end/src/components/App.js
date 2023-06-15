@@ -11,7 +11,7 @@ function App() {
   const GRID_CONTAINER_SIZE = { gridTemplateColumns: `repeat(${SIZE_X}, 1fr)`, gridTemplateRows: `repeat(${SIZE_Y}, 1fr)` };
   const world = new Grid(SIZE_X, SIZE_Y);
 
-  const [entity, setEntity] = useState(create_entity(SIZE_X, SIZE_Y, world));
+  const [entity, setEntity] = useState(create_entity_and_target(SIZE_X, SIZE_Y, world));
 
   return (
     <div
@@ -29,12 +29,15 @@ function App() {
  * @param {Grid} world the Grid on which the Entity shall exist.
  * @returns the Entity.
  */
-function create_entity(size_x, size_y, world) {
+function create_entity_and_target(size_x, size_y, world) {
   const start_location = get_start_location(size_x, size_y);
   console.log(start_location);
-  const start_cell = world.get_cell(start_location.edge_cell_horizontal, start_location.edge_cell_vertical);
+  const entity_start_cell = world.get_cell(start_location.edge_cell_horizontal, start_location.edge_cell_vertical);
+  const entity_target_cell = world.get_cell(start_location.edge_cell_vertical, start_location.edge_cell_horizontal);
 
-  const entity = new Entity(world, start_cell);
+  entity_target_cell.toggle_target();
+  
+  const entity = new Entity(world, entity_start_cell);
 
   return entity;
 }
