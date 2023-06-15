@@ -17,24 +17,24 @@ class Grid {
    */
   constructor(size_x, size_y) {
     // Initialize the empty world.
-    this.#world = [...Array(size_x)].map(e => Array(size_y));
+    this.#world = [...Array(size_y)].map(e => Array(size_x));
 
     // Fill the world with Cells.
-    for (let x = 0; x < size_x; ++x) {
-      for (let y = 0; y < size_y; ++y) {
-        this.#world[x][y] = new Cell(x, y);
+    for (let y = 0; y < size_y; ++y) {
+      for (let x = 0; x < size_x; ++x) {
+        this.#world[y][x] = new Cell(x, y);
       }
     }
   }
 
   /**
    * Get the Cell at the X and Y coordinates.
-   * @param {*} x the X coordinate
-   * @param {*} y the Y coordinate
+   * @param {Integer} x the X coordinate
+   * @param {Integer} y the Y coordinate
    * @returns the Cell at the X and Y coordinates
    */
   get_cell(x, y) {
-    return this.#world[x][y];
+    return this.#world[y][x];
   }
 
   /**
