@@ -5,8 +5,8 @@ import '../styles/grid.css'
 
 function App() {
 
-  const SIZE_X = 20;
-  const SIZE_Y = 10;
+  const SIZE_X = 50;
+  const SIZE_Y = 50;
 
   const GRID_CONTAINER_SIZE = { gridTemplateColumns: `repeat(${SIZE_X}, 1fr)`, gridTemplateRows: `repeat(${SIZE_Y}, 1fr)` };
   const world = new Grid(SIZE_X, SIZE_Y);

@@ -1,10 +1,14 @@
+body {
+  margin: 0 auto;
+}
+
 .grid-container {
   display: grid;
 }
 
 .cell {
   border: 1px solid black;
-  height: 50px; /* temp */
+  /* height: 50px; temp */
   width: 100%;
 }
 

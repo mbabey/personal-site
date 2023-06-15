@@ -48,12 +48,11 @@ class Grid {
         const altitude = cell.get_altitude();
         const populated = cell.get_populated();
         const target = cell.get_target();
-        return <div
-          key={location}
-          className={`cell ${populated ? 'populated' : ''} ${target ? 'target' : ''}`}
-          style={{ backgroundColor: `rgba(0, 0, 0, ${(altitude / Cell.MAX_ALTITUDE) * 0.8})` }}
-        >
-        </div>
+
+        const cell_class = `cell ${populated ? 'populated' : ''} ${target ? 'target' : ''}`;
+        const cell_style = { backgroundColor: `rgba(0, 0, 0, ${(altitude / Cell.MAX_ALTITUDE) * 0.8})`, aspectRatio: 1 };
+
+        return <div key={location} className={cell_class} style={cell_style}></div>
       })
     });
 
