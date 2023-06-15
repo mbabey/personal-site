@@ -32,7 +32,9 @@ function App() {
 function create_entity_and_target(size_x, size_y, world) {
   const start_location = get_entity_start_location(size_x, size_y);
   const target_location = get_target_start_location(size_x, size_y, start_location);
-  console.log(start_location);
+  
+  // console.log(start_location);
+  
   const entity_start_cell = world.get_cell(start_location.edge_cell_horizontal, start_location.edge_cell_vertical);
   const entity_target_cell = world.get_cell(target_location.edge_cell_horizontal, target_location.edge_cell_vertical);
 
@@ -70,9 +72,12 @@ function get_entity_start_location(size_x, size_y) {
 }
 
 /**
- * Get the target's start location based on the Entity's start location.
- * The target's start location should be opposite the Entity's start location.
+ * Get the target Cell's start location based on the Entity's start location.
+ * The target Cell's start location is opposite the Entity's start location.
+ * @param {Integer} size_x the X dimension of the Grid.
+ * @param {Integer} size_y the Y dimension of the Grid.
  * @param {JSON Object} entity_start_location the coordinates of the Entity's start location.
+ * @return the start location for the target Cell.
  */
 function get_target_start_location(size_x, size_y, entity_start_location) {
   const entity_horizontal = entity_start_location.edge_cell_horizontal;
