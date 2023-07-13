@@ -34,11 +34,11 @@ class Cell {
   }
 
   /**
-   * Get the X and Y coordinates of this Cell as an array.
-   * @returns coordinates as [x, y]
+   * Get the X and Y coordinates of this Cell as an object.
+   * @returns coordinates as {x, y}
    */
   get_coordinates() {
-    return [this.#coordinate_x, this.#coordinate_y];
+    return {x: this.#coordinate_x, y: this.#coordinate_y};
   }
 
   /**
