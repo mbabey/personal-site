@@ -22,6 +22,21 @@ function App() {
   );
 }
 
+function run_component(entity, world) {
+  /*
+  draw the world
+  while not at target:
+    run the pathfind
+    draw the world 
+  */
+  world.draw();
+  while (!entity.get_location().get_target()) // While the entity is not at the target location.
+  {
+    entity.move();
+    world.draw();
+  }
+}
+
 /**
  * Create an Entity and place it in a Cell at the edge of the Grid.
  * @param {Integer} size_x the X dimension of the Grid.
@@ -32,9 +47,9 @@ function App() {
 function create_entity_and_target(size_x, size_y, world) {
   const start_location = get_entity_start_location(size_x, size_y);
   const target_location = get_target_start_location(size_x, size_y, start_location);
-  
+
   // console.log(start_location);
-  
+
   const entity_start_cell = world.get_cell(start_location.edge_cell_horizontal, start_location.edge_cell_vertical);
   const entity_target_cell = world.get_cell(target_location.edge_cell_horizontal, target_location.edge_cell_vertical);
 
