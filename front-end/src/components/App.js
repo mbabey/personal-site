@@ -1,6 +1,6 @@
 import Grid from '../scripts/Grid'
 import Entity from '../scripts/Entity';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/grid.css'
 
 function App() {
@@ -10,15 +10,31 @@ function App() {
 
   const GRID_CONTAINER_SIZE = { gridTemplateColumns: `repeat(${SIZE_X}, 1fr)`, gridTemplateRows: `repeat(${SIZE_Y}, 1fr)` };
   const world = new Grid(SIZE_X, SIZE_Y);
+  const entity = create_entity_and_target(SIZE_X, SIZE_Y, world);
 
-  const [entity, setEntity] = useState(create_entity_and_target(SIZE_X, SIZE_Y, world));
+  // const [count, setCount] = useState(0); // TESTING
+  const [worldImage, setWorldImage] = useState(world.draw());
+
+  useEffect(() => {
+    const interval_id = setInterval(() => {
+      // setCount(prev_count => prev_count + 1); // TESTING
+      // entity.move();
+      setWorldImage(world.draw());
+      console.log('redrawn');
+    }, 10000);
+
+    return () => clearInterval(interval_id);
+  }, []);
 
   return (
     <div
       className='grid-container'
       style={GRID_CONTAINER_SIZE}>
-      {world.draw()}
+      {worldImage}
     </div>
+    // <div> // TESTING
+    //   {count} // TESTING
+    // </div> // TESTING
   );
 }
 
@@ -29,11 +45,10 @@ function run_component(entity, world) {
     run the pathfind
     draw the world 
   */
-  world.draw();
+  
   while (!entity.get_location().get_target()) // While the entity is not at the target location.
   {
-    entity.move();
-    world.draw();
+
   }
 }
 
