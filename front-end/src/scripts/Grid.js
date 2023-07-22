@@ -52,7 +52,7 @@ class Grid {
         const cell_class = `cell ${populated ? 'populated' : ''} ${target ? 'target' : ''}`;
         const cell_style = { backgroundColor: `rgba(0, 0, 0, ${(altitude / Cell.MAX_ALTITUDE) * 0.8})`, aspectRatio: 1 };
 
-        return <div key={location} className={cell_class} style={cell_style}></div>
+        return <div key={[location.x, location.y]} className={cell_class} style={cell_style}></div>
       })
     });
 
