@@ -5,23 +5,33 @@ import '../styles/grid.css'
 
 function App() {
 
+  // The size of the world grid.
   const SIZE_X = 10;
   const SIZE_Y = 10;
 
-  const GRID_CONTAINER_SIZE = { gridTemplateColumns: `repeat(${SIZE_X}, 1fr)`, gridTemplateRows: `repeat(${SIZE_Y}, 1fr)` };
+  // The grid displayed on the screen.
   const world = new Grid(SIZE_X, SIZE_Y);
+
+  // The red entity (and the yellow target, set opposite).
   const entity = create_entity_and_target(SIZE_X, SIZE_Y, world);
 
-  // const [count, setCount] = useState(0); // TESTING
+  // CSS for the grid.
+  const GRID_CONTAINER_SIZE = { gridTemplateColumns: `repeat(${SIZE_X}, 1fr)`, gridTemplateRows: `repeat(${SIZE_Y}, 1fr)` };
+  
   const [worldImage, setWorldImage] = useState(world.draw());
 
   useEffect(() => {
     const interval_id = setInterval(() => {
-      // setCount(prev_count => prev_count + 1); // TESTING
+
       // entity.move();
       setWorldImage(world.draw());
       console.log('redrawn');
     }, 10000);
+
+    // If the entity is at the target location, stop the iteration.
+    if (entity.get_location().get_target() === true) {
+      clearInterval(interval_id);
+    }
 
     return () => clearInterval(interval_id);
   }, []);
@@ -32,24 +42,7 @@ function App() {
       style={GRID_CONTAINER_SIZE}>
       {worldImage}
     </div>
-    // <div> // TESTING
-    //   {count} // TESTING
-    // </div> // TESTING
   );
-}
-
-function run_component(entity, world) {
-  /*
-  draw the world
-  while not at target:
-    run the pathfind
-    draw the world 
-  */
-  
-  while (!entity.get_location().get_target()) // While the entity is not at the target location.
-  {
-
-  }
 }
 
 /**
@@ -62,8 +55,6 @@ function run_component(entity, world) {
 function create_entity_and_target(size_x, size_y, world) {
   const start_location = get_entity_start_location(size_x, size_y);
   const target_location = get_target_start_location(size_x, size_y, start_location);
-
-  // console.log(start_location);
 
   const entity_start_cell = world.get_cell(start_location.edge_cell_horizontal, start_location.edge_cell_vertical);
   const entity_target_cell = world.get_cell(target_location.edge_cell_horizontal, target_location.edge_cell_vertical);
