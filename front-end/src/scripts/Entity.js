@@ -5,11 +5,14 @@
  */
 class Entity {
 
-  // A Cell: The location of the entity on the grid.
+  // A Cell: The location of the Entity on the grid.
   #location;
 
-  // A Grid: the grid on which the entity exists.
+  // A Grid: the grid on which the Entity exists.
   #world;
+
+  // A PriorityQueue: the path the Entity should take to get to its target.
+  #path;
 
   /**
    * Construct an Entity.
@@ -39,12 +42,12 @@ class Entity {
   }
 
   /**
-   * Move to a new Cell using a pathfinding algorithm that minimizes change in altitude.
+   * Move to a new Cell using a list returned from a pathfinding algorithm that minimizes change in altitude.
    */
   move() {
     let new_cell;
 
-    new_cell = this.greedy_pathfind();
+    
 
     // Leave the old cell and enter the new cell.
     this.#location.toggle_populated();
@@ -80,8 +83,6 @@ class Entity {
     console.log(neighbouring_cells);
 
     // pick the cell with the lowest altitude as the new cell.
-
-    return new_cell;
   }
 
   dijkstra_pathfind() {
