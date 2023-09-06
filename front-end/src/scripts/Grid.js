@@ -7,7 +7,7 @@ import Cell from './Cell';
 class Grid {
 
   // The array of Cells.
-  #world;
+  #arr;
 
   /**
    * Construct a Grid by initializing an empty array of the parameter size,
@@ -16,13 +16,13 @@ class Grid {
    * @param {Integer} size_y the Y dimension of the Grid
    */
   constructor(size_x, size_y) {
-    // Initialize the empty world.
-    this.#world = [...Array(size_y)].map(e => Array(size_x));
+    // Initialize the empty arr.
+    this.#arr = [...Array(size_y)].map(e => Array(size_x));
 
-    // Fill the world with Cells.
+    // Fill the arr with Cells.
     for (let y = 0; y < size_y; ++y) {
       for (let x = 0; x < size_x; ++x) {
-        this.#world[y][x] = new Cell(x, y);
+        this.#arr[y][x] = new Cell(x, y);
       }
     }
   }
@@ -36,7 +36,7 @@ class Grid {
   get_cell(x, y) {
     let cell;
     try {
-      cell = this.#world[y][x];
+      cell = this.#arr[y][x];
     } catch(e)
     {
       cell = null;
@@ -45,11 +45,29 @@ class Grid {
   }
 
   /**
+   * Get the x-dimension size of this Grid.
+   * @returns the x-dimension size of this Grid.
+   */
+  get_size_x()
+  {
+    return this.#arr[0].length;
+  }
+
+  /**
+   * Get the y-dimension size of this Grid.
+   * @returns the y-dimension size of this Grid.
+   */
+  get_size_y()
+  {
+    return this.#arr.length;
+  }
+
+  /**
    * Get the size of this Grid.
    * @returns the size of this Grid.
    */
   get_size() {
-    return this.#world.length * this.#world[0].length;
+    return this.#arr[0].length * this.#arr.length;
   }
 
   /**
@@ -60,10 +78,10 @@ class Grid {
   get_neighbours(cell) {
     const {x, y} = cell.get_coordinates();
  
-    const left_n = this.#world.get_cell(x - 1, y);
-    const top_n = this.#world.get_cell(x, y + 1);
-    const right_n = this.#world.get_cell(x + 1, y);
-    const bottom_n = this.#world.get_cell(x, y - 1);
+    const left_n = this.#arr.get_cell(x - 1, y);
+    const top_n = this.#arr.get_cell(x, y + 1);
+    const right_n = this.#arr.get_cell(x + 1, y);
+    const bottom_n = this.#arr.get_cell(x, y - 1);
     
     let neighbours = {};
 
@@ -80,12 +98,12 @@ class Grid {
    * @returns the array of HTML elements.
    */
   draw() {
-    const image = this.#world.map(row => {
+    const image = this.#arr.map(row => {
       return row.map(cell => {
         const location = cell.get_coordinates();
         const altitude = cell.get_altitude();
         const populated = cell.get_populated();
-        const target = cell.get_target();
+        const target = cell.get_targeted();
 
         const cell_class = `cell ${populated ? 'populated' : ''} ${target ? 'target' : ''}`;
         const cell_style = { backgroundColor: `rgba(0, 0, 0, ${(altitude / Cell.MAX_ALTITUDE) * 0.8})`, aspectRatio: 1 };

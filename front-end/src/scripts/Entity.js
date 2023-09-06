@@ -58,6 +58,7 @@ class Entity {
 
     // Leave the old cell and enter the new cell.
     this.#location.toggle_populated();
+    this.#location.toggle_visited();
     this.set_location(new_cell);
     this.#location.toggle_populated();
   }
@@ -101,7 +102,7 @@ class Entity {
 
     // Set up the set of unvisited Cells. Set the distance of the currently populated Cell to 0.
     for (let i = 0, row = 0; i < this.#world.get_size(); ++i) {
-      if (i > this.world[0].length) {
+      if (i > this.#world[0].length) {
         ++row;
       }
 
@@ -123,6 +124,7 @@ class Entity {
     // Initialize the pQ with the initial cell and the initial cell distance (0).
     priorityQueue.enqueue(initial_cell, distances[initial_cell]);
 
+    // Main loop.
     while (!priorityQueue.isEmpty())
     {
       // Get the nearest cell and its neighbours.

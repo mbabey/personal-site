@@ -21,9 +21,11 @@ function App() {
   const [worldImage, setWorldImage] = useState(world.draw());
 
   useEffect(() => {
+    entity.dijkstra_pathfind();
+
     const interval_id = setInterval(() => {
 
-      // entity.move();
+      entity.move();
       setWorldImage(world.draw());
       console.log('redrawn');
     }, 10000);
