@@ -59,8 +59,7 @@ function create_entity_and_target(size_x, size_y, world) {
   const entity_start_cell = world.get_cell(start_location.edge_cell_horizontal, start_location.edge_cell_vertical);
   const entity_target_cell = world.get_cell(target_location.edge_cell_horizontal, target_location.edge_cell_vertical);
 
-  const entity = new Entity(world, entity_start_cell);
-  entity_target_cell.toggle_target();
+  const entity = new Entity(world, entity_start_cell, entity_target_cell);
 
   return entity;
 }

@@ -8,21 +8,27 @@ import PriorityQueue from './PriorityQueue';
  */
 class Entity {
 
-  // A Cell: The location of the Entity on the grid.
-  #location;
-
   // A Grid: the grid on which the Entity exists.
   #world;
+  
+  // A Cell: The location of the Entity on the grid.
+  #location;
+  
+  // A Cell: The target cell for the Entity.
+  #target;
 
   /**
    * Construct an Entity.
    * @param {Grid} grid the Grid on which the Entity will exist
    * @param {Cell} cell the Cell in which the Entity starts
+   * @param {Cell} target the target Cell for the Entity
    */
-  constructor(grid, cell) {
+  constructor(grid, cell, target) {
     this.#world = grid;
     this.#location = cell;
     this.#location.toggle_populated();
+    this.#target = target;
+    this.#target.toggle_target();
   }
 
   /**
@@ -143,6 +149,9 @@ class Entity {
       }
     }
 
+    // The shortest path is the stored path reversed.
+    const s_path = [];
+    for (let curr = )
   }
 }
 
