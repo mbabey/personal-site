@@ -1,3 +1,5 @@
+import Cell from './Cell';
+
 /**
  * Entity.
  * The Entity moves across the Grid from Cell to Cell in the most efficient way.
@@ -47,7 +49,7 @@ class Entity {
   move() {
     let new_cell;
 
-    
+
 
     // Leave the old cell and enter the new cell.
     this.#location.toggle_populated();
@@ -86,7 +88,34 @@ class Entity {
   }
 
   dijkstra_pathfind() {
-    
+
+    let unvisited = new Set();
+    let initial_cell;
+
+    // Set up the set of unvisited Cells. Set the distance of the currently populated Cell to 0.
+    for (let i = 0, row = 0; i < this.#world.get_size(); ++i) {
+      if (i > this.world[0].length) {
+        ++row;
+      }
+
+      let current_cell = this.#world.get_cell(i % this.world[0].length, row);
+      let distance;
+
+      if (current_cell.get_populated())
+      {
+        initial_cell = current_cell;
+        distance = 0;
+      } else {
+        distance = Cell.MAX_ALTITUDE + 1;
+      }
+
+      unvisited.add({
+        cell: current_cell,
+        distance: distance
+      });
+    }
+
+
   }
 }
 

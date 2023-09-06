@@ -37,6 +37,10 @@ class Grid {
     return this.#world[y][x];
   }
 
+  get_size() {
+    return this.#world.length * this.#world[0].length;
+  }
+
   /**
    * For each Cell in the Grid, create an HTML element.
    * @returns the array of HTML elements.
