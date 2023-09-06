@@ -82,6 +82,21 @@ class Cell {
   get_targeted() {
     return this.#targeted;
   }
+
+  /**
+   * Toggle the visited state of this Cell.
+   */
+  toggle_visited() {
+    this.#visited = !this.#visited;
+  }
+
+  /**
+   * Get the visited state of this Cell.
+   * @returns the visited state of this Cell.
+   */
+  get_visited() {
+    return this.#visited;
+  }
 }
 
 export default Cell;
