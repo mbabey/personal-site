@@ -1,4 +1,5 @@
 import Cell from './Cell';
+import PriorityQueue from './PriorityQueue';
 
 /**
  * Entity.
@@ -12,9 +13,6 @@ class Entity {
 
   // A Grid: the grid on which the Entity exists.
   #world;
-
-  // A PriorityQueue: the path the Entity should take to get to its target.
-  #path;
 
   /**
    * Construct an Entity.
