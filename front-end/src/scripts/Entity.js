@@ -87,7 +87,9 @@ class Entity {
 
   dijkstra_pathfind() {
 
-    let distances = {};
+    const distances = {};
+    const path = {};
+    const priorityQueue = new PriorityQueue();
     let initial_cell;
 
     // Set up the set of unvisited Cells. Set the distance of the currently populated Cell to 0.
@@ -108,9 +110,38 @@ class Entity {
       }
 
       distances[current_cell] = distance;
+      path[current_cell] = null;
     }
     
+    // Initialize the pQ with the initial cell and the initial cell distance (0).
+    priorityQueue.enqueue(initial_cell, distances[initial_cell]);
 
+    while (!priorityQueue.isEmpty())
+    {
+      // Get the nearest cell and its neighbours.
+      const current_cell = priorityQueue.dequeue();
+      const neighbours = this.#world.get_neighbours(current_cell);
+
+      for (let neighbour in neighbours)
+      {
+        // Get the abs. val. of the difference in altitude between a neighbour and the current cell.
+        const weight = Math.abs(current_cell.get_altitude() - neighbour.get_altitude);
+
+        // Total distance is the distance from the current cell to the initial cell + the change in alt.
+        const totalDistance = distances[current_cell] + weight;
+
+        // If the total distance is less than the known distance, a shorter path has been found.
+        if (totalDistance < distances[neighbour])
+        {
+          // Update the known distance and the path.
+          distances[neighbour] = totalDistance;
+          path[neighbour] = current_cell;
+
+          // Add the neighbour to the queue with the new distance as priority.
+          priorityQueue.enqueue(neighbour, totalDistance);
+        }
+      }
+    }
 
   }
 }
