@@ -28,7 +28,7 @@ function App() {
       entity.move();
       setWorldImage(world.draw());
       console.log('redrawn');
-    }, 10000);
+    }, 1000);
 
     // If the entity is at the target location, stop the iteration.
     if (entity.get_location().get_targeted() === true) {

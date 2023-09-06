@@ -4,8 +4,11 @@
  */
 class Cell {
 
-  // The maximum altitude for a cell.
+  // The maximum altitude for a Cell.
   static MAX_ALTITUDE = 1000;
+
+  // The ID of the Cell.
+  id;
 
   // The X and Y coordinates of the Cell.
   #coordinate_x;
@@ -29,6 +32,7 @@ class Cell {
    * @param {Integer} coord_y the Y coordniate
    */
   constructor(coord_x, coord_y) {
+    this.id = `${coord_x}${coord_y}`;
     this.#coordinate_x = coord_x;
     this.#coordinate_y = coord_y;
     this.#altitude = Math.floor(Math.random() * Cell.MAX_ALTITUDE);

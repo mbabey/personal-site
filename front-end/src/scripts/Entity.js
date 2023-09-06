@@ -106,9 +106,6 @@ class Entity {
         ++row;
       }
 
-      
-      console.log(i % this.#world.get_size_x(), row);
-
       let current_cell = this.#world.get_cell(i % this.#world.get_size_x(), row);
       let distance;
 
@@ -120,12 +117,12 @@ class Entity {
         distance = Cell.MAX_ALTITUDE + 1;
       }
 
-      distances[current_cell] = distance;
-      path[current_cell] = null;
+      distances[current_cell.id] = distance;
+      path[current_cell.id] = null;
     }
     
     // Initialize the pQ with the initial cell and the initial cell distance (0).
-    priorityQueue.enqueue(initial_cell, distances[initial_cell]);
+    priorityQueue.enqueue(initial_cell, distances[initial_cell.id]);
 
     // Main loop.
     while (!priorityQueue.isEmpty())
@@ -140,14 +137,14 @@ class Entity {
         const weight = Math.abs(current_cell.get_altitude() - neighbour.get_altitude);
 
         // Total distance is the distance from the current cell to the initial cell + the change in alt.
-        const totalDistance = distances[current_cell] + weight;
+        const totalDistance = distances[current_cell.id] + weight;
 
         // If the total distance is less than the known distance, a shorter path has been found.
-        if (totalDistance < distances[neighbour])
+        if (totalDistance < distances[neighbour.id])
         {
           // Update the known distance and the path.
-          distances[neighbour] = totalDistance;
-          path[neighbour] = current_cell;
+          distances[neighbour.id] = totalDistance;
+          path[neighbour.id] = current_cell;
 
           // Add the neighbour to the queue with the new distance as priority.
           priorityQueue.enqueue(neighbour, totalDistance);
@@ -166,7 +163,7 @@ class Entity {
 
     return {
       s_path,
-      length: distances[this.#target]
+      length: distances[this.#target.id]
     };
   }
 }
