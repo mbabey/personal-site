@@ -78,10 +78,10 @@ class Grid {
   get_neighbours(cell) {
     const {x, y} = cell.get_coordinates();
  
-    const left_n = this.#arr.get_cell(x - 1, y);
-    const top_n = this.#arr.get_cell(x, y + 1);
-    const right_n = this.#arr.get_cell(x + 1, y);
-    const bottom_n = this.#arr.get_cell(x, y - 1);
+    const left_n = this.get_cell(x - 1, y);
+    const top_n = this.get_cell(x, y + 1);
+    const right_n = this.get_cell(x + 1, y);
+    const bottom_n = this.get_cell(x, y - 1);
     
     let neighbours = {};
 

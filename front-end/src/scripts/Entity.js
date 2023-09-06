@@ -68,30 +68,30 @@ class Entity {
    * This is not the optimal solution; this is a brute force approach
    * @returns the next cell that the thing will occupy
    */
-  greedy_pathfind() {
-    let neighbouring_cells = [];
-    let new_cell;
+  // greedy_pathfind() {
+  //   let neighbouring_cells = [];
+  //   let new_cell;
 
-    // get the neighbouring cells' altitudes
-    // need to get an array of the neighbouring cells.
-    let coords = this.#location.get_coordinates();
+  //   // get the neighbouring cells' altitudes
+  //   // need to get an array of the neighbouring cells.
+  //   let coords = this.#location.get_coordinates();
 
-    for (let y = coords.y - 1; y <= coords.y + 1; ++y) {
-      for (let x = coords.x - 1; x <= coords.x + 1; ++x) {
-        if (!(coords.x === x && coords.y === y)) {
-          let neighbour;
+  //   for (let y = coords.y - 1; y <= coords.y + 1; ++y) {
+  //     for (let x = coords.x - 1; x <= coords.x + 1; ++x) {
+  //       if (!(coords.x === x && coords.y === y)) {
+  //         let neighbour;
 
-          neighbour = this.#world.get_cell(x, y);
+  //         neighbour = this.#world.get_cell(x, y);
 
-          neighbouring_cells.push(neighbour);
-        }
-      }
-    }
+  //         neighbouring_cells.push(neighbour);
+  //       }
+  //     }
+  //   }
 
-    console.log(neighbouring_cells);
+  //   console.log(neighbouring_cells);
 
-    // pick the cell with the lowest altitude as the new cell.
-  }
+  //   // pick the cell with the lowest altitude as the new cell.
+  // }
 
   dijkstra_pathfind() {
 
@@ -102,11 +102,14 @@ class Entity {
 
     // Set up the set of unvisited Cells. Set the distance of the currently populated Cell to 0.
     for (let i = 0, row = 0; i < this.#world.get_size(); ++i) {
-      if (i > this.#world[0].length) {
+      if (i !== 0 && i % this.#world.get_size_x() === 0) {
         ++row;
       }
 
-      let current_cell = this.#world.get_cell(i % this.world[0].length, row);
+      
+      console.log(i % this.#world.get_size_x(), row);
+
+      let current_cell = this.#world.get_cell(i % this.#world.get_size_x(), row);
       let distance;
 
       if (current_cell.get_populated())
