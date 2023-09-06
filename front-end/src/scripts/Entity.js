@@ -89,7 +89,7 @@ class Entity {
 
   dijkstra_pathfind() {
 
-    let unvisited = new Set();
+    let distances = {};
     let initial_cell;
 
     // Set up the set of unvisited Cells. Set the distance of the currently populated Cell to 0.
@@ -109,11 +109,9 @@ class Entity {
         distance = Cell.MAX_ALTITUDE + 1;
       }
 
-      unvisited.add({
-        cell: current_cell,
-        distance: distance
-      });
+      distances[current_cell] = distance;
     }
+    
 
 
   }

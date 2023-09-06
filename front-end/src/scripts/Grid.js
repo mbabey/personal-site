@@ -31,14 +31,48 @@ class Grid {
    * Get the Cell at the X and Y coordinates.
    * @param {Integer} x the X coordinate
    * @param {Integer} y the Y coordinate
-   * @returns the Cell at the X and Y coordinates
+   * @returns the Cell at the X and Y coordinates, or null if the Cell does not exist.
    */
   get_cell(x, y) {
-    return this.#world[y][x];
+    let cell;
+    try {
+      cell = this.#world[y][x];
+    } catch(e)
+    {
+      cell = null;
+    }
+    return cell;
   }
 
+  /**
+   * Get the size of this Grid.
+   * @returns the size of this Grid.
+   */
   get_size() {
     return this.#world.length * this.#world[0].length;
+  }
+
+  /**
+   * Given a Cell in this Grid, return the neighbours of that Cell. If the neighbour does not exist, do not return a value.
+   * @param {Cell} cell The Cell of which to find neighbours.
+   * @returns the neighbours of the parameter Cell.
+   */
+  get_neighbours(cell) {
+    const {x, y} = cell.get_coordinates();
+ 
+    const left_n = this.#world.get_cell(x - 1, y);
+    const top_n = this.#world.get_cell(x, y + 1);
+    const right_n = this.#world.get_cell(x + 1, y);
+    const bottom_n = this.#world.get_cell(x, y - 1);
+    
+    let neighbours = {};
+
+    if (left_n) neighbours.left = left_n;
+    if (top_n) neighbours.top = top_n;
+    if (right_n) neighbours.right = right_n;
+    if (bottom_n) neighbours.bottom = bottom_n;
+
+    return neighbours;
   }
 
   /**
