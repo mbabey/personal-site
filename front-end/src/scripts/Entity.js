@@ -114,13 +114,13 @@ class Entity {
         initial_cell = current_cell;
         distance = 0;
       } else {
-        distance = Cell.MAX_ALTITUDE + 1;
+        distance = Infinity;
       }
 
       distances[current_cell.id] = distance;
       path[current_cell.id] = null;
     }
-    
+
     // Initialize the pQ with the initial cell and the initial cell distance (0).
     priorityQueue.enqueue(initial_cell, distances[initial_cell.id]);
 
@@ -131,14 +131,14 @@ class Entity {
       const current_cell = priorityQueue.dequeue();
       const neighbours = this.#world.get_neighbours(current_cell);
 
-      for (let neighbour in neighbours)
+      for (let n in neighbours)
       {
+        const neighbour = neighbours[n];
         // Get the abs. val. of the difference in altitude between a neighbour and the current cell.
-        const weight = Math.abs(current_cell.get_altitude() - neighbour.get_altitude);
+        const weight = Math.abs(current_cell.get_altitude() - neighbour.get_altitude());
 
         // Total distance is the distance from the current cell to the initial cell + the change in alt.
         const totalDistance = distances[current_cell.id] + weight;
-
         // If the total distance is less than the known distance, a shorter path has been found.
         if (totalDistance < distances[neighbour.id])
         {
@@ -154,7 +154,7 @@ class Entity {
 
     // The shortest path is the stored path from the target to the intial cell reversed.
     const s_path = [];
-    for (let curr = this.#target; curr !== null; curr = path[curr])
+    for (let curr = this.#target; curr !== null; curr = path[curr.id])
     {
       s_path.unshift(curr);
     }

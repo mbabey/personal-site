@@ -83,7 +83,7 @@ class Grid {
     const right_n = this.get_cell(x + 1, y);
     const bottom_n = this.get_cell(x, y - 1);
     
-    let neighbours = {};
+    const neighbours = {};
 
     if (left_n) neighbours.left = left_n;
     if (top_n) neighbours.top = top_n;
