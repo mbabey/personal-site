@@ -28,12 +28,12 @@ function App() {
       entity.move();
       setWorldImage(world.draw());
       console.log('redrawn');
-    }, 1000);
 
-    // If the entity is at the target location, stop the iteration.
-    if (entity.get_location().get_targeted() === true) {
-      clearInterval(interval_id);
-    }
+      // If the entity is at the target location, stop the iteration.
+      if (entity.get_location().get_targeted() === true) {
+        clearInterval(interval_id);
+      }
+    }, 1000);
 
     return () => clearInterval(interval_id);
   }, []);
