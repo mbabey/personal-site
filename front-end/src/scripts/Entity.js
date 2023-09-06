@@ -149,9 +149,17 @@ class Entity {
       }
     }
 
-    // The shortest path is the stored path reversed.
+    // The shortest path is the stored path from the target to the intial cell reversed.
     const s_path = [];
-    for (let curr = )
+    for (let curr = this.#target; curr !== null; curr = path[curr])
+    {
+      s_path.unshift(curr);
+    }
+
+    return {
+      s_path,
+      length: distances[this.#target]
+    };
   }
 }
 
