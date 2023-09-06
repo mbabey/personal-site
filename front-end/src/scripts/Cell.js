@@ -17,8 +17,11 @@ class Cell {
   // Whether the Cell has something inside of it.
   #populated;
 
-  // Whether the Cell is the destination for the Entity
-  #target;
+  // Whether the Cell is the destination for the Entity.
+  #targeted;
+
+  // Whether the Cell has been visited by the Entity.
+  #visited;
 
   /**
    * Contruct a Cell. Randomly generate an altitude.
@@ -30,7 +33,8 @@ class Cell {
     this.#coordinate_y = coord_y;
     this.#altitude = Math.floor(Math.random() * Cell.MAX_ALTITUDE);
     this.#populated = false;
-    this.#target = false;
+    this.#targeted = false;
+    this.#visited = false;
   }
 
   /**
@@ -38,7 +42,7 @@ class Cell {
    * @returns coordinates as {x, y}
    */
   get_coordinates() {
-    return {x: this.#coordinate_x, y: this.#coordinate_y};
+    return { x: this.#coordinate_x, y: this.#coordinate_y };
   }
 
   /**
@@ -63,20 +67,20 @@ class Cell {
   get_populated() {
     return this.#populated;
   }
-  
+
   /**
-   * Toggle the target state of this Cell.
+   * Toggle the targeted state of this Cell.
    */
-  toggle_target() {
-    this.#target = !this.#target;
+  toggle_targeted() {
+    this.#targeted = !this.#targeted;
   }
 
   /**
-   * Get the target state of this Cell.
-   * @returns the target state of this Cell.
+   * Get the targeted state of this Cell.
+   * @returns the targeted state of this Cell.
    */
-  get_target() {
-    return this.#target;
+  get_targeted() {
+    return this.#targeted;
   }
 }
 

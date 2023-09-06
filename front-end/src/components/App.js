@@ -29,7 +29,7 @@ function App() {
     }, 10000);
 
     // If the entity is at the target location, stop the iteration.
-    if (entity.get_location().get_target() === true) {
+    if (entity.get_location().get_targeted() === true) {
       clearInterval(interval_id);
     }
 

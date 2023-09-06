@@ -17,6 +17,9 @@ class Entity {
   // A Cell: The target cell for the Entity.
   #target;
 
+  // The shortest path from the start location to the target.
+  #path;
+
   /**
    * Construct an Entity.
    * @param {Grid} grid the Grid on which the Entity will exist
@@ -28,7 +31,7 @@ class Entity {
     this.#location = cell;
     this.#location.toggle_populated();
     this.#target = target;
-    this.#target.toggle_target();
+    this.#target.toggle_targeted();
   }
 
   /**
@@ -51,9 +54,7 @@ class Entity {
    * Move to a new Cell using a list returned from a pathfinding algorithm that minimizes change in altitude.
    */
   move() {
-    let new_cell;
-
-
+    const new_cell = this.#path.shift(); // TODO: find a way to make this non-destructive.
 
     // Leave the old cell and enter the new cell.
     this.#location.toggle_populated();
@@ -156,12 +157,13 @@ class Entity {
       s_path.unshift(curr);
     }
 
+    this.#path = s_path;
+
     return {
       s_path,
       length: distances[this.#target]
     };
   }
 }
-
 
 export default Entity;
