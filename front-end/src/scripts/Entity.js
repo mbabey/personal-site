@@ -63,36 +63,6 @@ class Entity {
     this.#location.toggle_populated();
   }
 
-  /**
-   * in here, perform pathfinding optimized for minumum change in altitude.
-   * This is not the optimal solution; this is a brute force approach
-   * @returns the next cell that the thing will occupy
-   */
-  // greedy_pathfind() {
-  //   let neighbouring_cells = [];
-  //   let new_cell;
-
-  //   // get the neighbouring cells' altitudes
-  //   // need to get an array of the neighbouring cells.
-  //   let coords = this.#location.get_coordinates();
-
-  //   for (let y = coords.y - 1; y <= coords.y + 1; ++y) {
-  //     for (let x = coords.x - 1; x <= coords.x + 1; ++x) {
-  //       if (!(coords.x === x && coords.y === y)) {
-  //         let neighbour;
-
-  //         neighbour = this.#world.get_cell(x, y);
-
-  //         neighbouring_cells.push(neighbour);
-  //       }
-  //     }
-  //   }
-
-  //   console.log(neighbouring_cells);
-
-  //   // pick the cell with the lowest altitude as the new cell.
-  // }
-
   dijkstra_pathfind() {
 
     const distances = {};

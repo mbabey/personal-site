@@ -12,10 +12,14 @@ body {
   width: 100%;
 }
 
-.populated {
-  background-color: red !important;
+.visited {
+  background-color: rgba(167, 0, 0, 0.67) !important;
 }
 
-.target {
+.targeted {
   background-color: yellow !important;
+}
+
+.populated {
+  background-color: red !important;
 }
