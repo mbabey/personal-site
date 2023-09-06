@@ -6,8 +6,8 @@ import '../styles/grid.css'
 function App() {
 
   // The size of the world grid.
-  const SIZE_X = 10;
-  const SIZE_Y = 10;
+  const SIZE_X = 20;
+  const SIZE_Y = 20;
 
   // The grid displayed on the screen.
   const world = new Grid(SIZE_X, SIZE_Y);
@@ -17,25 +17,25 @@ function App() {
 
   // CSS for the grid.
   const GRID_CONTAINER_SIZE = { gridTemplateColumns: `repeat(${SIZE_X}, 1fr)`, gridTemplateRows: `repeat(${SIZE_Y}, 1fr)` };
-  
+
   const [worldImage, setWorldImage] = useState(world.draw());
 
   useEffect(() => {
-    entity.dijkstra_pathfind();
+    entity.dijkstra_pathfind(); // TODO: promisify this so that it runs before the interval begins.
 
     const interval_id = setInterval(() => {
 
       entity.move();
       setWorldImage(world.draw());
-      console.log('redrawn');
 
       // If the entity is at the target location, stop the iteration.
       if (entity.get_location().get_targeted() === true) {
         clearInterval(interval_id);
       }
-    }, 1000);
+    }, 100);
 
     return () => clearInterval(interval_id);
+    // eslint-disable-next-line
   }, []);
 
   return (

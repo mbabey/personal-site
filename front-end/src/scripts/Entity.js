@@ -1,4 +1,4 @@
-import Cell from './Cell';
+
 import PriorityQueue from './PriorityQueue';
 
 /**
@@ -10,10 +10,10 @@ class Entity {
 
   // A Grid: the grid on which the Entity exists.
   #world;
-  
+
   // A Cell: The location of the Entity on the grid.
   #location;
-  
+
   // A Cell: The target cell for the Entity.
   #target;
 
@@ -30,6 +30,7 @@ class Entity {
     this.#world = grid;
     this.#location = cell;
     this.#location.toggle_populated();
+    this.#location.toggle_visited();
     this.#target = target;
     this.#target.toggle_targeted();
   }
@@ -54,7 +55,7 @@ class Entity {
    * Move to a new Cell using a list returned from a pathfinding algorithm that minimizes change in altitude.
    */
   move() {
-    const new_cell = this.#path.shift(); // TODO: find a way to make this non-destructive.
+    const new_cell = this.#path.shift();
 
     // Leave the old cell and enter the new cell.
     this.#location.toggle_populated();
@@ -64,7 +65,6 @@ class Entity {
   }
 
   dijkstra_pathfind() {
-
     const distances = {};
     const path = {};
     const priorityQueue = new PriorityQueue();
@@ -79,8 +79,7 @@ class Entity {
       let current_cell = this.#world.get_cell(i % this.#world.get_size_x(), row);
       let distance;
 
-      if (current_cell.get_populated())
-      {
+      if (current_cell.get_populated()) {
         initial_cell = current_cell;
         distance = 0;
       } else {
@@ -95,14 +94,12 @@ class Entity {
     priorityQueue.enqueue(initial_cell, distances[initial_cell.id]);
 
     // Main loop.
-    while (!priorityQueue.isEmpty())
-    {
+    while (!priorityQueue.isEmpty()) {
       // Get the nearest cell and its neighbours.
       const current_cell = priorityQueue.dequeue();
       const neighbours = this.#world.get_neighbours(current_cell);
 
-      for (let n in neighbours)
-      {
+      for (let n in neighbours) {
         const neighbour = neighbours[n];
         // Get the abs. val. of the difference in altitude between a neighbour and the current cell.
         const weight = Math.abs(current_cell.get_altitude() - neighbour.get_altitude());
@@ -110,8 +107,7 @@ class Entity {
         // Total distance is the distance from the current cell to the initial cell + the change in alt.
         const totalDistance = distances[current_cell.id] + weight;
         // If the total distance is less than the known distance, a shorter path has been found.
-        if (totalDistance < distances[neighbour.id])
-        {
+        if (totalDistance < distances[neighbour.id]) {
           // Update the known distance and the path.
           distances[neighbour.id] = totalDistance;
           path[neighbour.id] = current_cell;
@@ -124,8 +120,7 @@ class Entity {
 
     // The shortest path is the stored path from the target to the intial cell reversed.
     const s_path = [];
-    for (let curr = this.#target; curr !== null; curr = path[curr.id])
-    {
+    for (let curr = this.#target; curr !== null; curr = path[curr.id]) {
       s_path.unshift(curr);
     }
 
@@ -136,6 +131,7 @@ class Entity {
       length: distances[this.#target.id]
     };
   }
+
 }
 
 export default Entity;
