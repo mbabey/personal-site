@@ -7,11 +7,12 @@ import '../styles/grid.css'
 function App() {
 
   // The size of the world grid.
-  const SIZE_X = 20;
-  const SIZE_Y = 20;
+  const SIZE_X = 100;
+  const SIZE_Y = 100;
 
   // The grid displayed on the screen.
   const world = new Grid(SIZE_X, SIZE_Y);
+  console.log('world');
 
   // The red entity (and the yellow target, set opposite).
   const entity = create_entity_and_target(SIZE_X, SIZE_Y, world);
@@ -23,7 +24,8 @@ function App() {
 
   useEffect(() => {
     async function run() {
-      const path_info = dijkstra_pathfind(entity, entity.get_target(), world);
+      const path_info = await dijkstra_pathfind(entity, entity.get_target(), world);
+      console.log('dijkstra');
 
       entity.set_path(path_info.s_path);
 
@@ -118,63 +120,72 @@ function get_target_start_location(size_x, size_y, entity_start_location) {
   return { edge_cell_horizontal, edge_cell_vertical };
 }
 
+/**
+ * Perform a Dijkstra pathfinding algorithm to find the shortest path from the Entity to the target.
+ * @param {*} entity the Entity.
+ * @param {*} target the Entity's target.
+ * @param {*} world the World in which the pathfind takes place.
+ * @returns the shortest path from the Entity to the target and the distance of that path.
+ */
 function dijkstra_pathfind(entity, target, world) {
-  const distances = {};
-  const path = {};
-  const priorityQueue = new PriorityQueue();
-  const initial_cell = entity.get_location();
+  return new Promise((resolve) => {
+    const distances = {};
+    const path = {};
+    const priorityQueue = new PriorityQueue();
+    const initial_cell = entity.get_location();
 
-  // Set up the set of unvisited Cells. Set the distance of the currently populated Cell to 0.
-  for (let i = 0, row = 0; i < world.get_size(); ++i) {
-    if (i !== 0 && i % world.get_size_x() === 0) {
-      ++row;
+    // Set up the set of unvisited Cells. Set the distance of the currently populated Cell to 0.
+    for (let i = 0, row = 0; i < world.get_size(); ++i) {
+      if (i !== 0 && i % world.get_size_x() === 0) {
+        ++row;
+      }
+
+      const current_cell = world.get_cell(i % world.get_size_x(), row);
+
+      distances[current_cell.id] = Infinity;
+      path[current_cell.id] = null;
     }
+    distances[initial_cell.id] = 0;
 
-    const current_cell = world.get_cell(i % world.get_size_x(), row);
+    // Initialize the pQ with the initial cell and the initial cell distance (0).
+    priorityQueue.enqueue(initial_cell, distances[initial_cell.id]);
 
-    distances[current_cell.id] = Infinity;
-    path[current_cell.id] = null;
-  }
-  distances[initial_cell.id] = 0;
+    // Main loop.
+    while (!priorityQueue.isEmpty()) {
+      // Get the nearest cell and its neighbours.
+      const current_cell = priorityQueue.dequeue();
+      const neighbours = world.get_neighbours(current_cell);
 
-  // Initialize the pQ with the initial cell and the initial cell distance (0).
-  priorityQueue.enqueue(initial_cell, distances[initial_cell.id]);
+      for (let n in neighbours) {
+        const neighbour = neighbours[n];
+        // Get the abs. val. of the difference in altitude between a neighbour and the current cell.
+        const weight = Math.abs(current_cell.get_altitude() - neighbour.get_altitude());
 
-  // Main loop.
-  while (!priorityQueue.isEmpty()) {
-    // Get the nearest cell and its neighbours.
-    const current_cell = priorityQueue.dequeue();
-    const neighbours = world.get_neighbours(current_cell);
+        // Total distance is the distance from the current cell to the initial cell + the change in alt.
+        const totalDistance = distances[current_cell.id] + weight;
+        // If the total distance is less than the known distance, a shorter path has been found.
+        if (totalDistance < distances[neighbour.id]) {
+          // Update the known distance and the path.
+          distances[neighbour.id] = totalDistance;
+          path[neighbour.id] = current_cell;
 
-    for (let n in neighbours) {
-      const neighbour = neighbours[n];
-      // Get the abs. val. of the difference in altitude between a neighbour and the current cell.
-      const weight = Math.abs(current_cell.get_altitude() - neighbour.get_altitude());
-
-      // Total distance is the distance from the current cell to the initial cell + the change in alt.
-      const totalDistance = distances[current_cell.id] + weight;
-      // If the total distance is less than the known distance, a shorter path has been found.
-      if (totalDistance < distances[neighbour.id]) {
-        // Update the known distance and the path.
-        distances[neighbour.id] = totalDistance;
-        path[neighbour.id] = current_cell;
-
-        // Add the neighbour to the queue with the new distance as priority.
-        priorityQueue.enqueue(neighbour, totalDistance);
+          // Add the neighbour to the queue with the new distance as priority.
+          priorityQueue.enqueue(neighbour, totalDistance);
+        }
       }
     }
-  }
 
-  // The shortest path is the stored path from the target to the intial cell reversed.
-  const s_path = [];
-  for (let curr = target; curr !== null; curr = path[curr.id]) {
-    s_path.unshift(curr);
-  }
+    // The shortest path is the stored path from the target to the intial cell reversed.
+    const s_path = [];
+    for (let curr = target; curr !== null; curr = path[curr.id]) {
+      s_path.unshift(curr);
+    }
 
-  return {
-    s_path,
-    length: distances[target.id]
-  };
+    resolve({
+      s_path,
+      length: distances[target.id]
+    });
+  });
 }
 
 function async_wrapper(callback) {
