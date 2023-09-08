@@ -52,6 +52,15 @@ class Entity {
   }
 
   /**
+   * Set the path for the Entity to follow.
+   * @param {Cell[]} path the path to follow.
+   */
+  set_path(path)
+  {
+    this.#path = path;
+  }
+
+  /**
    * Move to a new Cell using a list returned from a pathfinding algorithm that minimizes change in altitude.
    */
   move() {
@@ -124,14 +133,12 @@ class Entity {
       s_path.unshift(curr);
     }
 
-    this.#path = s_path;
-
     return {
       s_path,
       length: distances[this.#target.id]
     };
   }
-
+  
 }
 
 export default Entity;

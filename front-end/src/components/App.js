@@ -21,20 +21,26 @@ function App() {
   const [worldImage, setWorldImage] = useState(world.draw());
 
   useEffect(() => {
-    entity.dijkstra_pathfind(); // TODO: promisify this so that it runs before the interval begins.
+    async function run() {
+      const path_info = entity.dijkstra_pathfind();
 
-    const interval_id = setInterval(() => {
+      entity.set_path(path_info.s_path);
 
-      entity.move();
-      setWorldImage(world.draw());
+      const interval_id = setInterval(() => {
 
-      // If the entity is at the target location, stop the iteration.
-      if (entity.get_location().get_targeted() === true) {
-        clearInterval(interval_id);
-      }
-    }, 100);
+        entity.move();
+        setWorldImage(world.draw());
 
-    return () => clearInterval(interval_id);
+        // If the entity is at the target location, stop the iteration.
+        if (entity.get_location().get_targeted() === true) {
+          clearInterval(interval_id);
+        }
+      }, 100);
+
+      return () => clearInterval(interval_id);
+    }
+
+    return () => run();
     // eslint-disable-next-line
   }, []);
 
@@ -109,6 +115,17 @@ function get_target_start_location(size_x, size_y, entity_start_location) {
   const edge_cell_vertical = (size_y - 1) - entity_vertical;
 
   return { edge_cell_horizontal, edge_cell_vertical };
+}
+
+function async_wrapper(callback) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const result = await callback();
+      resolve(result);
+    } catch (error) {
+      reject(error);
+    }
+  });
 }
 
 export default App;
