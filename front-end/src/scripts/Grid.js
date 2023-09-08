@@ -27,6 +27,18 @@ class Grid {
     }
   }
 
+  static async async_create_grid(size_x, size_y)
+  {
+    return new Promise((resolve, reject) => {
+      if (size_x > 0 && size_y > 0)
+      {
+        resolve(new Grid(size_x, size_y));
+      } else {
+        reject('Invalid Grid size; Grid dimensions must be positive.');
+      }
+    });
+  }
+
   /**
    * Get the Cell at the X and Y coordinates.
    * @param {Integer} x the X coordinate

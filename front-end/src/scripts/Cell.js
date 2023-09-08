@@ -32,7 +32,7 @@ class Cell {
    * @param {Integer} coord_y the Y coordniate
    */
   constructor(coord_x, coord_y) {
-    this.id = `${coord_x}${coord_y}`;
+    this.id = `${coord_x}:${coord_y}`;
     this.#coordinate_x = coord_x;
     this.#coordinate_y = coord_y;
     this.#altitude = Math.floor(Math.random() * Cell.MAX_ALTITUDE);

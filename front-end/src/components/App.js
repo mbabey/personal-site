@@ -10,35 +10,37 @@ function App() {
   const SIZE_X = 100;
   const SIZE_Y = 100;
 
-  // The grid displayed on the screen.
-  const world = new Grid(SIZE_X, SIZE_Y);
-  console.log('world');
-
-  // The red entity (and the yellow target, set opposite).
-  const entity = create_entity_and_target(SIZE_X, SIZE_Y, world);
-
   // CSS for the grid.
   const GRID_CONTAINER_SIZE = { gridTemplateColumns: `repeat(${SIZE_X}, 1fr)`, gridTemplateRows: `repeat(${SIZE_Y}, 1fr)` };
 
-  const [worldImage, setWorldImage] = useState(world.draw());
+  const [worldImage, setWorldImage] = useState();
 
   useEffect(() => {
     async function run() {
-      const path_info = await dijkstra_pathfind(entity, entity.get_target(), world);
-      console.log('dijkstra');
+      // Create the Grid.
+      const world = await Grid.async_create_grid(SIZE_X, SIZE_Y);
 
+      // Create the Entity and it's target (opposite the Entity).
+      const entity = await create_entity_and_target(SIZE_X, SIZE_Y, world);
+
+      // Run the Dijkstra pathfinding algorithm.
+      const path_info = await dijkstra_pathfind(entity, entity.get_target(), world);
+
+      // Set the path for the Entity to follow.
       entity.set_path(path_info.s_path);
 
       const interval_id = setInterval(() => {
 
+        // Move the Entity along the path and redraw the World.
         entity.move();
         setWorldImage(world.draw());
 
         // If the entity is at the target location, stop the iteration.
         if (entity.get_location().get_targeted() === true) {
+          console.log('here', entity.get_location(), entity.get_target());
           clearInterval(interval_id);
         }
-      }, 100);
+      }, 10);
 
       return () => clearInterval(interval_id);
     }
@@ -64,15 +66,17 @@ function App() {
  * @returns the Entity.
  */
 function create_entity_and_target(size_x, size_y, world) {
-  const start_location = get_entity_start_location(size_x, size_y);
-  const target_location = get_target_start_location(size_x, size_y, start_location);
-
-  const entity_start_cell = world.get_cell(start_location.edge_cell_horizontal, start_location.edge_cell_vertical);
-  const entity_target_cell = world.get_cell(target_location.edge_cell_horizontal, target_location.edge_cell_vertical);
-
-  const entity = new Entity(world, entity_start_cell, entity_target_cell);
-
-  return entity;
+  return new Promise((resolve) => {
+    const start_location = get_entity_start_location(size_x, size_y);
+    const target_location = get_target_start_location(size_x, size_y, start_location);
+  
+    const entity_start_cell = world.get_cell(start_location.edge_cell_horizontal, start_location.edge_cell_vertical);
+    const entity_target_cell = world.get_cell(target_location.edge_cell_horizontal, target_location.edge_cell_vertical);
+  
+    const entity = new Entity(world, entity_start_cell, entity_target_cell);
+  
+    resolve(entity);
+  });
 }
 
 /**
