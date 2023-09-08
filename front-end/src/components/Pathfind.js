@@ -4,7 +4,7 @@ import PriorityQueue from '../scripts/PriorityQueue';
 import React, { useState, useEffect } from 'react';
 import '../styles/grid.css'
 
-function App() {
+function Pathfind() {
 
   // The size of the world grid.
   const SIZE_X = 100;
@@ -37,7 +37,6 @@ function App() {
 
         // If the entity is at the target location, stop the iteration.
         if (entity.get_location().get_targeted() === true) {
-          console.log('here', entity.get_location(), entity.get_target());
           clearInterval(interval_id);
         }
       }, 10);
@@ -192,15 +191,4 @@ function dijkstra_pathfind(entity, target, world) {
   });
 }
 
-function async_wrapper(callback) {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const result = await callback();
-      resolve(result);
-    } catch (error) {
-      reject(error);
-    }
-  });
-}
-
-export default App;
+export default Pathfind;
