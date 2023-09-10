@@ -125,9 +125,9 @@ function get_target_start_location(size_x, size_y, entity_start_location) {
 
 /**
  * Perform a Dijkstra pathfinding algorithm to find the shortest path from the Entity to the target.
- * @param {*} entity the Entity.
- * @param {*} target the Entity's target.
- * @param {*} world the World in which the pathfind takes place.
+ * @param {Entity} entity the Entity.
+ * @param {Cell} target the Entity's target.
+ * @param {Grid} world the World in which the pathfind takes place.
  * @returns the shortest path from the Entity to the target and the distance of that path.
  */
 function dijkstra_pathfind(entity, target, world) {

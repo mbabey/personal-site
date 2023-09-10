@@ -1,5 +1,4 @@
 import React from 'react'
-import Pathfind from './Pathfind';
 
 function Header({setScrollTo}) {
 
