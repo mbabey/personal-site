@@ -1,7 +1,7 @@
 import React from 'react'
 import Pathfind from './Pathfind';
 
-function Header({scrollTo, setScrollTo}) {
+function Header({setScrollTo}) {
 
   const pages = {
     top: 0,
