@@ -4,26 +4,27 @@ import '../styles/nav.css';
 
 function Nav({ pages }) {
 
+  
   function scrollTo(pageRef) {
     pageRef.current.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'smooth' });
   }
-
-  Object.entries(pages).forEach((e) => {
-    console.log(e);
-  })
-
-  const [currentPage, setCurrentPage] = useState(pages.topRef);
   
-  // I want the navbar to update the covered category 
-  function callback(entries, observer) {
-    entries.forEach(element => {
-      console.log(element);
-    });
-  }
-  const sectionVisibleObserver = new IntersectionObserver(callback, {threshold: 0.5});
-  
-  
+  // console.log(pages);
 
+  // const pageObserver = new IntersectionObserver(observerCallback, {threshold: 0.5});
+  // pages.forEach((entry) => {
+  //   console.log(entry);
+  //   let element = entry.current;
+  //   console.log(element);
+  //   // pageObserver.observe(element);
+  // });
+  
+  // function observerCallback(entries, observer) {
+  //   entries.forEach(element => {
+  //     console.log(element);
+  //   });
+  // }
+  
   return (
     <div id='nav'>
       <ul>

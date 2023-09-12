@@ -51,7 +51,7 @@ const Pathfind = forwardRef(function Pathfind(props, ref) {
 
   return (
     <section
-      id='pathfind'
+      id='top'
       className='grid-container'
       ref={ref}
       style={GRID_CONTAINER_SIZE}>
@@ -71,12 +71,12 @@ function create_entity_and_target(size_x, size_y, world) {
   return new Promise((resolve) => {
     const start_location = get_entity_start_location(size_x, size_y);
     const target_location = get_target_start_location(size_x, size_y, start_location);
-  
+
     const entity_start_cell = world.get_cell(start_location.edge_cell_horizontal, start_location.edge_cell_vertical);
     const entity_target_cell = world.get_cell(target_location.edge_cell_horizontal, target_location.edge_cell_vertical);
-  
+
     const entity = new Entity(world, entity_start_cell, entity_target_cell);
-  
+
     resolve(entity);
   });
 }
