@@ -3,8 +3,19 @@
   padding: 0;
 }
 
+#nav ul {
+  margin: 0;
+  padding: 10px 0 10px 5%;
+  background: var(--col-gold-strong);
+  background: linear-gradient(90deg, var(--col-gold-strong) 35%, var(--col-gold-soft) 70%);
+}
+
 #nav li {
   display: inline;
   margin: 0;
   padding: 10px;
+}
+
+#nav li:hover {
+  background-color: var(--col-blue-lt);
 }
