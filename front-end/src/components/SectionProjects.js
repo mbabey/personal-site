@@ -49,7 +49,7 @@ const Projects = forwardRef(function Projects(props, ref) {
   ]
 
   return (
-    <div ref={ref}>
+    <section id='projects' ref={ref}>
       <h2>Projects</h2>
       {project_info.map((p) => {
         return <Project
@@ -61,7 +61,7 @@ const Projects = forwardRef(function Projects(props, ref) {
           image={p.image}
         />
       })}
-    </div>
+    </section>
   )
 });
 

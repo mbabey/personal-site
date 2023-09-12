@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 
 const About = forwardRef(function About(props, ref) {
   return (
-    <div id='about' ref={ref}>
+    <section id='about' ref={ref}>
       <h2>About</h2>
       <div id='interests'>
         <h3>Interests</h3>
@@ -52,7 +52,7 @@ const About = forwardRef(function About(props, ref) {
           <li>Algorithms and data structures</li>
         </ul>
       </div>
-    </div>
+    </section>
   )
 });
 

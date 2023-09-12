@@ -50,12 +50,13 @@ const Pathfind = forwardRef(function Pathfind(props, ref) {
   }, []);
 
   return (
-    <div
-      ref={ref}
+    <section
+      id='pathfind'
       className='grid-container'
+      ref={ref}
       style={GRID_CONTAINER_SIZE}>
       {worldImage}
-    </div>
+    </section>
   );
 });
 

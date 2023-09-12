@@ -24,9 +24,7 @@ function App() {
   return (
     <>
       <Pathfind ref={topRef} />
-      <Nav
-        pages={pages}
-      />
+      <Nav pages={pages} />
       <About ref={aboutRef} />
       <Projects ref={projectsRef} />
       <Contact ref={contactRef} />
