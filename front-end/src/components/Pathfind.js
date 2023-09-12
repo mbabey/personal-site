@@ -2,7 +2,8 @@ import Grid from '../scripts/Grid'
 import Entity from '../scripts/Entity';
 import PriorityQueue from '../scripts/PriorityQueue';
 import React, { useState, useEffect } from 'react';
-import '../styles/grid.css'
+
+import '../styles/pathfind.css'
 
 function Pathfind() {
 
