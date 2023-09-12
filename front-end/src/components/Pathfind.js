@@ -7,8 +7,8 @@ import '../styles/grid.css'
 function Pathfind() {
 
   // The size of the world grid.
-  const SIZE_X = 100;
-  const SIZE_Y = 100;
+  const SIZE_X = 75;
+  const SIZE_Y = 20;
 
   // CSS for the grid.
   const GRID_CONTAINER_SIZE = { gridTemplateColumns: `repeat(${SIZE_X}, 1fr)`, gridTemplateRows: `repeat(${SIZE_Y}, 1fr)` };

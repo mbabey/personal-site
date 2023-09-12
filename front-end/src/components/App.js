@@ -10,10 +10,10 @@ function App() {
 
   return (
     <>
+      <Pathfind />
       <Header
         setScrollTo={setScrollTo}
       />
-      {/* <Pathfind /> */}
       <About />
       <Projects />
       <Contact />
