@@ -6,8 +6,7 @@ function Nav({pages}) {
 
   function scrollTo(pageRef)
   {
-    console.log(pageRef);
-    pageRef.current.scrollIntoView(true);
+    pageRef.current.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'smooth'});
   }
 
   return (
