@@ -1,11 +1,11 @@
 import Grid from '../scripts/Grid'
 import Entity from '../scripts/Entity';
 import PriorityQueue from '../scripts/PriorityQueue';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 
 import '../styles/pathfind.css'
 
-function Pathfind() {
+const Pathfind = forwardRef(function Pathfind(props, ref) {
 
   // The size of the world grid.
   const SIZE_X = 75;
@@ -51,12 +51,13 @@ function Pathfind() {
 
   return (
     <div
+      ref={ref}
       className='grid-container'
       style={GRID_CONTAINER_SIZE}>
       {worldImage}
     </div>
   );
-}
+});
 
 /**
  * Create an Entity and place it in a Cell at the edge of the Grid.

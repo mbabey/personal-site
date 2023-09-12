@@ -14,8 +14,9 @@
   display: inline;
   margin: 0;
   padding: 10px;
+  cursor: pointer;
 }
 
 #nav li:hover {
-  background-color: var(--col-blue-lt);
+  background-color: var(--col-gold-soft);
 }

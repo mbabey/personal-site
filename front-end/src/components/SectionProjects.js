@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import Project from './Project';
 
-function Projects() {
+const Projects = forwardRef(function Projects(props, ref) {
 
   const project_info = [
     {
@@ -49,10 +49,10 @@ function Projects() {
   ]
 
   return (
-    <div>
+    <div ref={ref}>
       <h2>Projects</h2>
       {project_info.map((p) => {
-        return <Project 
+        return <Project
           key={p.title}
           title={p.title}
           link={p.link}
@@ -63,6 +63,6 @@ function Projects() {
       })}
     </div>
   )
-}
+});
 
 export default Projects

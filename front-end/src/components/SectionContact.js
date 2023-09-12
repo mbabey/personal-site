@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
-function Contact() {
+const Contact = forwardRef(function Contact(props, ref) {
   return (
-    <div>
+    <div ref={ref}>
       <h2>Contact Me</h2>
       <p>By Email: babeymax@gmail.com</p>
       <p>Or send me a note using the form below:</p>
@@ -15,6 +15,6 @@ function Contact() {
       </form>
     </div>
   )
-}
+});
 
 export default Contact

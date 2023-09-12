@@ -2,21 +2,20 @@ import React from 'react'
 
 import '../styles/nav.css';
 
-function Nav({setScrollTo}) {
+function Nav({pages}) {
 
-  const pages = {
-    top: 0,
-    about: 1,
-    projects: 2,
-    contact: 3
+  function scrollTo(pageRef)
+  {
+    console.log(pageRef);
+    pageRef.current.scrollIntoView(true);
   }
 
   return (
     <div id='nav'>
       <ul>
-        <li onClick={() => setScrollTo(pages.about)}>About</li>
-        <li onClick={() => setScrollTo(pages.projects)}>Projects</li>
-        <li onClick={() => setScrollTo(pages.contact)}>Contact Me</li>
+        <li onClick={() => scrollTo(pages.aboutRef)}>About</li>
+        <li onClick={() => scrollTo(pages.projectsRef)}>Projects</li>
+        <li onClick={() => scrollTo(pages.contactRef)}>Contact Me</li>
       </ul>
     </div>
   )

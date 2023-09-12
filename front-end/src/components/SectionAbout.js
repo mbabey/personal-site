@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
-function About() {
+const About = forwardRef(function About(props, ref) {
   return (
-    <div id='about'>
+    <div id='about' ref={ref}>
       <h2>About</h2>
       <div id='interests'>
         <h3>Interests</h3>
@@ -54,6 +54,6 @@ function About() {
       </div>
     </div>
   )
-}
+});
 
 export default About
