@@ -1,6 +1,8 @@
 import React from 'react'
 
-function Header({setScrollTo}) {
+import '../styles/nav.css';
+
+function Nav({setScrollTo}) {
 
   const pages = {
     top: 0,
@@ -10,7 +12,7 @@ function Header({setScrollTo}) {
   }
 
   return (
-    <div>
+    <div id='nav'>
       <ul>
         <li onClick={() => setScrollTo(pages.about)}>About</li>
         <li onClick={() => setScrollTo(pages.projects)}>Projects</li>
@@ -20,4 +22,4 @@ function Header({setScrollTo}) {
   )
 }
 
-export default Header
+export default Nav

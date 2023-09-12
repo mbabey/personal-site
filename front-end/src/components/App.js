@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import Header from './Header';
+import Nav from './Nav';
 import Pathfind from './Pathfind';
 import About from './SectionAbout';
 import Projects from './SectionProjects';
 import Contact from './SectionContact';
+
+import '../styles/global.css';
 
 function App() {
   const [scrollTo, setScrollTo] = useState(0);
@@ -11,7 +13,7 @@ function App() {
   return (
     <>
       <Pathfind />
-      <Header
+      <Nav
         setScrollTo={setScrollTo}
       />
       <About />
