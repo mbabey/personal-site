@@ -1,16 +1,15 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef } from 'react';
+
+import '../styles/contact.css';
 
 const Contact = forwardRef(function Contact(props, ref) {
   return (
     <section id='contact' ref={ref}>
-      <h2>Contact Me</h2>
-      <p>By Email: babeymax@gmail.com</p>
-      <p>Or send me a note using the form below:</p>
+      <p>Contact me by email at babeymax@gmail.com or send me a note using the form below:</p>
       <form>
         <input type='text' placeholder='Name' required></input>
-        <input type='email' placeholder='Email'></input>
-        <input type='text' placeholder='Phone Number'></input>
-        <input type='text' placeholder='Message'></input>
+        <input type='email' placeholder='Email' required></input>
+        <textarea type='text' placeholder='Message' required></textarea>
         <button type='submit'>Send</button>
       </form>
     </section>
