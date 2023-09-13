@@ -20,10 +20,10 @@ function App() {
     projects: 2,
     contact: 3
   }
-
+  
   function getPageRef(pageNum) {
     let pageRef;
-
+  
     switch (pageNum) {
       case pages.top:
         {
@@ -50,14 +50,12 @@ function App() {
           pageRef = topRef;
         }
     }
-
+  
     return pageRef;
   }
 
   function scrollTo(pageNum) {
-    console.log(pageNum);
     const pageRef = getPageRef(pageNum);
-    console.log(pageRef);
     if (pageRef.current) {
       pageRef.current.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'smooth' });
     }
