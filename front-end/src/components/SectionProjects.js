@@ -15,35 +15,35 @@ const Projects = forwardRef(function Projects(props, ref) {
       title: "CHAT Protocol and Testing Suite",
       link: "https://github.com/mbabey/chat-server-test-saddle",
       description: "TCP-based network application, application-layer protocol, team leadership, project management.",
-      langauges: "POSIX C",
+      languages: "POSIX C",
       image: ""
     },
     {
       title: "Tic-Tac-Toe Game Server on Reliable UDP",
       link: "https://github.com/mbabey/more-reliable-udp",
       description: "UDP-based network application, application-layer protocol, hardware integration",
-      langauges: "POSIX C, Raspberry Pi & breadboard",
+      languages: "POSIX C, Raspberry Pi & breadboard",
       image: ""
     },
     {
       title: "Custom Shell",
       link: "https://github.com/mbabey/c-shell",
       description: "Low-level OS interfacing",
-      langauges: "POSIX C",
+      languages: "POSIX C",
       image: ""
     },
     {
       title: "Pokedex API",
       link: "",
       description: "Full-stack, REST API",
-      langauges: "JavaScript, React, node.js, Express.js, HTML, CSS",
+      languages: "JavaScript, React, node.js, Express.js, HTML, and CSS.",
       image: ""
     },
     {
       title: "Genetic Traveling Salesperson Algorithm",
       link: "https://github.com/mbabey/tsp-genetic",
       description: "A genetic algorithm solution to the traveling salesperson problem",
-      langauges: "C++",
+      languages: "C++",
       image: ""
     }
   ]
