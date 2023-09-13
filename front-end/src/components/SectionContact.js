@@ -3,9 +3,6 @@ import React, { forwardRef } from 'react';
 import '../styles/contact.css';
 
 const Contact = forwardRef(function Contact(props, ref) {
-
-
-
   return (
     <section id='contact' ref={ref}>
       <h2>Contact Me</h2>

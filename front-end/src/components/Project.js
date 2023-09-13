@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+
+import '../styles/projects.css';
 
 function Project({title, link, description, languages, image}) {
   return (
-    <div>
+    <div className='project'>
       <h3>{title}</h3>
       <a href={link}>{link}</a>
       <p>{description}</p>

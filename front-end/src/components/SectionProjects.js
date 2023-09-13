@@ -1,6 +1,8 @@
 import React, { forwardRef } from 'react'
 import Project from './Project';
 
+import '../styles/projects.css'
+
 const Projects = forwardRef(function Projects(props, ref) {
 
   const project_info = [
@@ -51,16 +53,18 @@ const Projects = forwardRef(function Projects(props, ref) {
   return (
     <section id='projects' ref={ref}>
       <h2>Projects</h2>
-      {project_info.map((p) => {
-        return <Project
-          key={p.title}
-          title={p.title}
-          link={p.link}
-          description={p.description}
-          languages={p.languages}
-          image={p.image}
-        />
-      })}
+      <div className='wrapper'>
+        {project_info.map((p) => {
+          return <Project
+            key={p.title}
+            title={p.title}
+            link={p.link}
+            description={p.description}
+            languages={p.languages}
+            image={p.image}
+          />
+        })}
+      </div>
     </section>
   )
 });
