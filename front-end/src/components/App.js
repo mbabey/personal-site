@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import Pathfind from './Pathfind';
 import Nav from './Nav';
 import About from './SectionAbout';
@@ -14,10 +14,59 @@ function App() {
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
 
+  const pages = {
+    top: 0,
+    about: 1,
+    projects: 2,
+    contact: 3
+  }
+
+  function getPageRef(pageNum) {
+    let pageRef;
+
+    switch (pageNum) {
+      case pages.top:
+        {
+          pageRef = topRef;
+          break;
+        }
+      case pages.about:
+        {
+          pageRef = aboutRef;
+          break;
+        }
+      case pages.projects:
+        {
+          pageRef = projectsRef;
+          break;
+        }
+      case pages.contact:
+        {
+          pageRef = contactRef;
+          break;
+        }
+      default:
+        {
+          pageRef = topRef;
+        }
+    }
+
+    return pageRef;
+  }
+
+  function scrollTo(pageNum) {
+    console.log(pageNum);
+    const pageRef = getPageRef(pageNum);
+    console.log(pageRef);
+    if (pageRef.current) {
+      pageRef.current.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'smooth' });
+    }
+  }
+
   return (
     <>
       <Pathfind ref={topRef} />
-      <Nav pages={[topRef, aboutRef, projectsRef, contactRef]} />
+      <Nav scrollTo={scrollTo} pages={pages} />
       <About ref={aboutRef} />
       <Projects ref={projectsRef} />
       <Contact ref={contactRef} />
