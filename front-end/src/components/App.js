@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import Pathfind from './Pathfind';
 import Nav from './Nav';
 import About from './SectionAbout';
