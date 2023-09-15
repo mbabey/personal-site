@@ -1,22 +1,22 @@
 #nav {
   margin: 0;
-  padding: 0;
+  padding: 20px 0;
+  border: 1px solid var(--col-grey-lt);
 }
 
 #nav ul {
-  margin: 0;
-  padding: 10px 0 10px 5%;
-  background: var(--col-gold-strong);
-  background: linear-gradient(90deg, var(--col-gold-strong) 35%, var(--col-gold-soft) 70%);
+  margin: 0 auto;
+  padding: 0;
 }
 
 #nav li {
   display: inline;
   margin: 0;
-  padding: 10px;
+  padding: 15px;
   cursor: pointer;
+  border-radius: 30px;
 }
 
 #nav li:hover {
-  background-color: var(--col-gold-soft);
+  background-color: var(--col-grey-lt);
 }
