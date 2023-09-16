@@ -8,7 +8,7 @@ import '../styles/pathfind.css'
 const Pathfind = forwardRef(function Pathfind(props, ref) {
 
   // The size of the world grid.
-  const SIZE_X = 75;
+  const SIZE_X = 20;
   const SIZE_Y = 20;
 
   // CSS for the grid.

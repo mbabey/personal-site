@@ -119,7 +119,7 @@ class Grid {
         const visited = cell.get_visited();
 
         const cell_class = `cell ${populated ? 'populated' : ''} ${targeted ? 'targeted' : ''} ${visited ? 'visited' : ''}`;
-        const cell_style = { backgroundColor: `rgba(0, 0, 0, ${(altitude / Cell.MAX_ALTITUDE) * 0.8})`, aspectRatio: 1 };
+        const cell_style = { backgroundColor: `rgba(53, 54, 72, ${(altitude / Cell.MAX_ALTITUDE) * 0.8})`, aspectRatio: 1 };
 
         return <div key={[location.x, location.y]} className={cell_class} style={cell_style}></div>
       })

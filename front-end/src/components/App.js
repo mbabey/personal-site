@@ -65,6 +65,9 @@ function App() {
     <>
       <Pathfind ref={topRef} />
       <Nav scrollTo={scrollTo} pages={pages} />
+      <div id='testdiv'>
+        testdiv
+      </div>
       <About ref={aboutRef} />
       <Projects ref={projectsRef} />
       <Contact ref={contactRef} />
