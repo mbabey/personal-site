@@ -1,8 +1,14 @@
+#pathfind {
+  margin-left: 25%;
+  /* background-color: var(--col-blue-drk); */
+  border-left: 1px solid black;
+}
+
 .grid-container {
   display: grid;
-  /* gap: 0.5%; */
   width: 50vw;
-  transform: rotateX(45deg) rotateZ(45deg) translate(10vw, -10vw);
+  margin-left: 64%;
+  transform: rotateX(55deg) rotateZ(45deg) translate(-50%, 50%);
 }
 
 .cell {
