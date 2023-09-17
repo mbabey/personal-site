@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
-import Pathfind from './Pathfind';
 import Nav from './Nav';
+import Top from './TopSection';
 import About from './SectionAbout';
 import Projects from './SectionProjects';
 import Contact from './SectionContact';
@@ -63,11 +63,8 @@ function App() {
 
   return (
     <>
-      <Pathfind ref={topRef} />
+      <Top ref={topRef} />
       <Nav scrollTo={scrollTo} pages={pages} />
-      <div id='testdiv'>
-        testdiv
-      </div>
       <About ref={aboutRef} />
       <Projects ref={projectsRef} />
       <Contact ref={contactRef} />
