@@ -6,7 +6,7 @@ function Project({title, link, description, languages, image}) {
   return (
     <div className='project'>
       <h3>{title}</h3>
-      <a href={link}>{link}</a>
+      <a href={link} tabIndex={-1}>{link}</a>
       <p>{description}</p>
       <p>{languages}</p>
       <div>

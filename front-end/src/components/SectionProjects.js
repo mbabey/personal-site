@@ -67,10 +67,17 @@ const Projects = forwardRef(function Projects(props, ref) {
   function displayProject(proj_num) {
     document.querySelectorAll('#projects .wrapper .project.focused').forEach((p) => {
       p.classList.remove('focused');
+      const p_a = p.querySelector('a');
+      p_a.tabIndex = -1;
     });
     const project_div = document.querySelector(`#projects .wrapper .project:nth-child(${proj_num})`);
     project_div.classList.add('focused');
+    const project_div_a = project_div.querySelector('a');
+    project_div_a.tabIndex = 0;
   }
+
+  // The offset from the array element into the child node required for displayProject to function properly
+  const OFFSET = 2;
 
   return (
     <section id='projects' ref={ref}>
@@ -80,12 +87,13 @@ const Projects = forwardRef(function Projects(props, ref) {
           <ul>
             {project_info.map((p, index) => {
               return (
-                <li key={p.abbreviation} onClick={() => displayProject(index + 1)}>{p.abbreviation}</li>
+                <li key={p.abbreviation} onClick={() => displayProject(index + OFFSET)} tabIndex={0}>{p.abbreviation}</li>
               );
             })}
           </ul>
         </div>
         <div className='wrapper'>
+          <div className='project focused'>Click a project on the list to see details</div>
           {project_info.map((p) => {
             return <Project
               key={p.title}
