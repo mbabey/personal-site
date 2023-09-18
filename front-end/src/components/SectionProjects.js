@@ -64,9 +64,9 @@ const Projects = forwardRef(function Projects(props, ref) {
     }
   ]
 
-  function displayProject(p_index) {
-    console.log(p_index);
-    const doc = document.querySelector(`#projects .wrapper:nth-child(${p_index})`);
+  function displayProject(proj_num) {
+    console.log(proj_num);
+    const doc = document.querySelector(`#projects .wrapper .project:nth-child(${proj_num})`);
     console.log(doc);
   }
 
@@ -78,7 +78,7 @@ const Projects = forwardRef(function Projects(props, ref) {
           <ul>
             {project_info.map((p, index) => {
               return (
-                <li key={p.abbreviation} onClick={() => displayProject(index)}>{p.abbreviation}</li>
+                <li key={p.abbreviation} onClick={() => displayProject(index + 1)}>{p.abbreviation}</li>
               );
             })}
           </ul>
