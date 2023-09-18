@@ -62,13 +62,13 @@ function App() {
   }
 
   return (
-    <>
+    <div id="wrapall">
       <Top ref={topRef} />
       <Nav scrollTo={scrollTo} pages={pages} />
       <About ref={aboutRef} />
       <Projects ref={projectsRef} />
       <Contact ref={contactRef} />
-    </>
+    </div>
   )
 }
 

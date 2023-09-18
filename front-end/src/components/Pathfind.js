@@ -7,6 +7,9 @@ import '../styles/pathfind.css'
 
 function Pathfind() {
 
+  // The millisecond interval at which the Entity will move from Cell to Cell.
+  const INTERVAL_MS = 100;
+
   // The size of the world grid.
   const SIZE_X = 20;
   const SIZE_Y = 20;
@@ -40,7 +43,7 @@ function Pathfind() {
         if (entity.get_location().get_targeted() === true) {
           clearInterval(interval_id);
         }
-      }, 10);
+      }, INTERVAL_MS);
 
       return () => clearInterval(interval_id);
     }
@@ -50,13 +53,13 @@ function Pathfind() {
   }, []);
 
   return (
-    <section id='pathfind'>
-      <div
-        className='grid-container'
-        style={GRID_CONTAINER_SIZE}>
-        {worldImage}
-      </div>
-    </section>
+    <div
+      id='pathfind'
+      className='grid-container'
+      style={GRID_CONTAINER_SIZE}
+    >
+      {worldImage}
+    </div>
   );
 }
 

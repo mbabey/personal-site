@@ -1,0 +1,23 @@
+#top {
+  height: 80vh;
+  width: 100vw;
+  position: relative;
+  background-color: var(--col-grey-lt);
+}
+
+#top h1 {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  font-family: Cambria, serif;
+  font-size: 3em;
+  font-weight: 500;
+}
+
+#top .hero #pathfind {
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  left: 39%;
+  transform: rotateX(55deg) rotateZ(45deg) translate(-50%, -50%);
+}

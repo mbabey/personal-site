@@ -1,14 +1,5 @@
-#pathfind {
-  margin-left: 25%;
-  /* background-color: var(--col-blue-drk); */
-  border-left: 1px solid black;
-}
-
 .grid-container {
   display: grid;
-  width: 50vw;
-  margin-left: 64%;
-  transform: rotateX(55deg) rotateZ(45deg) translate(-50%, 50%);
 }
 
 .cell {
@@ -22,9 +13,9 @@
 }
 
 .targeted {
-  background-color: yellow !important;
+  background-color: #ffff00 !important;
 }
 
 .populated {
-  background-color: red !important;
+  background-color: #ff0000 !important;
 }
