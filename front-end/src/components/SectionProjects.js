@@ -65,9 +65,11 @@ const Projects = forwardRef(function Projects(props, ref) {
   ]
 
   function displayProject(proj_num) {
-    console.log(proj_num);
-    const doc = document.querySelector(`#projects .wrapper .project:nth-child(${proj_num})`);
-    console.log(doc);
+    document.querySelectorAll('#projects .wrapper .project.focused').forEach((p) => {
+      p.classList.remove('focused');
+    });
+    const project_div = document.querySelector(`#projects .wrapper .project:nth-child(${proj_num})`);
+    project_div.classList.add('focused');
   }
 
   return (
@@ -83,7 +85,7 @@ const Projects = forwardRef(function Projects(props, ref) {
             })}
           </ul>
         </div>
-        <div className='wrapper projects-wrapper'>
+        <div className='wrapper'>
           {project_info.map((p) => {
             return <Project
               key={p.title}

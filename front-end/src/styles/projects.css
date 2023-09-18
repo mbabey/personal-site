@@ -53,22 +53,16 @@
   background-color: var(--col-grey-lt);
   border-top-left-radius: 10px;
   color: #000;
+  position: relative;
 }
 
-#projects .project.show {
-  animation: 1s ease-out slideTransition;
+#projects .project {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transition: left 0.5s cubic-bezier(0.10, 0.20, 0.30, 1);
 }
 
-#projects .project.hide {
-  animation: 1s ease-out reverse slideTransition;
-}
-
-@keyframes slideTransition {
-  0% {
-    transform: translateX(1000%) rotateZ(30deg);
-  }
-  100%
-  {
-    transform: translateX(0) rotateZ(0);
-  }
+#projects .project.focused {
+  left: 0;
 }
