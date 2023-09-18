@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
 import Project from './Project';
-import ProjectsNav from './ProjectsNav';
 
 import '../styles/projects.css'
 
@@ -65,12 +64,26 @@ const Projects = forwardRef(function Projects(props, ref) {
     }
   ]
 
+  function displayProject(p_index) {
+    console.log(p_index);
+    const doc = document.querySelector(`#projects .wrapper:nth-child(${p_index})`);
+    console.log(doc);
+  }
+
   return (
     <section id='projects' ref={ref}>
       <div className='width-wrapper'>
         <h2>Projects</h2>
-        <ProjectsNav projects={project_info} />
-        <div className='wrapper'>
+        <div id='projects-nav'>
+          <ul>
+            {project_info.map((p, index) => {
+              return (
+                <li key={p.abbreviation} onClick={() => displayProject(index)}>{p.abbreviation}</li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className='wrapper projects-wrapper'>
           {project_info.map((p) => {
             return <Project
               key={p.title}
