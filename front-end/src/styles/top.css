@@ -1,23 +1,26 @@
 #top {
-  height: 80vh;
-  width: 100vw;
-  position: relative;
+  height: 100vh;
+  min-height: 560px; 
   background-color: var(--col-grey-lt);
 }
 
+#top .width-wrapper {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  height: 100%;
+}
+
 #top h1 {
-  position: absolute;
-  top: 40%;
-  left: 5%;
+  margin: auto 0;
+  grid-column: 1 / span 1;
   font-family: Cambria, serif;
   font-size: 3em;
   font-weight: 500;
 }
 
 #top #pathfind {
-  position: absolute;
-  width: 50%;
-  top: 50%;
-  left: 39%;
-  transform: rotateX(55deg) rotateZ(45deg) translate(-50%, -50%);
+  width: 70%;
+  grid-column: 2 / span 1;
+  margin: auto;
+  transform: rotateX(55deg) rotateZ(45deg);
 }
