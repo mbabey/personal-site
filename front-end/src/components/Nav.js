@@ -13,11 +13,13 @@ function Nav({ scrollTo, pages }) {
 
   return (
     <div id='nav'>
-      <ul>
-        <li onClick={() => scrollTo(pages.about)}>About</li>
-        <li onClick={() => scrollTo(pages.projects)}>Projects</li>
-        <li onClick={() => scrollTo(pages.contact)}>Contact Me</li>
-      </ul>
+      <div className='width-wrapper'>
+        <ul>
+          <li onClick={() => scrollTo(pages.about)}>About</li>
+          <li onClick={() => scrollTo(pages.projects)}>Projects</li>
+          <li onClick={() => scrollTo(pages.contact)}>Contact Me</li>
+        </ul>
+      </div>
     </div>
   )
 }

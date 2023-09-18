@@ -14,7 +14,7 @@
   font-weight: 500;
 }
 
-#top .hero #pathfind {
+#top #pathfind {
   position: absolute;
   width: 50%;
   top: 50%;

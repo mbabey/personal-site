@@ -52,18 +52,20 @@ const Projects = forwardRef(function Projects(props, ref) {
 
   return (
     <section id='projects' ref={ref}>
-      <h2>Projects</h2>
-      <div className='wrapper'>
-        {project_info.map((p) => {
-          return <Project
-            key={p.title}
-            title={p.title}
-            link={p.link}
-            description={p.description}
-            languages={p.languages}
-            image={p.image}
-          />
-        })}
+      <div className='width-wrapper'>
+        <h2>Projects</h2>
+        <div className='wrapper'>
+          {project_info.map((p) => {
+            return <Project
+              key={p.title}
+              title={p.title}
+              link={p.link}
+              description={p.description}
+              languages={p.languages}
+              image={p.image}
+            />
+          })}
+        </div>
       </div>
     </section>
   )

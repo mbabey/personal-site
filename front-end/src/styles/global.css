@@ -25,6 +25,11 @@ body {
   font-family: var(--font-body);
 }
 
+.width-wrapper {
+  max-width: 1024px;
+  margin: auto;
+}
+
 textarea {
   font-family: var(--font-body);
 }

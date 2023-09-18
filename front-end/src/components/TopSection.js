@@ -6,7 +6,7 @@ import '../styles/top.css';
 const Top = forwardRef(function Top(props, ref) {
   return (
     <section id='top' ref={ref}>
-      <div className='hero'>
+      <div className='width-wrapper'>
         <h1>Maxwell<br />Babey</h1>
         <Pathfind />
       </div>
