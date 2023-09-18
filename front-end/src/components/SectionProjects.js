@@ -1,5 +1,6 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef } from 'react';
 import Project from './Project';
+import ProjectsNav from './ProjectsNav';
 
 import '../styles/projects.css'
 
@@ -8,13 +9,15 @@ const Projects = forwardRef(function Projects(props, ref) {
   const project_info = [
     {
       title: "Opendata Developer Network - ODEN",
+      abbreviation: "ODEN",
       link: "https://terratap-oden-client-v2.web.app",
       description: "Agile, team leadership, full-stack, project management.",
-      languages: "JavaScript, React, node.js, Express.js, HTML, and CSS.",
+      languages: "JavaScript, React, node.js, Express.js, HTML, and CSS",
       image: ""
     },
     {
       title: "CHAT Protocol and Testing Suite",
+      abbreviation: "CHAT Protocol",
       link: "https://github.com/mbabey/chat-server-test-saddle",
       description: "TCP-based network application, application-layer protocol, team leadership, project management.",
       languages: "POSIX C",
@@ -22,6 +25,7 @@ const Projects = forwardRef(function Projects(props, ref) {
     },
     {
       title: "Tic-Tac-Toe Game Server on Reliable UDP",
+      abbreviation: "UDP Game Server",
       link: "https://github.com/mbabey/more-reliable-udp",
       description: "UDP-based network application, application-layer protocol, hardware integration",
       languages: "POSIX C, Raspberry Pi & breadboard",
@@ -29,6 +33,7 @@ const Projects = forwardRef(function Projects(props, ref) {
     },
     {
       title: "Custom Shell",
+      abbreviation: "Linux Shell",
       link: "https://github.com/mbabey/c-shell",
       description: "Low-level OS interfacing",
       languages: "POSIX C",
@@ -36,16 +41,26 @@ const Projects = forwardRef(function Projects(props, ref) {
     },
     {
       title: "Pokedex API",
+      abbreviation: "Pokemon API",
       link: "",
       description: "Full-stack, REST API",
-      languages: "JavaScript, React, node.js, Express.js, HTML, and CSS.",
+      languages: "JavaScript, React, node.js, Express.js, HTML, and CSS",
       image: ""
     },
     {
       title: "Genetic Traveling Salesperson Algorithm",
+      abbreviation: "Genetic",
       link: "https://github.com/mbabey/tsp-genetic",
       description: "A genetic algorithm solution to the traveling salesperson problem",
       languages: "C++",
+      image: ""
+    },
+    {
+      title: "This Website",
+      abbreviation: "This Website",
+      link: "",
+      description: "A personal website for displaying my portfolio and to allow other to get in touch.",
+      languages: "JavaScript, React, HTML, and CSS",
       image: ""
     }
   ]
@@ -54,6 +69,7 @@ const Projects = forwardRef(function Projects(props, ref) {
     <section id='projects' ref={ref}>
       <div className='width-wrapper'>
         <h2>Projects</h2>
+        <ProjectsNav projects={project_info} />
         <div className='wrapper'>
           {project_info.map((p) => {
             return <Project

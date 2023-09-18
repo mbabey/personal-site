@@ -1,0 +1,40 @@
+#projects {
+  height: 100vh;
+}
+
+#projects .width-wrapper {
+  height: 100%;
+}
+
+#projects #projects-nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+#projects #projects-nav li {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+#projects .wrapper {
+  overflow: hidden;
+}
+
+#projects .project.show {
+  animation: 1s ease-out slideTransition;
+}
+
+#projects .project.hide {
+  animation: 1s ease-out reverse slideTransition;
+}
+
+@keyframes slideTransition {
+  0% {
+    transform: translateX(1000%) rotateZ(30deg);
+  }
+  100%
+  {
+    transform: translateX(0) rotateZ(0);
+  }
+}

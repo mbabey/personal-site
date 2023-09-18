@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import Nav from './Nav';
-import Top from './TopSection';
+import Top from './SectionTop';
 import About from './SectionAbout';
 import Projects from './SectionProjects';
 import Contact from './SectionContact';
