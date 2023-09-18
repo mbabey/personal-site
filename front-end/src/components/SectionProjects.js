@@ -49,7 +49,7 @@ const Projects = forwardRef(function Projects(props, ref) {
     },
     {
       title: "Genetic Traveling Salesperson Algorithm",
-      abbreviation: "Genetic",
+      abbreviation: "Genetic TSP",
       link: "https://github.com/mbabey/tsp-genetic",
       description: "A genetic algorithm solution to the traveling salesperson problem",
       languages: "C++",

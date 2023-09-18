@@ -4,11 +4,21 @@
 
 #projects .width-wrapper {
   height: 100%;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  grid-template-rows: 5% 95%;
+}
+
+#projects h2 {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 1;
 }
 
 #projects #projects-nav ul {
   margin: 0;
   padding: 0;
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
 }
 
 #projects #projects-nav li {
@@ -19,6 +29,8 @@
 
 #projects .wrapper {
   overflow: hidden;
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 2;
 }
 
 #projects .project.show {
