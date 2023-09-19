@@ -10,58 +10,72 @@ const Projects = forwardRef(function Projects(props, ref) {
     {
       title: "Opendata Developer Network - ODEN",
       abbreviation: "ODEN",
-      link: "https://terratap-oden-client-v2.web.app",
+      demolink: "https://terratap-oden-client-v2.web.app",
+      srclink: "",
       description: "Agile, team leadership, full-stack, project management.",
       languages: "JavaScript, React, node.js, Express.js, HTML, and CSS",
-      image: ""
+      images: ["", ""],
+      imagealts: ["ODEN Logo", "ODEN Website Screenshot", "ODEN Team Photo"]
     },
     {
       title: "CHAT Protocol and Testing Suite",
       abbreviation: "CHAT Protocol",
-      link: "https://github.com/mbabey/chat-server-test-saddle",
+      demolink: "",
+      srclink: "https://github.com/mbabey/chat-server-test-saddle",
       description: "TCP-based network application, application-layer protocol, team leadership, project management.",
       languages: "POSIX C",
-      image: ""
+      images: ["", ""],
+      imagealts: ["Process Server Diagram", "RFC"]
     },
     {
       title: "Tic-Tac-Toe Game Server on Reliable UDP",
       abbreviation: "UDP Game Server",
-      link: "https://github.com/mbabey/more-reliable-udp",
+      demolink: "",
+      srclink: "https://github.com/mbabey/more-reliable-udp",
       description: "UDP-based network application, application-layer protocol, hardware integration",
       languages: "POSIX C, Raspberry Pi & breadboard",
-      image: ""
+      images: ["", ""],
+      imagealts: ["Game Interface", "Playing the Game"]
     },
     {
       title: "Custom Shell",
       abbreviation: "Linux Shell",
-      link: "https://github.com/mbabey/c-shell",
+      demolink: "",
+      srclink: "https://github.com/mbabey/c-shell",
       description: "Low-level OS interfacing",
       languages: "POSIX C",
-      image: ""
+      images: [""],
+      imagealts: ["Shell Running"]
     },
     {
       title: "Pokedex API",
       abbreviation: "Pokemon API",
-      link: "",
+      demolink: "",
+      srclink: "https://github.com/mbabey/comp4537-assignment-3-pokemon-api",
       description: "Full-stack, REST API",
       languages: "JavaScript, React, node.js, Express.js, HTML, and CSS",
-      image: ""
+      images: ["", ""],
+      imagealts: ["Pokedex Website Login", "Pokedex Website Interface"]
     },
     {
       title: "Genetic Traveling Salesperson Algorithm",
       abbreviation: "Genetic TSP",
-      link: "https://github.com/mbabey/tsp-genetic",
+      demolink: "",
+      srclink: "https://github.com/mbabey/tsp-genetic",
       description: "A genetic algorithm solution to the traveling salesperson problem",
       languages: "C++",
-      image: ""
+      images: ["", ""],
+      imagealts: ["Connected Graph", "Genetic TSP Output"]
     },
     {
       title: "This Website",
       abbreviation: "This Website",
-      link: "",
+      demolink: "",
+      srclink: "https://github.com/mbabey/personal-site",
       description: "A personal website for displaying my portfolio and to allow other to get in touch.",
       languages: "JavaScript, React, HTML, and CSS",
-      image: ""
+      images: [],
+      imagealts: []
     }
   ]
 
@@ -106,12 +120,14 @@ const Projects = forwardRef(function Projects(props, ref) {
           <div className='project focused'>Click a project on the list to see details</div>
           {project_info.map((p) => {
             return <Project
-              key={p.title}
+              key={p.abbreviation}
               title={p.title}
-              link={p.link}
+              demolink={p.demolink}
+              srclink={p.srclink}
               description={p.description}
               languages={p.languages}
-              image={p.image}
+              images={p.images}
+              imagealts={p.imagealts}
             />
           })}
         </div>
