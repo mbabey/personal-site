@@ -1,5 +1,7 @@
 .grid-container {
   display: grid;
+  opacity: 0;
+  transition: opacity .66s ease;
 }
 
 .cell {

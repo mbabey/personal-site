@@ -27,6 +27,13 @@ function Pathfind() {
       // Create the Entity and it's target (opposite the Entity).
       const entity = await create_entity_and_target(SIZE_X, SIZE_Y, world);
 
+      // Draw the world.
+      setWorldImage(world.draw());
+
+      // Fade in the world.
+      const pf = document.getElementById('pathfind');
+      pf.style.opacity = 1;
+      
       // Run the Dijkstra pathfinding algorithm.
       const path_info = await dijkstra_pathfind(entity, entity.get_target(), world);
 
