@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import Project from './Project';
+import { handleEnterReturnKeypress } from '../scripts/util';
 
 import '../styles/projects.css'
 
@@ -68,7 +69,9 @@ const Projects = forwardRef(function Projects(props, ref) {
     document.querySelectorAll('#projects .wrapper .project.focused').forEach((p) => {
       p.classList.remove('focused');
       const p_a = p.querySelector('a');
-      p_a.tabIndex = -1;
+      if (p_a) {
+        p_a.tabIndex = -1;
+      }
     });
     const project_div = document.querySelector(`#projects .wrapper .project:nth-child(${proj_num})`);
     project_div.classList.add('focused');
@@ -87,7 +90,14 @@ const Projects = forwardRef(function Projects(props, ref) {
           <ul>
             {project_info.map((p, index) => {
               return (
-                <li key={p.abbreviation} onClick={() => displayProject(index + OFFSET)} tabIndex={0}>{p.abbreviation}</li>
+                <li
+                  key={p.abbreviation}
+                  tabIndex={0}
+                  onClick={() => displayProject(index + OFFSET)}
+                  onKeyDown={(e) => handleEnterReturnKeypress(e, () => displayProject(index + OFFSET))}
+                >
+                  {p.abbreviation}
+                </li>
               );
             })}
           </ul>

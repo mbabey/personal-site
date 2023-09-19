@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { handleEnterReturnKeypress } from '../scripts/util';
+
 import '../styles/nav.css';
 
 function Nav({ scrollTo, pages }) {
@@ -15,9 +17,24 @@ function Nav({ scrollTo, pages }) {
     <div id='nav'>
       <div className='width-wrapper'>
         <ul>
-          <li onClick={() => scrollTo(pages.about)}>About</li>
-          <li onClick={() => scrollTo(pages.projects)}>Projects</li>
-          <li onClick={() => scrollTo(pages.contact)}>Contact Me</li>
+          <li
+            onClick={() => scrollTo(pages.about)} tabIndex={0}
+            onKeyDown={(e) => handleEnterReturnKeypress(e, () => scrollTo(pages.about))}
+          >
+            About
+          </li>
+          <li
+            onClick={() => scrollTo(pages.projects)} tabIndex={0}
+            onKeyDown={(e) => handleEnterReturnKeypress(e, () => scrollTo(pages.projects))}
+          >
+            Projects
+          </li>
+          <li
+            onClick={() => scrollTo(pages.contact)} tabIndex={0}
+            onKeyDown={(e) => handleEnterReturnKeypress(e, () => scrollTo(pages.contact))}
+          >
+            Contact Me
+          </li>
         </ul>
       </div>
     </div>
