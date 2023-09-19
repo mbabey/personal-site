@@ -16,7 +16,19 @@
   font-family: Cambria, serif;
   font-size: 3em;
   font-weight: 500;
-  animation: 2.5s ease fadeInLate;
+  animation: 2s ease fadeInLateLate;
+  position: relative;
+}
+
+#top h1::after {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: -10%;
+  height: 5px;
+  width: 0%;
+  background-color: #000;
+  animation: 1s ease 2s expandAndShrink;
 }
 
 #top #pathfind {
@@ -32,10 +44,25 @@
   0% {
     opacity: 0;
   }
-  60% {
+  40% {
     opacity: 0;
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes expandAndShrink {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  90% {
+    width: 70%;
+    left: 0;
+  }
+  100% {
+    width: 0%;
+    left: 70%;
   }
 }
