@@ -7,12 +7,14 @@
 #top .width-wrapper {
   display: grid;
   grid-template-columns: 30% 70%;
+  grid-template-rows: 50% 50%;
   height: 100%;
 }
 
 #top h1 {
-  margin: auto 0;
+  margin: auto 0 0;
   grid-column: 1 / span 1;
+  grid-row: 1 / span 1;
   font-family: Cambria, serif;
   font-size: 3em;
   font-weight: 500;
@@ -31,9 +33,24 @@
   animation: 1s ease 2s expandAndShrink;
 }
 
+#top #socials {
+  display: inline;
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+  margin-top: 10%;
+  animation: 5s ease fadeInLateLate;
+}
+
+#top #socials img {
+  width: 64px;
+  height: auto;
+  padding: 0 20px;
+}
+
 #top #pathfind {
   width: 70%;
   grid-column: 2 / span 1;
+  grid-row: 1 / span 2;
   margin: auto;
   transform: rotateX(55deg) rotateZ(45deg);
   opacity: 0;
