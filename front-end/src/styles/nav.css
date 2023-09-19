@@ -18,6 +18,8 @@
   padding: 0 15px 10px;
   cursor: pointer;
   position: relative;
+  font-size: 1.15em;
+  font-weight: 500;
 }
 
 #nav li::after {
