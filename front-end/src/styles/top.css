@@ -23,4 +23,6 @@
   grid-column: 2 / span 1;
   margin: auto;
   transform: rotateX(55deg) rotateZ(45deg);
+  opacity: 0;
+  transition: opacity .66s ease;
 }
