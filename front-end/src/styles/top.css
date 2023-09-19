@@ -16,6 +16,7 @@
   font-family: Cambria, serif;
   font-size: 3em;
   font-weight: 500;
+  animation: 2.5s ease fadeInLate;
 }
 
 #top #pathfind {
@@ -25,4 +26,16 @@
   transform: rotateX(55deg) rotateZ(45deg);
   opacity: 0;
   transition: opacity .66s ease;
+}
+
+@keyframes fadeInLateLate {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

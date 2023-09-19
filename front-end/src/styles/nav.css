@@ -4,6 +4,7 @@
   position: absolute;
   top: 0;
   right: 0;
+  animation: 1s ease fadeInLate;
 }
 
 #nav ul {
@@ -33,4 +34,16 @@
 
 #nav li:hover::after{
   width: 80%;
+}
+
+@keyframes fadeInLate {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
