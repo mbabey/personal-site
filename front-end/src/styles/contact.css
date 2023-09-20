@@ -53,13 +53,26 @@
 }
 
 #contact .socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   padding-top: 100px;
-  text-align: center;
+}
+
+#contact .socials a {
+  margin: 0 10%;
+}
+
+#contact .socials a:nth-child(1) {
+  width: 64px;
+}
+
+#contact .socials a:nth-child(2) {
+  width: 52px;
 }
 
 #contact .socials img {
-  width: 64px;
+  width: 100%;
   height: auto;
-  padding: 0 20px;
   filter: brightness(0) invert(1);
 }
