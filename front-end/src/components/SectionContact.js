@@ -15,8 +15,8 @@ const Contact = forwardRef(function Contact(props, ref) {
           <button type='submit'>Send</button>
         </form>
         <div className='socials'>
-          <a href='https://www.linkedin.com/in/maxwell-babey'><img src='linkedin.svg' alt='LinkedIn' /></a>
-          <a href='https://github.com/mbabey'><img src='github.svg' alt='GitHub' /></a>
+          <a target='_blank' href='https://www.linkedin.com/in/maxwell-babey'><img src='linkedin.svg' alt='LinkedIn' /></a>
+          <a target='_blank' href='https://github.com/mbabey'><img src='github.svg' alt='GitHub' /></a>
         </div>
       </div>
     </section>
