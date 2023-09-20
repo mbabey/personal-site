@@ -75,6 +75,28 @@
   opacity: 1;
 }
 
+#projects .project .links {
+  display: flex;
+  flex-direction: row;
+}
+
+#projects .project .links div {
+  margin-right: 10%;
+}
+
+#projects p {
+  margin: 0;
+}
+
+#projects h4 {
+  margin: 0.75em 0 0.5em 0.5em;
+}
+
+#projects h3,
+#projects h4 {
+  color: #000;
+}
+
 #projects .project .images {
   display: flex;
   flex-direction: column;
