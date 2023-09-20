@@ -24,8 +24,8 @@ const Projects = forwardRef(function Projects(props, ref) {
       srclink: "https://github.com/mbabey/chat-server-test-saddle",
       description: "TCP-based network application, application-layer protocol, team leadership, project management.",
       languages: "POSIX C",
-      images: ["", "projects-images/chat/chat-rfc.png"],
-      imagealts: ["Process Server Diagram", "RFC"]
+      images: ["projects-images/chat/chat-rfc.png", "", "projects-images/chat/chat-server-running.png"],
+      imagealts: ["RFC", "Process Server Diagram", "Server Running"]
     },
     {
       title: "Tic-Tac-Toe Game Server on Reliable UDP",

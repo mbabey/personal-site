@@ -82,11 +82,13 @@
 
 #projects .project .img-wrapper {
   width: 80%;
+  margin-bottom: 10%;
 }
 
 #projects .project img {
   width: 100%;
   height: auto;
+  filter: drop-shadow(0 0 10px #00000022);
 }
 
 /*  
