@@ -9,8 +9,8 @@ const Top = forwardRef(function Top(props, ref) {
       <div className='width-wrapper'>
         <h1>Maxwell<br />Babey</h1>
         <div className='socials'>
-          <a target='_blank' href='https://www.linkedin.com/in/maxwell-babey'><img src='linkedin.svg' alt='LinkedIn' /></a>
-          <a target='_blank' href='https://github.com/mbabey'><img src='github.svg' alt='GitHub' /></a>
+          <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/maxwell-babey'><img src='linkedin.svg' alt='LinkedIn' /></a>
+          <a target='_blank' rel='noreferrer' href='https://github.com/mbabey'><img src='github.svg' alt='GitHub' /></a>
         </div>
         <Pathfind />
       </div>
