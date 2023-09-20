@@ -66,6 +66,8 @@
   transition: all 0.8s cubic-bezier(0.10, 0.20, 0.30, 1);
   background-color: #fff;
   padding: 10px;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 #projects .project.focused {
@@ -75,14 +77,39 @@
 
 #projects .project .images {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 #projects .project .img-wrapper {
-  max-width: 256px;
+  width: 80%;
 }
 
 #projects .project img {
   width: 100%;
   height: auto;
+}
+
+/*  
+Even projects:
+  text | img
+       |   img
+
+Odd projects:
+  text |   img
+       | img
+*/
+#projects .project:nth-child(even) .images .img-wrapper:nth-child(odd) {
+  padding-right: 10%;
+}
+
+#projects .project:nth-child(even) .images .img-wrapper:nth-child(even) {
+  padding-left: 10%;
+}
+
+#projects .project:nth-child(odd) .images .img-wrapper:nth-child(odd) {
+  padding-left: 10%;
+}
+
+#projects .project:nth-child(odd) .images .img-wrapper:nth-child(even) {
+  padding-right: 10%;
 }
