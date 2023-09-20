@@ -34,17 +34,31 @@
 }
 
 #top .socials {
-  display: inline;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   grid-column: 1 / span 1;
   grid-row: 2 / span 1;
   margin-top: 10%;
+  margin-bottom: auto;
   animation: 5s ease fadeInLateLate;
 }
 
-#top .socials img {
+#top .socials a {
+  margin: 0 10%;
+}
+
+#top .socials a:nth-child(1) {
   width: 64px;
+}
+
+#top .socials a:nth-child(2) {
+  width: 52px;
+}
+
+#top .socials img {
+  width: 100%;
   height: auto;
-  padding: 0 20px;
 }
 
 #top #pathfind {
