@@ -14,8 +14,8 @@ const Projects = forwardRef(function Projects(props, ref) {
       srclink: "",
       description: "Agile, team leadership, full-stack, project management.",
       languages: "JavaScript, React, node.js, Express.js, HTML, and CSS",
-      images: ["", ""],
-      imagealts: ["ODEN Logo", "ODEN Website Screenshot", "ODEN Team Photo"]
+      images: ["projects-images/oden/ODEN-logo.svg", "projects-images/oden/ODEN-interface.png"],
+      imagealts: ["ODEN Logo", "ODEN Interface"]
     },
     {
       title: "CHAT Protocol and Testing Suite",
@@ -24,7 +24,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       srclink: "https://github.com/mbabey/chat-server-test-saddle",
       description: "TCP-based network application, application-layer protocol, team leadership, project management.",
       languages: "POSIX C",
-      images: ["", ""],
+      images: ["", "projects-images/chat/chat-rfc.png"],
       imagealts: ["Process Server Diagram", "RFC"]
     },
     {
@@ -34,8 +34,8 @@ const Projects = forwardRef(function Projects(props, ref) {
       srclink: "https://github.com/mbabey/more-reliable-udp",
       description: "UDP-based network application, application-layer protocol, hardware integration",
       languages: "POSIX C, Raspberry Pi & breadboard",
-      images: ["", ""],
-      imagealts: ["Game Interface", "Playing the Game"]
+      images: ["projects-images/udp/tic-tac-network.png", "projects-images/udp/reliable-udp-running.png"],
+      imagealts: ["Game Network", "Playing the Game"]
     },
     {
       title: "Custom Shell",
@@ -44,17 +44,17 @@ const Projects = forwardRef(function Projects(props, ref) {
       srclink: "https://github.com/mbabey/c-shell",
       description: "Low-level OS interfacing",
       languages: "POSIX C",
-      images: [""],
+      images: ["projects-images/shell/shell-running.png"],
       imagealts: ["Shell Running"]
     },
     {
       title: "Pokedex API",
       abbreviation: "Pokemon API",
-      demolink: "",
+      demolink: "https://mb-pokedex-of-pokemon.vercel.app/",
       srclink: "https://github.com/mbabey/comp4537-assignment-3-pokemon-api",
       description: "Full-stack, REST API",
       languages: "JavaScript, React, node.js, Express.js, HTML, and CSS",
-      images: ["", ""],
+      images: ["projects-images/pokedex/pokedex-api-login.png", "projects-images/pokedex/pokedex-api-interface.png"],
       imagealts: ["Pokedex Website Login", "Pokedex Website Interface"]
     },
     {
@@ -64,7 +64,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       srclink: "https://github.com/mbabey/tsp-genetic",
       description: "A genetic algorithm solution to the traveling salesperson problem",
       languages: "C++",
-      images: ["", ""],
+      images: ["projects-images/tsp/graph.png", ""],
       imagealts: ["Connected Graph", "Genetic TSP Output"]
     },
     {
