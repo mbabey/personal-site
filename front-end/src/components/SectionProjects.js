@@ -45,8 +45,8 @@ const Projects = forwardRef(function Projects(props, ref) {
       abbreviation: "Linux Shell",
       demolink: "",
       srclink: "https://github.com/mbabey/c-shell",
-      description: "Low-level OS interfacing",
-      outcomes: "",
+      description: "A shell program written in POSIX C so to work on any Unix-based distribution.",
+      outcomes: "Since I started coding, I realized that computers, at every level, are designed to make sense. Creating this shell program reinforced that idea. Through this project I gained a good understanding of how operating systems are structured in tiers, with each function calling another deeper function onward to the kernel. Moreover, I gained an appreciation for creating functions that are consistent in their output so they may be reused and strung together in a variety of ways.",
       languages: "POSIX C",
       images: ["projects-images/shell/shell-running.png"],
       imagealts: ["Shell Running"]
