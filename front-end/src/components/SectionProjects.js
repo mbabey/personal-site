@@ -12,8 +12,8 @@ const Projects = forwardRef(function Projects(props, ref) {
       abbreviation: "ODEN",
       demolink: "https://terratap-oden-client-v2.web.app",
       srclink: "",
-      description: "ODEN is a project I worked on that simplifies and streamlines the workflow by providing a centralized hub for open data. Developers can easily find the data they need, access standardized and ready-to-use datasets, and avoid the time-consuming tasks of manual data conversion and cleaning.",
-      outcomes: "In this project, I was the lead on a team of nineteen people. I learned a lot about what it takes to manage a project using agile methodology and multitudes about full-stack web development using React, node.js, and Express.js. The team finished what was required of us in just two-and-a-half weeks and received commendation from our industry clients at TerraTap Technologies and from the Faculty of Computing at BCIT.",
+      description: "The Opendata Developer Network simplifies and streamlines developer workflows by providing a centralized hub for open data. Developers can easily find the data they need, access standardized and ready-to-use datasets, and avoid the time-consuming tasks of manual data conversion and cleaning.",
+      outcomes: "In this project, I was the lead on a team of nineteen people. I learned about what it takes to manage a project using agile methodology and about full-stack web development using React, node.js, and Express.js. The team finished what was required of us in just two-and-a-half weeks and received commendation from our industry clients at TerraTap Technologies and from the Faculty of Computing at BCIT.",
       languages: "JavaScript, React, node.js, Express.js, HTML, and CSS",
       images: ["projects-images/oden/ODEN-logo.svg", "projects-images/oden/ODEN-interface.png"],
       imagealts: ["ODEN Logo", "ODEN Interface"]
