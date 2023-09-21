@@ -12,7 +12,8 @@ const Projects = forwardRef(function Projects(props, ref) {
       abbreviation: "ODEN",
       demolink: "https://terratap-oden-client-v2.web.app",
       srclink: "",
-      description: "Agile, team leadership, full-stack, project management.",
+      description: "ODEN is a project I worked on that simplifies and streamlines the workflow by providing a centralized hub for open data. Developers can easily find the data they need, access standardized and ready-to-use datasets, and avoid the time-consuming tasks of manual data conversion and cleaning.",
+      outcomes: "In this project, I was the lead on a team of nineteen people. I learned a lot about what it takes to manage a project using agile methodology and multitudes about full-stack web development using React, node.js, and Express.js. The team finished what was required of us in just two-and-a-half weeks and received commendation from our industry clients at TerraTap Technologies and from the Faculty of Computing at BCIT.",
       languages: "JavaScript, React, node.js, Express.js, HTML, and CSS",
       images: ["projects-images/oden/ODEN-logo.svg", "projects-images/oden/ODEN-interface.png"],
       imagealts: ["ODEN Logo", "ODEN Interface"]
@@ -23,6 +24,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       demolink: "",
       srclink: "https://github.com/mbabey/chat-server-test-saddle",
       description: "TCP-based network application, application-layer protocol, team leadership, project management.",
+      outcomes: "",
       languages: "POSIX C",
       images: ["projects-images/chat/chat-rfc.png", "projects-images/chat/chat-server-running.png"],
       imagealts: ["RFC", "Server Running", "Process Server Diagram"]
@@ -33,6 +35,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       demolink: "",
       srclink: "https://github.com/mbabey/more-reliable-udp",
       description: "UDP-based network application, application-layer protocol, hardware integration",
+      outcomes: "",
       languages: "POSIX C, Raspberry Pi & breadboard",
       images: ["projects-images/udp/tic-tac-network.png", "projects-images/udp/reliable-udp-running.png"],
       imagealts: ["Game Network", "Playing the Game"]
@@ -43,6 +46,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       demolink: "",
       srclink: "https://github.com/mbabey/c-shell",
       description: "Low-level OS interfacing",
+      outcomes: "",
       languages: "POSIX C",
       images: ["projects-images/shell/shell-running.png"],
       imagealts: ["Shell Running"]
@@ -53,6 +57,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       demolink: "https://mb-pokedex-of-pokemon.vercel.app/",
       srclink: "https://github.com/mbabey/comp4537-assignment-3-pokemon-api",
       description: "Full-stack, REST API",
+      outcomes: "",
       languages: "JavaScript, React, node.js, Express.js, HTML, and CSS",
       images: ["projects-images/pokedex/pokedex-api-login.png", "projects-images/pokedex/pokedex-api-interface.png"],
       imagealts: ["Pokedex Website Login", "Pokedex Website Interface"]
@@ -63,6 +68,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       demolink: "",
       srclink: "https://github.com/mbabey/tsp-genetic",
       description: "A genetic algorithm solution to the traveling salesperson problem",
+      outcomes: "",
       languages: "C++",
       images: ["projects-images/tsp/graph.png", "projects-images/tsp/running-tsp.png"],
       imagealts: ["Connected Graph", "Genetic TSP Output"]
@@ -73,6 +79,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       demolink: "",
       srclink: "https://github.com/mbabey/personal-site",
       description: "A personal website for displaying my portfolio and to allow other to get in touch.",
+      outcomes: "",
       languages: "JavaScript, React, HTML, and CSS",
       images: [],
       imagealts: []
@@ -124,8 +131,9 @@ const Projects = forwardRef(function Projects(props, ref) {
               title={p.title}
               demolink={p.demolink}
               srclink={p.srclink}
-              description={p.description}
               languages={p.languages}
+              description={p.description}
+              outcomes={p.outcomes}
               images={p.images}
               imagealts={p.imagealts}
             />
