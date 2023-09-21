@@ -23,8 +23,8 @@ const Projects = forwardRef(function Projects(props, ref) {
       abbreviation: "CHAT Protocol",
       demolink: "",
       srclink: "https://github.com/mbabey/chat-server-test-saddle",
-      description: "TCP-based network application, application-layer protocol, team leadership, project management.",
-      outcomes: "",
+      description: "The CHAT Protocol is a TCP-based application-layer protocol for a messaging service similar to Discord or MSN Messenger. Along with the protocol was necessitated the development of programs to use it: clients and servers. Furthermore, a testing suite was developed to ensure the clients and servers adhered properly to the protocol.",
+      outcomes: "This was a class project. The class of nineteen was split into six groups of three. Half of those six groups built servers and the other half clients. Astutely, you might see that there would be one person left out of this arrangement; I was that person. It was my responsibility to develop and write the specification for the protocol. I developed the testing programs the other groups would use, creating multi-process-based benchmark server and comprehensive test client programs. I had to be far ahead of the rest of the class, as my product was necessary for them to begin working. In the end, the protocol was too complex to implement in our time frame. However, from this I learned how the importance of clarity and simplicity in specification and communication.",
       languages: "POSIX C",
       images: ["projects-images/chat/chat-rfc.png", "projects-images/chat/chat-server-running.png"],
       imagealts: ["RFC", "Server Running", "Process Server Diagram"]
@@ -34,8 +34,8 @@ const Projects = forwardRef(function Projects(props, ref) {
       abbreviation: "UDP Game Server",
       demolink: "",
       srclink: "https://github.com/mbabey/more-reliable-udp",
-      description: "UDP-based network application, application-layer protocol, hardware integration",
-      outcomes: "",
+      description: "A reliable, connection-oriented UDP-based application-layer protocol running a two-player Tic-Tac-Toe game server. The Tic-Tac-Toe is controlled by a breadboard controller attached to a Raspberry Pi. The Pis run the client programs and connect to the server, which can be run on any POSIX platform. This project was built with a partner, Prabh Sokhey.",
+      outcomes: "The task of this project was large. Prabh and I had to develop the protocol very carefully and at the same time create the game, its interfaces, and write the low-level code for the breadboard. We split the task up into the game and the server; our designs included UMLs where we specified the API we would require from each other, sequence diagrams for every possible type of interaction between the clients and the server, and pages of documentation. The project was a success, and I learned the advantages of design, thoughtfully created prior to writing a single line of code.",
       languages: "POSIX C, Raspberry Pi & breadboard",
       images: ["projects-images/udp/tic-tac-network.png", "projects-images/udp/reliable-udp-running.png"],
       imagealts: ["Game Network", "Playing the Game"]
