@@ -56,9 +56,9 @@ const Projects = forwardRef(function Projects(props, ref) {
       abbreviation: "Pokemon API",
       demolink: "https://mb-pokedex-of-pokemon.vercel.app/",
       srclink: "https://github.com/mbabey/comp4537-assignment-3-pokemon-api",
-      description: "Full-stack, REST API",
-      outcomes: "",
-      languages: "JavaScript, React, node.js, Express.js, HTML, and CSS",
+      description: "A REST API to communicate with a database filled with information about Pokemon and a full-stack web application to act as an interface for the API.",
+      outcomes: "This application was very entertaining to develop. It was my first React application; I was able to apply object-oriented methodologies to web development for the first time. I learned the great simplicity that React offers in terms of creating web applications. I also hosted a website and backend separately for the first time here. It was very interesting to see my related knowledge in networking applied practically.",
+      languages: "JavaScript, React, node.js, Express.js, mongodb, HTML, and CSS",
       images: ["projects-images/pokedex/pokedex-api-login.png", "projects-images/pokedex/pokedex-api-interface.png"],
       imagealts: ["Pokedex Website Login", "Pokedex Website Interface"]
     },
@@ -67,8 +67,8 @@ const Projects = forwardRef(function Projects(props, ref) {
       abbreviation: "Genetic TSP",
       demolink: "",
       srclink: "https://github.com/mbabey/tsp-genetic",
-      description: "A genetic algorithm solution to the traveling salesperson problem",
-      outcomes: "",
+      description: "A genetic algorithm solution to the traveling salesperson problem written in C++. [Explain how the algorithm works].",
+      outcomes: "[Talk about keeping code clean, design principles used, and thorough documentation. Talk about the funciton at the heart of the program being a very simple loop, obscuring the complexity of the algorithm underneath.]",
       languages: "C++",
       images: ["projects-images/tsp/graph.png", "projects-images/tsp/running-tsp.png"],
       imagealts: ["Connected Graph", "Genetic TSP Output"]
