@@ -1,5 +1,6 @@
 import React, { forwardRef, useRef, useState } from 'react';
 import { handleEnterReturnKeypress } from '../scripts/util';
+import validator from 'validator';
 import emailjs from '@emailjs/browser';
 
 import '../styles/contact.css';
@@ -14,6 +15,10 @@ const Contact = forwardRef(function Contact(props, ref) {
 
   const form = useRef(null);
   const submitBtn = useRef(null);
+  const name = useRef(null);
+  const email = useRef(null);
+  const message = useRef(null);
+
   const [btnContent, setBtnContent] = useState(USER_MSG_SEND);
 
   function handleSubmit(e) {
@@ -23,10 +28,17 @@ const Contact = forwardRef(function Contact(props, ref) {
       return;
     }
 
+    // Validate content.
+    if (!(name.valid && email.valid && message.valid)) {
+      return;
+    }
+
     setBtnContent(USER_MSG_SENDING);
 
     const handleSubmitSuccess = (result) => {
-      clearForm(form.current);
+      name.current.value = '';
+      email.current.value = '';
+      message.current.value = '';
       setBtnContent(USER_MSG_SUCCESS);
     }
 
@@ -47,12 +59,13 @@ const Contact = forwardRef(function Contact(props, ref) {
         <h2>Contact</h2>
         <p>Reach out to me through the form below with your name, email, and message:</p>
         <form autoComplete='on' ref={form}>
-          <input type='name' placeholder='Your Name' name='name' required></input>
-          <input type='email' placeholder='Your Email' name='email' required></input>
-          <textarea type='text' placeholder='Message' name='message' required></textarea>
-          <button
-            ref={submitBtn}
-            type='submit'
+          <input ref={name} type='name' placeholder='Your Name' name='name'
+            onKeyDown={validateName(name)}></input>
+          <input ref={email} type='email' placeholder='Your Email' name='email'
+            onKeyDown={validateEmail(email)}></input>
+          <textarea ref={message} type='text' placeholder='Message' name='message'
+            onKeyDown={validateMessage(message)}></textarea>
+          <button ref={submitBtn} type='submit'
             onClick={handleSubmit}
             onKeyDown={(e) => handleEnterReturnKeypress(e, () => handleSubmit(e))}
           >
@@ -68,14 +81,28 @@ const Contact = forwardRef(function Contact(props, ref) {
   )
 });
 
-function clearForm(form) {
-  const inputs = form.querySelectorAll('input');
-  const textarea = form.querySelector('textarea');
+function validateName(name) {
+  if (name.current.value === '') {
+    name.valid = false;
+  } else {
+    name.valid = true;
+  }
+}
 
-  inputs.forEach(i => {
-    i.value = "";
-  });
-  textarea.value = "";
+function validateEmail(email) {
+  if (email.current.value === '' || !validator.isEmail(email.current.value)) {
+    email.valid = false;
+  } else {
+    email.valid = true;
+  }
+}
+
+function validateMessage(message) {
+  if (message.current.value === '') {
+    message.valid = false;
+  } else {
+    message.valid = true;
+  }
 }
 
 export default Contact
