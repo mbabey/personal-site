@@ -27,6 +27,7 @@ const Contact = forwardRef(function Contact(props, ref) {
 
     emailjs.sendForm(process.env.REACT_APP_EMAIL_SERVICE, process.env.REACT_APP_EMAIL_TEMPLATE, form.current, process.env.REACT_APP_EMAIL_KEY)
       .then((result) => {
+        clearForm(form.current);
         setBtnContent(USER_MSG_SUCCESS);
       }, (error) => {
         setBtnContent(USER_MSG_FAILURE);
@@ -62,5 +63,15 @@ const Contact = forwardRef(function Contact(props, ref) {
     </section>
   )
 });
+
+function clearForm(form) {
+  const inputs = form.querySelectorAll('input');
+  const textarea = form.querySelector('textarea');
+
+  inputs.forEach(i => {
+    i.value = "";
+  });
+  textarea.value = "";
+}
 
 export default Contact
