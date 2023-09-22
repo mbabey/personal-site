@@ -59,10 +59,6 @@
   transform: scale(1.05);
 }
 
-#contact form button:focus {
-  transform: scale(1.05);
-}
-
 #contact form button:active {
   transform: scale(0.95);
 }

@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, useRef, useState } from 'react';
 import { handleEnterReturnKeypress } from '../scripts/util';
 import emailjs from '@emailjs/browser';
 
@@ -6,15 +6,33 @@ import '../styles/contact.css';
 
 const Contact = forwardRef(function Contact(props, ref) {
 
+  const USER_MSG_SEND = 'Send';
+  const USER_MSG_SENDING = 'Message sending...';
+  const USER_MSG_SUCCESS = 'Success! Message sent';
+  const USER_MSG_FAILURE = 'Message failed to send; try again later';
+  const USER_MSG_RESEND = 'You\'ve already pressed this; try again later';
+
   const form = useRef(null);
+  const [btnContent, setBtnContent] = useState(USER_MSG_SEND);
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (btnContent !== USER_MSG_SEND)
+    {
+      setBtnContent(USER_MSG_RESEND);
+      return;
+    }
+
+    setBtnContent(USER_MSG_SENDING);
 
     emailjs.sendForm(process.env.REACT_APP_EMAIL_SERVICE, process.env.REACT_APP_EMAIL_TEMPLATE, form.current, process.env.REACT_APP_EMAIL_KEY)
       .then((result) => {
-        console.log(result);
+        setBtnContent(USER_MSG_SUCCESS);
+      }, (error) => {
+        setBtnContent(USER_MSG_FAILURE);
+        console.log(error);
       }).catch((error) => {
+        setBtnContent(USER_MSG_FAILURE);
         console.log(error);
       });
   }
@@ -33,7 +51,7 @@ const Contact = forwardRef(function Contact(props, ref) {
             onClick={handleSubmit}
             onKeyDown={(e) => handleEnterReturnKeypress(e, () => handleSubmit(e))}
           >
-            Send
+            {btnContent}
           </button>
         </form>
         <div className='socials'>
