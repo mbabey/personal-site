@@ -24,7 +24,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       demolink: "",
       srclink: "https://github.com/mbabey/chat-server-test-saddle",
       description: "The CHAT Protocol is a TCP-based application-layer protocol for a messaging service similar to Discord or MSN Messenger. Along with the protocol was necessitated the development of programs to use it: clients and servers. Furthermore, a testing suite was developed to ensure the clients and servers adhered properly to the protocol.",
-      outcomes: "This was a class project. The class of nineteen was split into six groups of three. Half of those six groups built servers and the other half clients. Astutely, you might see that there would be one person left out of this arrangement; I was that person. It was my responsibility to develop and write the specification for the protocol. I developed the testing programs the other groups would use, creating multi-process-based benchmark server and comprehensive test client programs. I had to be far ahead of the rest of the class, as my product was necessary for them to begin working. In the end, the protocol was too complex to implement in our time frame. However, from this I learned how the importance of clarity and simplicity in specification and communication.",
+      outcomes: "This was a class project. The class of nineteen was split into six groups of three. Half of those six groups built servers and the other half clients. I was the individual left out of this arrangement. It was my responsibility to develop and write the specification for the protocol. I developed the testing programs the other groups would use, creating multi-process-based benchmark server and comprehensive test client programs. I had to be far ahead of the rest of the class, as my product was necessary for them to begin working. In the end, the protocol was too complex to implement in our time frame. However, from this I learned how the importance of clarity and simplicity in specification and communication.",
       languages: "POSIX C",
       images: ["projects-images/chat/chat-rfc.png", "projects-images/chat/chat-server-running.png"],
       imagealts: ["RFC", "Server Running", "Process Server Diagram"]
@@ -67,8 +67,8 @@ const Projects = forwardRef(function Projects(props, ref) {
       abbreviation: "Genetic TSP",
       demolink: "",
       srclink: "https://github.com/mbabey/tsp-genetic",
-      description: "A genetic algorithm solution to the traveling salesperson problem written in C++. [Explain how the algorithm works].",
-      outcomes: "[Talk about keeping code clean, design principles used, and thorough documentation. Talk about the funciton at the heart of the program being a very simple loop, obscuring the complexity of the algorithm underneath.]",
+      description: "A genetic algorithm solution to the traveling salesperson problem written in C++. The algorithm creates a number of Cities, then creates a number of Tours from those Cities. The Tours make up the Population and are sorted by their 'fitness', which is the total distance of the Tour divided by the number of Cities in a Tour; a lower fitness is a better fitness. The Tour with the best fitness is declared an 'Elite.' All Tours that are not Elite are candidates to be 'Parent Tours.' Parent Tours are crossed to produce offspring, which replace all non-elite Tours in the population. Next, the offspring Tours are randomly mutated by swapping the order of the Cities within. Elite Tours will not be involved in the crossing and mutating steps. Once an improvement threshold or an iteration limit is reached, the algorithm stops and prints the resulting best fit Tour.",
+      outcomes: "This algorithm was complex to implement. It was a great exercise in keeping the code organized, clean, and well-documented. At the project's end, the heart of the program was a very simple for-loop, obscuring the complexity of the algorithm underneath.",
       languages: "C++",
       images: ["projects-images/tsp/graph.png", "projects-images/tsp/running-tsp.png"],
       imagealts: ["Connected Graph", "Genetic TSP Output"]
@@ -78,7 +78,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       abbreviation: "This Website",
       demolink: "",
       srclink: "https://github.com/mbabey/personal-site",
-      description: "A personal website for displaying my portfolio and to allow other to get in touch.",
+      description: "This website is for displaying my portfolio and to allow others to get in touch. It hosts, in its header, a dynamic pathfinding animation. The colour of the tiles represents the altitude; darker colour is higher altitude. The red square finds the path to the yellow square with the minimum change in altitude. Djikstra's algorithm is used to find the best path.",
       outcomes: "",
       languages: "JavaScript, React, HTML, and CSS",
       images: [],
