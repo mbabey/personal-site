@@ -1,0 +1,2 @@
+front-end/public/favicon.ico, front-end/public/logo192.png, front-end/public/logo512.png: https://www.flaticon.com/free-icons/laptop - Laptop icons created by Freepik - Flaticon
+front-end/public/projects-images/tsp/graph.png: https://en.wikipedia.org/wiki/Travelling_salesman_problem
