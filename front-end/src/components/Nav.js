@@ -21,7 +21,7 @@ function Nav({ scrollTo, pages }) {
             onClick={() => scrollTo(pages.about)} tabIndex={0}
             onKeyDown={(e) => handleEnterReturnKeypress(e, () => scrollTo(pages.about))}
           >
-            About
+            Me
           </li>
           <li
             onClick={() => scrollTo(pages.projects)} tabIndex={0}

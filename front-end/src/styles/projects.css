@@ -4,7 +4,7 @@
 }
 
 #projects .width-wrapper {
-  height: 100%;
+  height: auto;
   display: grid;
   grid-template-columns: 20% 80%;
   grid-template-rows: 10% 90%;
