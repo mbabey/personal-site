@@ -11,12 +11,6 @@ const Contact = forwardRef(function Contact(props, ref) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    console.log('here');
-    console.log(process.env.REACT_APP_EMAIL_KEY);
-    console.log(process.env.REACT_APP_EMAIL_SERVICE);
-    console.log(process.env.REACT_APP_EMAIL_TEMPLATE);
-    console.log(process.env.NODE_ENV);
-
     emailjs.sendForm(process.env.REACT_APP_EMAIL_SERVICE, process.env.REACT_APP_EMAIL_TEMPLATE, form.current, process.env.REACT_APP_EMAIL_KEY)
       .then((result) => {
         console.log(result);
