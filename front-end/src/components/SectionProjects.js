@@ -37,8 +37,8 @@ const Projects = forwardRef(function Projects(props, ref) {
       description: "A reliable, connection-oriented UDP-based application-layer protocol running a two-player Tic-Tac-Toe game server. The Tic-Tac-Toe is controlled by a breadboard controller attached to a Raspberry Pi. The Pis run the client programs and connect to the server, which can be run on any POSIX platform. This project was built with a partner, Prabh Sokhey.",
       outcomes: "The task of this project was large. Prabh and I had to develop the protocol very carefully and at the same time create the game, its interfaces, and write the low-level code for the breadboard. We split the task up into the game and the server; our designs included UMLs where we specified the API we would require from each other, sequence diagrams for every possible type of interaction between the clients and the server, and pages of documentation. The project was a success, and I learned the advantages of design, thoughtfully created prior to writing a single line of code.",
       languages: "POSIX C, Raspberry Pi & breadboard",
-      images: ["projects-images/udp/tic-tac-network.png", "projects-images/udp/reliable-udp-running.png"],
-      imagealts: ["Game Network", "Playing the Game"]
+      images: ["projects-images/udp/reliable-udp-running.png"],
+      imagealts: ["Playing the Game"]
     },
     {
       title: "Custom Shell",
