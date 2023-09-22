@@ -34,10 +34,12 @@
   padding: 10px;
   border-radius: 20px;
   font-weight: 500;
+  font-size: 0.8em;
+  line-height: 1.5em;
 }
 
 #contact form textarea {
-  height: 80px;
+  height: 12em;
 }
 
 #contact form button {
