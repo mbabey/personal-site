@@ -78,7 +78,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       abbreviation: "This Website",
       demolink: "",
       srclink: "https://github.com/mbabey/personal-site",
-      description: "This website is for displaying my portfolio and to allow others to get in touch. It hosts, in its header, a dynamic pathfinding animation. The colour of the tiles represents the altitude; darker colour is higher altitude. The red square finds the path to the yellow square with the minimum change in altitude. Djikstra's algorithm is used to find the best path.",
+      description: "This website is for displaying my portfolio and to allow others to get in touch. It hosts, in its header, a dynamic pathfinding animation. The colour of the tiles represents the altitude; darker colour is higher altitude. The red square traces a path to the yellow square with the minimum change in altitude. Djikstra's algorithm is used to find the best path.",
       outcomes: "",
       languages: "JavaScript, React, HTML, and CSS",
       images: [],
