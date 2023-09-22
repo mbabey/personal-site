@@ -60,11 +60,11 @@ const Contact = forwardRef(function Contact(props, ref) {
         <p>Reach out to me through the form below with your name, email, and message:</p>
         <form autoComplete='on' ref={form}>
           <input ref={name} type='name' placeholder='Your Name' name='name'
-            onKeyDown={validateName(name)}></input>
+            onKeyUp={() => validateName(name)}></input>
           <input ref={email} type='email' placeholder='Your Email' name='email'
-            onKeyDown={validateEmail(email)}></input>
+            onKeyUp={() => validateEmail(email)}></input>
           <textarea ref={message} type='text' placeholder='Message' name='message'
-            onKeyDown={validateMessage(message)}></textarea>
+            onKeyUp={() => validateMessage(message)}></textarea>
           <button ref={submitBtn} type='submit'
             onClick={handleSubmit}
             onKeyDown={(e) => handleEnterReturnKeypress(e, () => handleSubmit(e))}
