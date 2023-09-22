@@ -13,29 +13,32 @@ const Contact = forwardRef(function Contact(props, ref) {
   const USER_MSG_RESEND = 'You\'ve already pressed this; try again later';
 
   const form = useRef(null);
+  const submitBtn = useRef(null);
   const [btnContent, setBtnContent] = useState(USER_MSG_SEND);
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (btnContent !== USER_MSG_SEND)
-    {
+    if (btnContent !== USER_MSG_SEND) {
       setBtnContent(USER_MSG_RESEND);
       return;
     }
 
     setBtnContent(USER_MSG_SENDING);
 
+    const handleSubmitSuccess = (result) => {
+      clearForm(form.current);
+      setBtnContent(USER_MSG_SUCCESS);
+    }
+
+    const handleSubmitError = (error) => {
+      submitBtn.current.style.backgroundColor = '#ff343b'; // Red.
+      setBtnContent(USER_MSG_FAILURE);
+      console.log(error);
+    }
+
     emailjs.sendForm(process.env.REACT_APP_EMAIL_SERVICE, process.env.REACT_APP_EMAIL_TEMPLATE, form.current, process.env.REACT_APP_EMAIL_KEY)
-      .then((result) => {
-        clearForm(form.current);
-        setBtnContent(USER_MSG_SUCCESS);
-      }, (error) => {
-        setBtnContent(USER_MSG_FAILURE);
-        console.log(error);
-      }).catch((error) => {
-        setBtnContent(USER_MSG_FAILURE);
-        console.log(error);
-      });
+      .then(handleSubmitSuccess, handleSubmitError
+      ).catch(handleSubmitError);
   }
 
   return (
@@ -48,6 +51,7 @@ const Contact = forwardRef(function Contact(props, ref) {
           <input type='email' placeholder='Your Email' name='email' required></input>
           <textarea type='text' placeholder='Message' name='message' required></textarea>
           <button
+            ref={submitBtn}
             type='submit'
             onClick={handleSubmit}
             onKeyDown={(e) => handleEnterReturnKeypress(e, () => handleSubmit(e))}
