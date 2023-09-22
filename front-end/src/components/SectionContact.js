@@ -6,7 +6,7 @@ const Contact = forwardRef(function Contact(props, ref) {
   return (
     <section id='contact' ref={ref}>
       <div className='width-wrapper'>
-        <h2>Contact Me</h2>
+        <h2>Contact</h2>
         <p>Reach out to me through the form below with your name, email, and message:</p>
         <form autoComplete='on' action='/go' method='post'>
           <input type='text' placeholder='Your Name' required></input>

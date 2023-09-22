@@ -6,7 +6,7 @@ const About = forwardRef(function About(props, ref) {
   return (
     <section id='about' ref={ref}>
       <div className='width-wrapper'>
-        <h2>Me</h2>
+        <h2>About</h2>
         <div>
           <h4 className='text-head'>Hello, welcome!</h4>
           <p>I am a software developer with two years' experience at the keyboard. I have developed an intuitive understanding of computing and a strong interest in networking and cybersecurity. My strong work ethic and love of new experiences and challenges manifests itself in all aspects of my life. Thanks for visiting!</p>
@@ -18,6 +18,7 @@ const About = forwardRef(function About(props, ref) {
               <li>Low-level Systems</li>
               <li>Networking</li>
               <li>Cybersecurity</li>
+              <li>Teaching</li>
               <li>Outdoorsmanship</li>
             </ul>
           </div>

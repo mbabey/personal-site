@@ -1,7 +1,12 @@
 #about
 {
-  background-color: var(--col-blue-lt);
+  background: linear-gradient(178deg, var(--col-grey-lt) 10%, var(--col-blue-lt) 10%, var(--col-blue-lt) 80%, #fff 80%);
   min-height: 100vh;
+}
+
+#about .wrapper {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
 }
 
 #about h2,
@@ -10,12 +15,28 @@
   text-align: center;
 }
 
+#about p,
+#about li {
+  color: var(--col-grey-drk);
+}
+
 #about h2 {
   padding-top: 10%;
-  padding-bottom: 10px;
+}
+
+#about h3 {
+  font-weight: 600;
+}
+
+#about h4 {
+  padding-top: 10%;
 }
 
 #about h4.text-head {
+  color: var(--col-grey-drk);
+  font-family: var(--font-body);
+  padding-top: 5%;
+  font-weight: 500;
   text-align: left;
 }
 
@@ -24,13 +45,24 @@
   grid-template-columns: 50% 50%;
 }
 
-@media screen and (min-width: 700px) {
+#about ul {
+  list-style: none;
+  margin: 1em 0 0;
+  padding: 0;
+  text-align: center;
+}
+
+#about #interests,
+#about #proficiencies {
+  border-right: 1px solid #000;
+}
+
+@media screen and (max-width: 700px) {
   #about {
-    background: linear-gradient(178deg, var(--col-grey-lt) 10%, var(--col-blue-lt) 10%, var(--col-blue-lt) 80%, #fff 80%);
+    background-color: var(--col-blue-lt);
   }
 
   #about .wrapper {
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
+    display: block;
   }
 }
