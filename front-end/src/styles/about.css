@@ -15,7 +15,6 @@
   text-align: center;
 }
 
-#about p,
 #about li {
   color: var(--col-grey-drk);
 }
@@ -33,7 +32,6 @@
 }
 
 #about h4.text-head {
-  color: var(--col-grey-drk);
   font-family: var(--font-body);
   padding-top: 5%;
   font-weight: 500;
