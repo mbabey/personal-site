@@ -24,6 +24,7 @@ const Contact = forwardRef(function Contact(props, ref) {
   function handleSubmit(e) {
     e.preventDefault();
     if (btnContent !== USER_MSG_SEND) {
+      submitBtn.current.style.backgroundColor = '#534959'; // Dark grey.
       setBtnContent(USER_MSG_RESEND);
       return;
     }
@@ -33,17 +34,19 @@ const Contact = forwardRef(function Contact(props, ref) {
       return;
     }
 
+    submitBtn.current.style.backgroundColor = '#4C6F61'; // Dark green.
     setBtnContent(USER_MSG_SENDING);
 
     const handleSubmitSuccess = (result) => {
       name.current.value = '';
       email.current.value = '';
       message.current.value = '';
+      submitBtn.current.style.backgroundColor = '#5ba456'; // Bright green; original colour.
       setBtnContent(USER_MSG_SUCCESS);
     }
 
     const handleSubmitError = (error) => {
-      submitBtn.current.style.backgroundColor = '#ff343b'; // Red.
+      submitBtn.current.style.backgroundColor = '#FF343B'; // Red.
       setBtnContent(USER_MSG_FAILURE);
       console.log(error);
     }
