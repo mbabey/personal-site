@@ -87,24 +87,30 @@ const Contact = forwardRef(function Contact(props, ref) {
 function validateName(name) {
   if (name.current.value === '') {
     name.valid = false;
+    name.current.classList.add('invalid');
   } else {
     name.valid = true;
+    name.current.classList.remove('invalid');
   }
 }
 
 function validateEmail(email) {
   if (email.current.value === '' || !validator.isEmail(email.current.value)) {
     email.valid = false;
+    email.current.classList.add('invalid');
   } else {
     email.valid = true;
+    email.current.classList.remove('invalid');
   }
 }
 
 function validateMessage(message) {
   if (message.current.value === '') {
     message.valid = false;
+    message.current.classList.add('invalid');
   } else {
     message.valid = true;
+    message.current.classList.remove('invalid');
   }
 }
 
