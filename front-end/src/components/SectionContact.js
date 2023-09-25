@@ -18,6 +18,7 @@ const Contact = forwardRef(function Contact(props, ref) {
   const name = useRef(null);
   const email = useRef(null);
   const message = useRef(null);
+  const errmsg = useRef(null);
 
   const [btnContent, setBtnContent] = useState(USER_MSG_SEND);
 
@@ -31,9 +32,14 @@ const Contact = forwardRef(function Contact(props, ref) {
 
     // Validate content.
     if (!(name.valid && email.valid && message.valid)) {
+      validateName(name);
+      validateEmail(email);
+      validateMessage(message);
+      errmsg.current.hidden = false;
       return;
     }
 
+    errmsg.current.hidden = true;
     submitBtn.current.style.backgroundColor = '#4C6F61'; // Dark green.
     setBtnContent(USER_MSG_SENDING);
 
@@ -68,6 +74,7 @@ const Contact = forwardRef(function Contact(props, ref) {
             onKeyUp={() => validateEmail(email)}></input>
           <textarea ref={message} type='text' placeholder='Message' name='message'
             onKeyUp={() => validateMessage(message)}></textarea>
+          <div ref={errmsg} id='errmsg' hidden>Invalid form input; please fill all fields correctly.</div>
           <button ref={submitBtn} type='submit'
             onClick={handleSubmit}
             onKeyDown={(e) => handleEnterReturnKeypress(e, () => handleSubmit(e))}

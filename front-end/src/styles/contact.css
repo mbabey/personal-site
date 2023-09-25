@@ -39,14 +39,19 @@
   position: relative;
 }
 
+#contact form textarea {
+  height: 12em;
+}
+
 #contact form input.invalid,
 #contact form textarea.invalid {
   padding: 5px;
   border: 5px solid var(--col-warning-red);
 }
 
-#contact form textarea {
-  height: 12em;
+#contact #errmsg {
+  color: var(--col-warning-red);
+  font-size: 0.8em;
 }
 
 #contact form button {
