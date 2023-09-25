@@ -14,7 +14,8 @@
   grid-column: 1 / span 2;
   grid-row: 1 / span 1;
   text-align: center;
-  margin: auto;
+  padding-top: 75px;
+  margin-bottom: 10px;
 }
 
 #projects #projects-nav ul {

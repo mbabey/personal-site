@@ -1,10 +1,12 @@
 #nav {
   margin: 0;
-  padding: 20px 0;
+  padding: 5px 0;
   position: fixed;
   z-index: 99;
   top: 0;
   right: 0;
+  width: 100%;
+  background-color: var(--col-grey-lt);
   animation: 1s ease fadeInLate;
 }
 
@@ -19,7 +21,7 @@
   padding: 0 15px 10px;
   cursor: pointer;
   position: relative;
-  font-size: 1.15em;
+  font-size: 1.1em;
   font-weight: 500;
 }
 
