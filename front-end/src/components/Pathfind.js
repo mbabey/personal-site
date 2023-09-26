@@ -1,6 +1,6 @@
-import Grid from '../scripts/Grid'
-import Entity from '../scripts/Entity';
-import PriorityQueue from '../scripts/PriorityQueue';
+import Grid from '../scripts/Grid.js'
+import Entity from '../scripts/Entity.js';
+import PriorityQueue from '../scripts/PriorityQueue.js';
 import React, { useState, useEffect } from 'react';
 
 import '../styles/pathfind.css'
@@ -17,46 +17,45 @@ function Pathfind() {
   // CSS for the grid.
   const GRID_CONTAINER_SIZE = { gridTemplateColumns: `repeat(${SIZE_X}, 1fr)`, gridTemplateRows: `repeat(${SIZE_Y}, 1fr)` };
 
-  const [worldImage, setWorldImage] = useState();
+  const [worldImage, setWorldImage] = useState('hmm');
 
   useEffect(() => {
+    let interval_id;
+
     async function run() {
       // Create the Grid.
       const world = await Grid.async_create_grid(SIZE_X, SIZE_Y);
-
+      
       // Create the Entity and it's target (opposite the Entity).
       const entity = await create_entity_and_target(SIZE_X, SIZE_Y, world);
-
+    
       // Draw the world.
       setWorldImage(world.draw());
-
+      
       // Fade in the world.
       const pf = document.getElementById('pathfind');
       pf.style.opacity = 1;
       
       // Run the Dijkstra pathfinding algorithm.
       const path_info = await dijkstra_pathfind(entity, entity.get_target(), world);
-
+      
       // Set the path for the Entity to follow.
       entity.set_path(path_info.s_path);
-
-      const interval_id = setInterval(() => {
-
+      
+      interval_id = setInterval(() => {
         // Move the Entity along the path and redraw the World.
         entity.move();
         setWorldImage(world.draw());
-
+        
         // If the entity is at the target location, stop the iteration.
         if (entity.get_location().get_targeted() === true) {
           clearInterval(interval_id);
         }
-      }, INTERVAL_MS);
-
-      return () => clearInterval(interval_id);
+      }, INTERVAL_MS);      
     }
 
-    return () => run();
-    // eslint-disable-next-line
+    run();
+    return () => clearInterval(interval_id);
   }, []);
 
   return (
