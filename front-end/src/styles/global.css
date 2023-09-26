@@ -51,3 +51,13 @@ h6 {
   margin: 0;
   line-height: 1.1;
 }
+
+@media screen and (max-width: 1023px) {
+  p, li {
+    font-size: 0.8em !important;
+  }
+
+  .width-wrapper {
+    margin: 0 5% 0;
+   }
+}

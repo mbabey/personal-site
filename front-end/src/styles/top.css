@@ -97,3 +97,26 @@
     left: 70%;
   }
 }
+
+@media screen and (max-width: 767px) {
+  #top h1 {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 1;
+    text-align: center;
+  }
+
+  #top .socials {
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  #top #pathfind {
+    width: 75%;
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+  }
+}
