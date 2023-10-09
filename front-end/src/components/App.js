@@ -16,8 +16,8 @@ function App() {
 
   const pages = {
     top: 0,
-    about: 1,
-    projects: 2,
+    projects: 1,
+    about: 2,
     contact: 3
   }
   
@@ -65,8 +65,8 @@ function App() {
     <>
       <Nav scrollTo={scrollTo} pages={pages} />
       <Top ref={topRef} />
-      <About ref={aboutRef} />
       <Projects ref={projectsRef} />
+      <About ref={aboutRef} />
       <Contact ref={contactRef} />
     </>
   )

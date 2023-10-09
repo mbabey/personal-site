@@ -18,16 +18,16 @@ function Nav({ scrollTo, pages }) {
       <div className='width-wrapper'>
         <ul>
           <li
-            onClick={() => scrollTo(pages.about)} tabIndex={0}
-            onKeyDown={(e) => handleEnterReturnKeypress(e, () => scrollTo(pages.about))}
-          >
-            About
-          </li>
-          <li
             onClick={() => scrollTo(pages.projects)} tabIndex={0}
             onKeyDown={(e) => handleEnterReturnKeypress(e, () => scrollTo(pages.projects))}
           >
             Projects
+          </li>
+          <li
+            onClick={() => scrollTo(pages.about)} tabIndex={0}
+            onKeyDown={(e) => handleEnterReturnKeypress(e, () => scrollTo(pages.about))}
+          >
+            About
           </li>
           <li
             onClick={() => scrollTo(pages.contact)} tabIndex={0}

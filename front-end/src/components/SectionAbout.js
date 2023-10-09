@@ -9,9 +9,9 @@ const About = forwardRef(function About(props, ref) {
         <h2>About</h2>
         <div>
           <h4 className='text-head'>Hello, welcome!</h4>
-          <p>I am a software developer with two years' experience at the keyboard. I have developed an intuitive understanding of computing and a strong interest in networking and cybersecurity. My strong work ethic and love of new experiences and challenges manifests itself in all aspects of my life. Thanks for visiting!</p>
+          <p>I am a software developer with two years' experience. I have an intuitive understanding of computing and a strong interest in networking and cybersecurity. My strong work ethic and love of new experiences and challenges manifests itself in all aspects of my life. Thanks for visiting!</p>
         </div>
-        <div className='wrapper'>
+        <div className='ipe-wrapper'>
           <div id='interests'>
             <h3>Interests</h3>
             <ul>
@@ -24,7 +24,7 @@ const About = forwardRef(function About(props, ref) {
           </div>
           <div id='proficiencies'>
             <h3>Proficiencies</h3>
-            <div className='wrapper'>
+            <div className='lt-wrapper'>
               <div id='languages'>
                 <h4>Languages</h4>
                 <ul>
