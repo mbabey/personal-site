@@ -24,7 +24,7 @@ const About = forwardRef(function About(props, ref) {
           </div>
           <div id='proficiencies'>
             <h3>Proficiencies</h3>
-            <div className='lt-wrapper'>
+            <div className='lt-awrapper'>
               <div id='languages'>
                 <h4>Languages</h4>
                 <ul>

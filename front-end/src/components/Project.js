@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../styles/projects.css';
 
-function Project({ title, demolink, srclink, technologies, description, outcomes, images, imagealts }) {
+function Project({ title, demolink, srclink, technologies, description, images, imagealts }) {
   return (
     <div className='project'>
       <div className='content'>
@@ -26,7 +26,6 @@ function Project({ title, demolink, srclink, technologies, description, outcomes
         <div className='description'>
           <h4>Description:</h4>
           <p>{description}</p>
-          <p>{outcomes}</p>
         </div>
       </div>
       <div className='images'>

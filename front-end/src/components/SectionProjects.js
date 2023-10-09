@@ -34,8 +34,8 @@ const Projects = forwardRef(function Projects(props, ref) {
       abbreviation: "UDP Game Server",
       demolink: "",
       srclink: "https://github.com/mbabey/more-reliable-udp",
-      description: "A reliable, connection-oriented UDP-based application-layer protocol running a two-player Tic-Tac-Toe game server. The Tic-Tac-Toe is controlled by a breadboard controller attached to a Raspberry Pi. The Pis run the client programs and connect to the server, which can be run on any POSIX platform. This project was built with a partner, Prabh Sokhey.",
-      outcomes: "The task of this project was large. Prabh and I had to develop the protocol very carefully and at the same time create the game, its interfaces, and write the low-level code for the breadboard. We split the task up into the game and the server; our designs included UMLs where we specified the API we would require from each other, sequence diagrams for every possible type of interaction between the clients and the server, and pages of documentation. The project was a success, and I learned the advantages of design, thoughtfully created prior to writing a single line of code.",
+      description: "A reliable, connection-oriented UDP-based application-layer protocol running a two-player Tic-Tac-Toe game server. The Tic-Tac-Toe is controlled by a breadboard controller attached to a Raspberry Pi. The Pis run the client programs and connect to the server, which can be run on any POSIX platform. This project was built with a partner.",
+      outcomes: "The task of this project was large. My partner and I had to develop the protocol very carefully and at the same time create the game, its interfaces, and write the low-level code for the breadboard. We split the task up into the game and the server; our designs included UMLs where we specified the API we would require from each other, sequence diagrams for every possible type of interaction between the clients and the server, and pages of documentation. The project was a success, and I learned the advantages of design, thoughtfully created prior to writing a single line of code.",
       technologies: "POSIX C, Raspberry Pi & breadboard",
       images: ["projects-images/udp/reliable-udp-running.png"],
       imagealts: ["Playing the Game"]
@@ -67,23 +67,23 @@ const Projects = forwardRef(function Projects(props, ref) {
       abbreviation: "Genetic TSP",
       demolink: "",
       srclink: "https://github.com/mbabey/tsp-genetic",
-      description: "A genetic algorithm solution to the traveling salesperson problem written in C++. The algorithm creates a number of Cities, then creates a number of Tours from those Cities. The Tours make up the Population and are sorted by their 'fitness', which is the total distance of the Tour divided by the number of Cities in a Tour; a lower fitness is a better fitness. The Tour with the best fitness is declared an 'Elite.' All Tours that are not Elite are candidates to be 'Parent Tours.' Parent Tours are crossed to produce offspring, which replace all non-elite Tours in the population. Next, the offspring Tours are randomly mutated by swapping the order of the Cities within. Elite Tours will not be involved in the crossing and mutating steps. Once an improvement threshold or an iteration limit is reached, the algorithm stops and prints the resulting best fit Tour.",
+      description: "A genetic algorithm solution to the traveling salesperson problem written in C++.",
       outcomes: "This algorithm was complex to implement. It was a great exercise in keeping the code organized, clean, and well-documented. At the project's end, the heart of the program was a very simple for-loop, obscuring the complexity of the algorithm underneath.",
       technologies: "C++",
       images: ["projects-images/tsp/graph.png", "projects-images/tsp/running-tsp.png"],
       imagealts: ["Connected Graph", "Genetic TSP Output"]
     },
-    {
-      title: "This Website",
-      abbreviation: "This Website",
-      demolink: "",
-      srclink: "https://github.com/mbabey/personal-site",
-      description: "This website is for displaying my portfolio and to allow others to get in touch. It hosts, in its header, a dynamic pathfinding animation. The colour of the tiles represents the altitude; darker colour is higher altitude. The red square traces a path to the yellow square with the minimum change in altitude. Djikstra's algorithm is used to find the best path.",
-      outcomes: "",
-      technologies: "JavaScript, React, HTML, and CSS",
-      images: [],
-      imagealts: []
-    }
+    // {
+    //   title: "This Website",
+    //   abbreviation: "This Website",
+    //   demolink: "",
+    //   srclink: "https://github.com/mbabey/personal-site",
+    //   description: "This website is for displaying my portfolio and to allow others to get in touch. It hosts, in its header, a dynamic pathfinding animation. The colour of the tiles represents the altitude; darker colour is higher altitude. The red square traces a path to the yellow square with the minimum change in altitude. Djikstra's algorithm is used to find the best path.",
+    //   outcomes: "",
+    //   technologies: "JavaScript, React, HTML, and CSS",
+    //   images: [],
+    //   imagealts: []
+    // }
   ]
 
   function displayProject(proj_num) {
@@ -133,7 +133,6 @@ const Projects = forwardRef(function Projects(props, ref) {
               srclink={p.srclink}
               technologies={p.technologies}
               description={p.description}
-              outcomes={p.outcomes}
               images={p.images}
               imagealts={p.imagealts}
             />

@@ -1,4 +1,18 @@
 
+#about ul {
+  display: flex;
+  list-style: none;
+  margin: 1em 0 0;
+  padding: 0;
+}
+
+#about li {
+  padding: 0.5em 0.9em;
+  border: 1px solid var(--col-blue-brt);
+  border-radius: 20px;
+  margin-right: 0.5em;
+}
+
 
 /* #about
 {
@@ -17,9 +31,6 @@
   text-align: center;
 }
 
-#about li {
-  color: var(--col-grey-drk);
-}
 
 #about h2 {
   padding-top: 10%;
@@ -44,13 +55,6 @@
 #about .wrapper #proficiencies .wrapper {
   display: grid;
   grid-template-columns: 50% 50%;
-}
-
-#about ul {
-  list-style: none;
-  margin: 1em 0 0;
-  padding: 0;
-  text-align: center;
 }
 
 #about #interests,
