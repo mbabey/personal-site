@@ -1,8 +1,8 @@
 :root {
   /* Colour palette */
   --col-blue-lt: #9ABFCA;
+  --col-blue-lt-2: #9ed2e2;
   --col-blue-drk: #353648;
-  --col-blue-lt-2: #a3a5d4;
   --col-blue-brt: #209bed;
   --col-blue-brt-2: #9bc5e1;
 
@@ -52,6 +52,23 @@ h6 {
   font-weight: 500;
   margin: 0;
   line-height: 1.1;
+}
+
+h2.title {
+  position: relative;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+h2.title::after {
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  content: '';
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  background-color: #000;
 }
 
 @media screen and (max-width: 1023px) {

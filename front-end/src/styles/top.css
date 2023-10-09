@@ -1,7 +1,7 @@
 #top {
   height: 100vh;
   min-height: 560px; 
-  background-color: var(--col-grey-lt);
+  background-color: var(--col-blue-lt-2);
 }
 
 #top .width-wrapper {

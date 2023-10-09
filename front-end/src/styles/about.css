@@ -1,3 +1,6 @@
+#about {
+  background: var(--col-grey-lt);
+}
 
 #about ul {
   display: flex;
