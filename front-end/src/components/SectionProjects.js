@@ -1,10 +1,14 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import Project from './Project';
 import { handleEnterReturnKeypress } from '../scripts/util';
 
 import '../styles/projects.css'
 
 const Projects = forwardRef(function Projects(props, ref) {
+
+  // const DEF_PROJ = "Click a project on the list to see details";
+
+  // const [selectedProject, setSelectedProject] = useState(DEF_PROJ);
 
   const project_info = [
     {
@@ -107,36 +111,39 @@ const Projects = forwardRef(function Projects(props, ref) {
     <section id='projects' ref={ref}>
       <div className='width-wrapper'>
         <h2 className='title'>Projects</h2>
-        <div id='projects-nav'>
-          <ul>
-            {project_info.map((p, index) => {
-              return (
-                <li
-                  key={p.abbreviation}
-                  tabIndex={0}
-                  onClick={() => displayProject(index + OFFSET)}
-                  onKeyDown={(e) => handleEnterReturnKeypress(e, () => displayProject(index + OFFSET))}
-                >
-                  {p.abbreviation}
-                </li>
-              );
+        <div className='pj-wrapper'>
+          <div id='projects-nav'>
+            <ul>
+              {project_info.map((p, index) => {
+                return (
+                  <li
+                    key={p.abbreviation}
+                    tabIndex={0}
+                    onClick={() => displayProject(index + OFFSET)}
+                    onKeyDown={(e) => handleEnterReturnKeypress(e, () => displayProject(index + OFFSET))}
+                  >
+                    {p.abbreviation}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div className='wrapper'>
+            {/* {selectedProject} */}
+            <div className='project focused'>Click a project on the list to see details</div>
+            {project_info.map((p) => {
+              return <Project
+                key={p.abbreviation}
+                title={p.title}
+                demolink={p.demolink}
+                srclink={p.srclink}
+                technologies={p.technologies}
+                description={p.description}
+                images={p.images}
+                imagealts={p.imagealts}
+              />
             })}
-          </ul>
-        </div>
-        <div className='wrapper'>
-          <div className='project focused'>Click a project on the list to see details</div>
-          {project_info.map((p) => {
-            return <Project
-              key={p.abbreviation}
-              title={p.title}
-              demolink={p.demolink}
-              srclink={p.srclink}
-              technologies={p.technologies}
-              description={p.description}
-              images={p.images}
-              imagealts={p.imagealts}
-            />
-          })}
+          </div>
         </div>
       </div>
     </section>
