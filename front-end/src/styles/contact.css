@@ -5,6 +5,10 @@
   padding-top: 75px;
 }
 
+#contact h2.title::after {
+  background-color: #fff;
+}
+
 #contact p {
   max-width: 500px;
   margin: auto;

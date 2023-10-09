@@ -1,7 +1,8 @@
 #top {
   height: 100vh;
   min-height: 560px; 
-  background-color: var(--col-blue-lt-2);
+  background: var(--col-grey-lt);
+  background: linear-gradient(180deg, var(--col-grey-lt) 65%, var(--col-blue-lt) 90%, var(--col-blue-lt) 100%);
 }
 
 #top .width-wrapper {
@@ -29,7 +30,7 @@
   bottom: -10%;
   height: 5px;
   width: 0%;
-  background-color: #000;
+  background-color: var(--col-grey-med);
   animation: 1s ease 2s expandAndShrink;
 }
 
@@ -49,11 +50,11 @@
 }
 
 #top .socials a:nth-child(1) {
-  width: 64px;
+  width: 42px;
 }
 
 #top .socials a:nth-child(2) {
-  width: 52px;
+  width: 34px;
 }
 
 #top .socials img {
