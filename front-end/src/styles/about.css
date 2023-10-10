@@ -3,9 +3,18 @@
   min-height: 100vh;
 }
 
-#about .stats-wrapper {
-  display: grid;
-  grid-template-columns: 33% 34% 33%;
+#about .bio {
+  text-align: center;
+}
+
+#about .wordcloud {
+  width: 80%;
+  margin: auto;
+}
+
+#about .wordcloud img {
+  width: 100%;
+  height: auto;
 }
 
 #about ul {
@@ -14,36 +23,25 @@
   padding: 0;
 }
 
-#about .experience {
-  grid-column: 1 / span 1;
-}
-
-#about .experience ul {
-  list-style: square;
-}
-
-#about .interests {
-  grid-column: 2 / span 1;
-  text-align: center;
-}
-
 #about .proficiencies {
-  grid-column: 3 / span 1;
-  grid-row: 1 / span 1;
-  text-align: right;
+  border-top: 1px solid var(--col-blue-brt);
+  padding-top: 1em;
+  text-align: center;
 }
 
 #about .proficiencies ul {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 #about .proficiencies li {
-  border: 1px solid var(--col-blue-brt);
+  border: 1px solid var(--col-grn-med);
   padding: 5px 10px;
   margin: 2px 2px;
   border-radius: 20px;
+  background-color: var(--col-grn-lt);
 }
 
 #about .proficiencies .languages,
