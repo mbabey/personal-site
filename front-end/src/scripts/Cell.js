@@ -50,6 +50,13 @@ class Cell {
   }
 
   /**
+   * Set the altitude of this Cell.
+   */
+  set_altitude(new_altitude) {
+    this.#altitude = new_altitude;
+  }
+
+  /**
    * Get the altitude of this Cell.
    * @returns the altitude
    */

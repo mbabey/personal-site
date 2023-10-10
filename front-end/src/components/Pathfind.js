@@ -70,7 +70,8 @@ function Pathfind() {
 }
 
 /**
- * Create an Entity and place it in a Cell at the edge of the Grid.
+ * Create an Entity and place it in a Cell at the edge of the Grid. The starting Cell will have an altitude of 0.
+ * Create the target Cell opposite the Entity.
  * @param {Integer} size_x the X dimension of the Grid.
  * @param {Integer} size_y the Y dimension of the Grid.
  * @param {Grid} world the Grid on which the Entity shall exist.
@@ -84,6 +85,7 @@ function create_entity_and_target(size_x, size_y, world) {
     const entity_start_cell = world.get_cell(start_location.edge_cell_horizontal, start_location.edge_cell_vertical);
     const entity_target_cell = world.get_cell(target_location.edge_cell_horizontal, target_location.edge_cell_vertical);
 
+    entity_start_cell.set_altitude(0);
     const entity = new Entity(world, entity_start_cell, entity_target_cell);
 
     resolve(entity);
