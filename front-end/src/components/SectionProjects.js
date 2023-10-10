@@ -8,7 +8,7 @@ const Projects = forwardRef(function Projects(props, ref) {
 
   // const DEF_PROJ = "Click a project on the list to see details";
 
-  // const [selectedProject, setSelectedProject] = useState(DEF_PROJ);
+
 
   const project_info = [
     {
@@ -56,7 +56,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       imagealts: ["Shell Running"]
     },
     {
-      title: "Pokedex API",
+      title: "Pokemon API",
       abbreviation: "Pokemon API",
       demolink: "https://mb-pokedex-of-pokemon.vercel.app/",
       srclink: "https://github.com/mbabey/comp4537-assignment-3-pokemon-api",
@@ -91,21 +91,31 @@ const Projects = forwardRef(function Projects(props, ref) {
   ]
 
   function displayProject(proj_num) {
-    document.querySelectorAll('#projects .wrapper .project.focused').forEach((p) => {
-      p.classList.remove('focused');
-      const p_a = p.querySelector('a');
-      if (p_a) {
-        p_a.tabIndex = -1;
-      }
-    });
-    const project_div = document.querySelector(`#projects .wrapper .project:nth-child(${proj_num})`);
-    project_div.classList.add('focused');
-    const project_div_a = project_div.querySelector('a');
-    project_div_a.tabIndex = 0;
+    // project_div.classList.add('focused');
+    // const project_div_a = project_div.querySelector('a');
+    // project_div_a.tabIndex = 0;
+    setSelectedProject(<Project
+      title={project_info[proj_num].title}
+      demolink={project_info[proj_num].demolink}
+      srclink={project_info[proj_num].srclink}
+      technologies={project_info[proj_num].technologies}
+      description={project_info[proj_num].description}
+      images={project_info[proj_num].images}
+      imagealts={project_info[proj_num].imagealts}
+    />);
   }
 
-  // The offset from the array element into the child node required for displayProject to function properly
-  const OFFSET = 2;
+
+  const [selectedProject, setSelectedProject] = useState(<Project
+    title={project_info[0].title}
+    demolink={project_info[0].demolink}
+    srclink={project_info[0].srclink}
+    technologies={project_info[0].technologies}
+    description={project_info[0].description}
+    images={project_info[0].images}
+    imagealts={project_info[0].imagealts}
+  />);
+
 
   return (
     <section id='projects' ref={ref}>
@@ -119,8 +129,8 @@ const Projects = forwardRef(function Projects(props, ref) {
                   <li
                     key={p.abbreviation}
                     tabIndex={0}
-                    onClick={() => displayProject(index + OFFSET)}
-                    onKeyDown={(e) => handleEnterReturnKeypress(e, () => displayProject(index + OFFSET))}
+                    onClick={() => displayProject(index)}
+                    onKeyDown={(e) => handleEnterReturnKeypress(e, () => displayProject(index))}
                   >
                     {p.abbreviation}
                   </li>
@@ -129,20 +139,7 @@ const Projects = forwardRef(function Projects(props, ref) {
             </ul>
           </div>
           <div className='wrapper'>
-            {/* {selectedProject} */}
-            <div className='project focused'>Click a project on the list to see details</div>
-            {project_info.map((p) => {
-              return <Project
-                key={p.abbreviation}
-                title={p.title}
-                demolink={p.demolink}
-                srclink={p.srclink}
-                technologies={p.technologies}
-                description={p.description}
-                images={p.images}
-                imagealts={p.imagealts}
-              />
-            })}
+            {selectedProject}
           </div>
         </div>
       </div>

@@ -46,11 +46,11 @@
 }
 
 #projects .project {
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   top: 0;
-  left: 110%;
-  opacity: 0;
+  /* left: 110%;
+  opacity: 0; */
   transition: all 0.8s cubic-bezier(0.10, 0.20, 0.30, 1);
   background-color: #fff;
   padding: 10px;
