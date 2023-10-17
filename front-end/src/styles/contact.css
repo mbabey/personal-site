@@ -1,7 +1,7 @@
 #contact {
   background-color: var(--col-blue-drk);
   color: #fff;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 #contact h2.title::after {
