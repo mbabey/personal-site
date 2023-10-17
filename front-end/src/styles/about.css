@@ -1,25 +1,16 @@
 #about {
   min-height: 100vh;
-}
-
-#about .info-wrapper {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
-
 
 #about .bio {
   text-align: center;
-}
-
-#about .wordcloud {
+  font-size: 1.1em;
   width: 80%;
-  margin: auto;
-}
-
-#about .wordcloud img {
-  width: 100%;
-  height: auto;
+  margin: auto; 
 }
 
 #about ul {
@@ -30,6 +21,7 @@
 
 #about .proficiencies {
   text-align: center;
+  margin-bottom: 25%;
 }
 
 #about .pillars {

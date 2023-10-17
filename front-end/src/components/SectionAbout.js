@@ -5,7 +5,6 @@ import '../styles/about.css';
 const About = forwardRef(function About(props, ref) {
   return (
     <section id='about' className='width-wrapper' ref={ref}>
-      <div className='info-wrapper'>
         <h2 className='title'>About</h2>
         <p className='bio'>Hello! I am a software developer with two years' experience and a passion for programming.</p>
         <div className='proficiencies'>
@@ -30,7 +29,6 @@ const About = forwardRef(function About(props, ref) {
             <li>React</li>
             <li>mongodb</li>
           </ul>
-        </div>
       </div>
     </section>
   )

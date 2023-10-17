@@ -21,7 +21,6 @@
   padding: 0 15px 10px;
   cursor: pointer;
   position: relative;
-  font-size: 1.1em;
   font-weight: 500;
   color: #fff;
   transition: width 0.5s cubic-bezier(0.10, 0.20, 0.30, 1);
