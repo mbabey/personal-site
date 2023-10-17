@@ -6,9 +6,8 @@
   top: 0;
   right: 0;
   width: 100%;
-  background-color: var(--col-grey-lt);
-  animation: 1s ease fadeInLate;
-  border-bottom: 1px solid var(--col-blue-lt);
+  background-color: var(--col-blue-drk);
+  animation: 2s ease fadeInLate;
 }
 
 #nav ul {
@@ -24,18 +23,24 @@
   position: relative;
   font-size: 1.1em;
   font-weight: 500;
+  color: #fff;
+  transition: width 0.5s cubic-bezier(0.10, 0.20, 0.30, 1);
 }
 
 #nav li::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: 1px;
   left: 50%;
   transform: translatex(-50%);
   height: 3px;
   width: 0;
-  background-color: var(--col-grey-drk);
+  background-color: var(--col-grn-brt);
   transition: width 0.5s cubic-bezier(0.10, 0.20, 0.30, 1);
+}
+
+#nav li:hover {
+  color: var(--col-grn-brt);
 }
 
 #nav li:hover::after{
