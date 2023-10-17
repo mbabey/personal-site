@@ -1,6 +1,5 @@
 #projects {
   min-height: 100vh;
-  background-color: var(--col-grn-lt);
   color: var(--col-grey-drk);
   border-top: 3px solid var(--col-blue-brt);
   border-bottom: 3px solid var(--col-blue-brt);
@@ -50,7 +49,6 @@
 
 #projects .project {
   width: 100%;
-  background-color: #fff;
   padding: 10px;
   display: grid;
   grid-template-columns: 50% 50%;

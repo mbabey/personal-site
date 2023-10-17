@@ -2,6 +2,12 @@
   min-height: 100vh;
 }
 
+#about .info-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+
 #about .bio {
   text-align: center;
 }
@@ -23,9 +29,23 @@
 }
 
 #about .proficiencies {
-  border-top: 1px solid var(--col-blue-brt);
-  padding-top: 1em;
   text-align: center;
+}
+
+#about .pillars {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#about .pillars div {
+  background-image: url(/public/hexagon.svg);
+  height: 150px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
 }
 
 #about .proficiencies ul {
@@ -40,10 +60,5 @@
   padding: 5px 10px;
   margin: 2px 2px;
   border-radius: 20px;
-  background-color: var(--col-grn-lt);
-}
-
-#about .proficiencies .languages,
-#about .proficiencies .tools {
-  margin-top: 10px;
+  background-color: var(--col-grn-brt);
 }
