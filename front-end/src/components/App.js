@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useMemo } from 'react'
 import Nav from './Nav';
 import Top from './SectionTop';
 import About from './SectionAbout';
@@ -16,12 +16,14 @@ function App() {
   const contactRef = useRef(null);
   const observerRef = useRef(null);
 
-  const pages = {
-    top: 0,
-    about: 1,
-    projects: 2,
-    contact: 3
-  }
+  const pages = useMemo(() => {
+    return {
+      top: 0,
+      about: 1,
+      projects: 2,
+      contact: 3
+    };
+  }, []);
 
   function getPageRef(pageNum) {
     let pageRef;
@@ -99,7 +101,7 @@ function App() {
         observerRef.current.disconnect(element);
       });
     }
-  }, []);
+  }, [pages]);
 
   return (
     <>
