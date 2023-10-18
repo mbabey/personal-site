@@ -104,7 +104,7 @@ function App() {
   return (
     <>
       <Nav ref={navRef} scrollTo={scrollTo} pages={pages} />
-      <Top ref={topRef} />
+      <Top ref={topRef} scrollTo={scrollTo} pages={pages} />
       <About ref={aboutRef} />
       <Projects ref={projectsRef} />
       <Contact ref={contactRef} />
