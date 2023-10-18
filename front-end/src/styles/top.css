@@ -7,17 +7,17 @@
 
 #top ul {
   margin: 0 auto;
-  padding: 10px 0 0;
+  padding: 0;
   display: flex;
   flex-direction: row;
   justify-content: right;
-  animation: 5s ease fadeInLateLate;
+  animation: 1s ease fadeInLateLate;
 }
 
 #top li {
   display: inline;
   margin: 0;
-  padding: 0 15px 10px;
+  padding: 10px 15px;
   cursor: pointer;
   position: relative;
   font-weight: 500;
@@ -41,6 +41,10 @@
 }
 
 #top .width-wrapper {
+  height: 100%;
+}
+
+#top .hero {
   display: grid;
   grid-template-columns: 30% 70%;
   grid-template-rows: 50% 50%;

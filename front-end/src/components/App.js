@@ -72,19 +72,19 @@ function App() {
         // This function hides the header if topRef is intersecting.
         // This function shows the header and highlight the section over which the user hovers if any other section is intersecting.
         if (entry.target === topRef.current && entry.isIntersecting) {
-          navRef.current.classList.add('hidden');
+          navRef.current.classList.remove('visible');
           set_selected_nav_option(nav_options, pages.top);
         }
         else if (entry.target === aboutRef.current && entry.isIntersecting) {
-          navRef.current.classList.remove('hidden');
+          navRef.current.classList.add('visible');
           set_selected_nav_option(nav_options, pages.about);
         }
         else if (entry.target === projectsRef.current && entry.isIntersecting) {
-          navRef.current.classList.remove('hidden');
+          navRef.current.classList.add('visible');
           set_selected_nav_option(nav_options, pages.projects);
         }
         else if (entry.target === contactRef.current && entry.isIntersecting) {
-          navRef.current.classList.remove('hidden');
+          navRef.current.classList.add('visible');
           set_selected_nav_option(nav_options, pages.contact);
         }
       });
