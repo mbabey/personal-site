@@ -2,7 +2,7 @@
   height: 100vh;
   min-height: 560px; 
   background: var(--col-grey-lt);
-  background: linear-gradient(180deg, var(--col-grey-lt) 65%, var(--col-blue-lt) 90%, var(--col-blue-lt) 100%);
+  background: linear-gradient(180deg, var(--col-blue-lt) 10%, var(--col-grey-lt) 80%, var(--col-grey-lt) 100%);
 }
 
 #top .width-wrapper {

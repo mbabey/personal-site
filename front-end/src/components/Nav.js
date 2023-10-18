@@ -4,15 +4,6 @@ import { handleEnterReturnKeypress } from '../scripts/util';
 import '../styles/nav.css';
 
 function Nav({ scrollTo, pages }) {
-
-  // const pageObserver = new IntersectionObserver(observerCallback, {threshold: 0.5});
-  // Object.entries(pages).forEach((entry) => {
-  //   console.log(entry);
-  //   let element = entry[1].current;
-  //   console.log(element);
-  //   // pageObserver.observe(element);
-  // });
-
   return (
     <div id='nav'>
       <div className='width-wrapper'>

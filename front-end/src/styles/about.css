@@ -1,16 +1,19 @@
 #about {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  background: var(--col-grey-lt);
+  background: linear-gradient(180deg, var(--col-grey-lt) 65%, var(--col-blue-lt) 90%, var(--col-blue-lt) 100%);
+}
+
+#about .spread {
+  margin-bottom: 5%;
 }
 
 #about .bio {
   text-align: center;
   font-size: 1.1em;
   width: 80%;
-  margin: auto; 
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #about ul {
@@ -21,7 +24,22 @@
 
 #about .proficiencies {
   text-align: center;
-  margin-bottom: 25%;
+  margin: 0 10% 25%;
+}
+
+#about .proficiencies h4 {
+  position: relative;
+}
+
+#about .proficiencies h4::after {
+  position: absolute;
+  width: 35px;
+  height: 3px;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  content: '';
+  background-color: #000;
 }
 
 #about .pillars {

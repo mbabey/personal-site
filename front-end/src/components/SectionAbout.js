@@ -4,11 +4,12 @@ import '../styles/about.css';
 
 const About = forwardRef(function About(props, ref) {
   return (
-    <section id='about' className='width-wrapper' ref={ref}>
-        <h2 className='title'>About</h2>
-        <p className='bio'>Hello! I am a software developer with two years' experience and a passion for programming.</p>
+    <section id='about' ref={ref}>
+      <div className='width-wrapper'>
+        <h2 className='title spread'>About</h2>
+        <p className='bio spread'>Hello! I am a software developer with two years' experience and a passion for programming.</p>
         <div className='proficiencies'>
-          <h4>Proficiencies</h4>
+          <h4 className='spread'>Proficiencies</h4>
           <div className='pillars'>
             <div className='cn'>Computer Networking</div>
             <div className='pm'>Project Management</div>
@@ -29,7 +30,9 @@ const About = forwardRef(function About(props, ref) {
             <li>React</li>
             <li>mongodb</li>
           </ul>
+        </div>
       </div>
+
     </section>
   )
 });

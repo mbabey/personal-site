@@ -20,10 +20,10 @@ function App() {
     projects: 2,
     contact: 3
   }
-  
+
   function getPageRef(pageNum) {
     let pageRef;
-  
+
     switch (pageNum) {
       case pages.top:
         {
@@ -50,7 +50,7 @@ function App() {
           pageRef = topRef;
         }
     }
-  
+
     return pageRef;
   }
 
@@ -60,6 +60,13 @@ function App() {
       pageRef.current.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'smooth' });
     }
   }
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      console.log(entry);
+      // pageObserver.observe(element);
+    });
+  }, { threshold: 0.5 });
 
   return (
     <>
