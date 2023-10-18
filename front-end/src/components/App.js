@@ -72,7 +72,6 @@ function App() {
         // This function should show the header and highlight the section over which the user hovers if any other section is intersecting
         if (entry.target === topRef.current && entry.isIntersecting) {
           navRef.current.classList.add('hidden');
-          // Hide the header
         } 
         else if (entry.target === aboutRef.current && entry.isIntersecting) {
           navRef.current.classList.remove('hidden');
