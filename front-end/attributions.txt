@@ -1,3 +1,5 @@
 front-end/public/favicon.ico, front-end/public/logo192.png, front-end/public/logo512.png: https://www.flaticon.com/free-icons/laptop - Laptop icons created by Freepik - Flaticon
 front-end/public/projects-images/tsp/graph.png: https://en.wikipedia.org/wiki/Travelling_salesman_problem
-front-end/public/hexagon.svg: https://www.svgrepo.com/svg/148461/hexagon
+front-end/public/hexagon.svg, front-end/public/hexagon-small.svg: https://www.svgrepo.com/svg/148461/hexagon
+front-end/public/up-arrow.svg: https://www.flaticon.com/free-icon/up-arrow_2767220?term=top&page=1&position=5&origin=search&related_id=2767220
+front-end/public/external-link.svg: https://www.flaticon.com/free-icon/external-link_7268615?term=link&page=1&position=1&origin=search&related_id=7268615

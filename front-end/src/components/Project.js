@@ -10,12 +10,12 @@ function Project({ title, demolink, srclink, technologies, description, images, 
         <div className='links'>
           {
             demolink !== "" ?
-              <div><a target='_blank' rel='noreferrer' href={demolink} tabIndex={-1}>Demo</a></div> :
+              <a target='_blank' rel='noreferrer' href={demolink} tabIndex={-1}>Demo</a> :
               <></>
           }
           {
             srclink !== "" ?
-              <div><a target='_blank' rel='noreferrer' href={srclink} tabIndex={-1}>Source Code</a></div> :
+              <a target='_blank' rel='noreferrer' href={srclink} tabIndex={-1}>Source Code</a> :
               <></>
           }
         </div>

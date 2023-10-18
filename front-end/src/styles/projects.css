@@ -57,10 +57,22 @@
 #projects .project .links {
   display: flex;
   flex-direction: row;
+  margin-top: 5px;
+  justify-content: space-evenly;
 }
 
-#projects .project .links div {
-  margin-right: 10%;
+#projects .project .links a {
+  background-color: var(--col-blue-lt);
+  color: #fff;
+  border-radius: 20px;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: 0.666em;
+  transition: all .25s cubic-bezier(0.10, 0.20, 0.30, 1);
+}
+
+#projects .project .links a:hover {
+  background-color: var(--col-blue-brt);
 }
 
 #projects p {

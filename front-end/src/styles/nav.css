@@ -35,6 +35,11 @@
   transition: color 0.5s cubic-bezier(0.10, 0.20, 0.30, 1);
 }
 
+#nav li svg {
+  fill: #fff;
+  transition: fill 0.5s cubic-bezier(0.10, 0.20, 0.30, 1);
+}
+
 #nav li::after {
   content: '';
   position: absolute;
@@ -49,6 +54,10 @@
 
 #nav li:hover {
   color: var(--col-grn-brt);
+}
+
+#nav li:hover svg {
+  fill: var(--col-grn-brt);
 }
 
 /* Set by IntersectionObserver in App.js when relevant page is scrolled to. */
