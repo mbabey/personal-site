@@ -43,11 +43,16 @@
   transition: width 0.5s cubic-bezier(0.10, 0.20, 0.30, 1);
 }
 
+#nav li:hover {
+  color: var(--col-grn-brt);
+}
+
+/* Set by IntersectionObserver in App.js when relevant page is scrolled to. */
 #nav li.selected {
   color: var(--col-grn-brt);
 }
 
-#nav li.selected::after {
+#nav li:hover::after {
   width: 80%;
 }
 

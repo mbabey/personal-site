@@ -65,26 +65,27 @@ function App() {
 
   useEffect(() => {
     const elements = [topRef.current, aboutRef.current, projectsRef.current, contactRef.current];
+    const nav_options = navRef.current.querySelectorAll('#nav li'); // This is indexed according to the 'pages' enum.
 
     observerRef.current = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
-        // This function should hide the header if topRef is intersecting.
-        // This function should show the header and highlight the section over which the user hovers if any other section is intersecting
+        // This function hides the header if topRef is intersecting.
+        // This function shows the header and highlight the section over which the user hovers if any other section is intersecting.
         if (entry.target === topRef.current && entry.isIntersecting) {
           navRef.current.classList.add('hidden');
-        } 
+          set_selected_nav_option(nav_options, pages.top);
+        }
         else if (entry.target === aboutRef.current && entry.isIntersecting) {
           navRef.current.classList.remove('hidden');
-          // Highlight only about in nav
-          // I need to get the pagesth child of the nav and hover it...
+          set_selected_nav_option(nav_options, pages.about);
         }
         else if (entry.target === projectsRef.current && entry.isIntersecting) {
           navRef.current.classList.remove('hidden');
-          // Highlight only projects in nav
+          set_selected_nav_option(nav_options, pages.projects);
         }
         else if (entry.target === contactRef.current && entry.isIntersecting) {
           navRef.current.classList.remove('hidden');
-          // Highlight only contact in nav
+          set_selected_nav_option(nav_options, pages.contact);
         }
       });
     }, { threshold: 0.5 });
@@ -109,6 +110,24 @@ function App() {
       <Contact ref={contactRef} />
     </>
   )
+}
+
+/**
+ * Put the 'selected' class onto the element in the nav_options array that corresponds to the
+ * index selected_page_index.
+ * @param {[]HTMLElement} nav_options the array of nav_options
+ * @param {Integer} selected_page_index the index of the selected page in the array
+ */
+function set_selected_nav_option(nav_options, selected_page_index)
+{
+  nav_options.forEach((element, index) => {
+    if (index === selected_page_index)
+    {
+      element.classList.add('selected');
+    } else {
+      element.classList.remove('selected');
+    }
+  });
 }
 
 export default App 
