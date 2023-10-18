@@ -70,30 +70,26 @@ function App() {
       entries.forEach((entry) => {
         // This function should hide the header if topRef is intersecting.
         // This function should show the header and highlight the section over which the user hovers if any other section is intersecting
-        if (entry.target === topRef.current && entry.isIntersecting){
-          console.log("top");
+        if (entry.target === topRef.current && entry.isIntersecting) {
+          navRef.current.classList.add('hidden');
           // Hide the header
+        } 
+        else if (entry.target === aboutRef.current && entry.isIntersecting) {
+          navRef.current.classList.remove('hidden');
+          // Highlight only about in nav
+          // I need to get the pagesth child of the nav and hover it...
         }
-        else {
-          // Show the header (if not already shown)
-          if (entry.target === aboutRef.current && entry.isIntersecting){
-            console.log("about");
-            // Highlight only about in nav
-          }
-          if (entry.target === projectsRef.current && entry.isIntersecting){
-            console.log("projects");
-
-            // Highlight only projects in nav
-          }
-          if (entry.target === contactRef.current && entry.isIntersecting){
-            console.log("contact");
-
-            // Highlight only contact in nav
-          }
+        else if (entry.target === projectsRef.current && entry.isIntersecting) {
+          navRef.current.classList.remove('hidden');
+          // Highlight only projects in nav
+        }
+        else if (entry.target === contactRef.current && entry.isIntersecting) {
+          navRef.current.classList.remove('hidden');
+          // Highlight only contact in nav
         }
       });
     }, { threshold: 0.5 });
-  
+
     elements.forEach(element => {
       observerRef.current.observe(element);
     });
@@ -104,8 +100,6 @@ function App() {
       });
     }
   }, []);
-
-
 
   return (
     <>

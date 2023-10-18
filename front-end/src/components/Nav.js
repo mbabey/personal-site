@@ -13,6 +13,12 @@ const Nav = forwardRef(function Nav(props, ref) {
       <div className='width-wrapper'>
         <ul>
           <li
+            onClick={() => scrollTo(pages.top)} tabIndex={0}
+            onKeyDown={(e) => handleEnterReturnKeypress(e, () => scrollTo(pages.top))}
+          >
+            Home
+          </li>
+          <li
             onClick={() => scrollTo(pages.about)} tabIndex={0}
             onKeyDown={(e) => handleEnterReturnKeypress(e, () => scrollTo(pages.about))}
           >
