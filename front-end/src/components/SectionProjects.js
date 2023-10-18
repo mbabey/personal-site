@@ -6,10 +6,6 @@ import '../styles/projects.css'
 
 const Projects = forwardRef(function Projects(props, ref) {
 
-  // const DEF_PROJ = "Click a project on the list to see details";
-
-
-
   const project_info = [
     {
       title: "Opendata Developer Network - ODEN",
@@ -90,22 +86,6 @@ const Projects = forwardRef(function Projects(props, ref) {
     // }
   ]
 
-  function displayProject(proj_num) {
-    // project_div.classList.add('focused');
-    // const project_div_a = project_div.querySelector('a');
-    // project_div_a.tabIndex = 0;
-    setSelectedProject(<Project
-      title={project_info[proj_num].title}
-      demolink={project_info[proj_num].demolink}
-      srclink={project_info[proj_num].srclink}
-      technologies={project_info[proj_num].technologies}
-      description={project_info[proj_num].description}
-      images={project_info[proj_num].images}
-      imagealts={project_info[proj_num].imagealts}
-    />);
-  }
-
-
   const [selectedProject, setSelectedProject] = useState(<Project
     title={project_info[0].title}
     demolink={project_info[0].demolink}
@@ -116,6 +96,17 @@ const Projects = forwardRef(function Projects(props, ref) {
     imagealts={project_info[0].imagealts}
   />);
 
+  function displayProject(proj_num) {
+    setSelectedProject(<Project
+      title={project_info[proj_num].title}
+      demolink={project_info[proj_num].demolink}
+      srclink={project_info[proj_num].srclink}
+      technologies={project_info[proj_num].technologies}
+      description={project_info[proj_num].description}
+      images={project_info[proj_num].images}
+      imagealts={project_info[proj_num].imagealts}
+    />);
+  }
 
   return (
     <section id='projects' ref={ref}>

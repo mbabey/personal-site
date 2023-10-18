@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import Nav from './Nav';
 import Top from './SectionTop';
 import About from './SectionAbout';
@@ -9,10 +9,12 @@ import '../styles/global.css';
 
 function App() {
 
+  const navRef = useRef(null);
   const topRef = useRef(null);
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
+  const observerRef = useRef(null);
 
   const pages = {
     top: 0,
@@ -61,16 +63,53 @@ function App() {
     }
   }
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      console.log(entry);
-      // pageObserver.observe(element);
+  useEffect(() => {
+    const elements = [topRef.current, aboutRef.current, projectsRef.current, contactRef.current];
+
+    observerRef.current = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        // This function should hide the header if topRef is intersecting.
+        // This function should show the header and highlight the section over which the user hovers if any other section is intersecting
+        if (entry.target === topRef.current && entry.isIntersecting){
+          console.log("top");
+          // Hide the header
+        }
+        else {
+          // Show the header (if not already shown)
+          if (entry.target === aboutRef.current && entry.isIntersecting){
+            console.log("about");
+            // Highlight only about in nav
+          }
+          if (entry.target === projectsRef.current && entry.isIntersecting){
+            console.log("projects");
+
+            // Highlight only projects in nav
+          }
+          if (entry.target === contactRef.current && entry.isIntersecting){
+            console.log("contact");
+
+            // Highlight only contact in nav
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+  
+    elements.forEach(element => {
+      observerRef.current.observe(element);
     });
-  }, { threshold: 0.5 });
+
+    return () => {
+      elements.forEach(element => {
+        observerRef.current.disconnect(element);
+      });
+    }
+  }, []);
+
+
 
   return (
     <>
-      <Nav scrollTo={scrollTo} pages={pages} />
+      <Nav ref={navRef} scrollTo={scrollTo} pages={pages} />
       <Top ref={topRef} />
       <About ref={aboutRef} />
       <Projects ref={projectsRef} />

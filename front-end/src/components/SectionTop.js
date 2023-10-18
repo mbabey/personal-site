@@ -4,6 +4,7 @@ import Pathfind from './Pathfind';
 import '../styles/top.css';
 
 const Top = forwardRef(function Top(props, ref) {
+  
   return (
     <section id='top' ref={ref}>
       <div className='width-wrapper'>

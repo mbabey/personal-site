@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { handleEnterReturnKeypress } from '../scripts/util';
 
 import '../styles/nav.css';
 
-function Nav({ scrollTo, pages }) {
+const Nav = forwardRef(function Nav(props, ref) {
+  
+  const scrollTo = props.scrollTo;
+  const pages = props.pages;
+
   return (
-    <div id='nav'>
+    <div id='nav' ref={ref}>
       <div className='width-wrapper'>
         <ul>
           <li
@@ -30,6 +34,6 @@ function Nav({ scrollTo, pages }) {
       </div>
     </div>
   )
-}
+});
 
 export default Nav
