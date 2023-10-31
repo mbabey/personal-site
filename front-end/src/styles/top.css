@@ -1,6 +1,4 @@
 #top {
-  --width-break: 767px;
-
   height: 100vh;
   min-height: 560px;
   background: var(--col-grey-lt);
