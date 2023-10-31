@@ -10,7 +10,7 @@
     grid-template-columns: 20% 80%;
     height: 100%;
 
-    @media screen and (max-width: var(--width-break)) {
+    @media screen and (max-width: 767px) {
       & {
         grid-template-columns: 100%;
         grid-template-rows: 18% 82%;
@@ -38,7 +38,7 @@
           cursor: pointer;
           padding-left: 5%;
 
-          @media screen and (max-width: var(--width-break)) {
+          @media screen and (max-width: 767px) {
             & {
               cursor: pointer;
               padding-left: 5px;
@@ -50,7 +50,7 @@
         &:focus {
           padding-left: 5%;
 
-          @media screen and (max-width: var(--width-break)) {
+          @media screen and (max-width: 767px) {
             & {
               padding-left: 5px;
               font-weight: bold;
@@ -61,7 +61,7 @@
         &:active {
           padding-left: 5%;
 
-          @media screen and (max-width: var(--width-break)) {
+          @media screen and (max-width: 767px) {
             & {
               padding-left: 5px;
               font-weight: bold;
@@ -69,7 +69,7 @@
           }
         }
 
-        @media screen and (max-width: var(--width-break)) {
+        @media screen and (max-width: 767px) {
           & {
             margin: 10px 5px 0;
             padding: 5px;
@@ -77,7 +77,7 @@
         }
       }
 
-      @media screen and (max-width: var(--width-break)) {
+      @media screen and (max-width: 767px) {
         & {
           grid-column: 1 / span 1;
           grid-row: 1 / span 1;
@@ -94,7 +94,7 @@
     grid-column: 2 / span 1;
     position: relative;
 
-    @media screen and (max-width: var(--width-break)) {
+    @media screen and (max-width: 767px) {
       & {
         grid-column: 1 / span 1;
         grid-row: 2 / span 1;
@@ -170,7 +170,7 @@
       }
     }
 
-    @media screen and (max-width: var(--width-break)) {
+    @media screen and (max-width: 767px) {
       & {
         display: block;
         width: 90%;
