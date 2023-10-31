@@ -74,7 +74,7 @@ const Contact = forwardRef(function Contact(props, ref) {
             onKeyUp={() => validateEmail(email)}></input>
           <textarea ref={message} type='text' placeholder='Message' name='message'
             onKeyUp={() => validateMessage(message)}></textarea>
-          <div ref={errmsg} id='errmsg' hidden>Invalid form input; please fill all fields correctly.</div>
+          <div ref={errmsg} className='errmsg' hidden>Invalid form input; please fill all fields correctly.</div>
           <button ref={submitBtn} type='submit'
             onClick={handleSubmit}
             onKeyDown={(e) => handleEnterReturnKeypress(e, () => handleSubmit(e))}

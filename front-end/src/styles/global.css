@@ -43,12 +43,7 @@ textarea {
   font-family: var(--font-body);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+:is(h1, h2, h3, h4, h5, h6) {
   font-family: var(--font-subtitle);
   font-weight: 500;
   margin: 0;
@@ -61,17 +56,17 @@ h2.title {
   padding-bottom: 10px;
   padding-top: 2em;
   font-family: var(--font-title);
-}
 
-h2.title::after {
-  position: absolute;
-  width: 50px;
-  height: 3px;
-  content: '';
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 0;
-  background-color: #000;
+  &::after {
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    content: '';
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    background-color: #000;
+  }
 }
 
 @media screen and (max-width: 1023px) {
