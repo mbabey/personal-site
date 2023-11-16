@@ -55,7 +55,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       title: "Pokemon API",
       abbreviation: "Pokemon API",
       demolink: "https://mb-pokedex-of-pokemon.vercel.app/",
-      srclink: "https://github.com/mbabey/comp4537-assignment-3-pokemon-api",
+      srclink: "https://github.com/mbabey/pokemon-api",
       description: "A REST API to communicate with a database filled with information about Pokemon and a full-stack web application to act as an interface for the API.",
       outcomes: "This application was very entertaining to develop. It was my first React application; I was able to apply object-oriented methodologies to web development for the first time. I learned the great simplicity that React offers in terms of creating web applications. I also hosted a website and backend separately for the first time here. It was very interesting to see my related knowledge in networking applied practically.",
       technologies: "JavaScript, React, node.js, Express.js, mongodb, HTML, and CSS",
