@@ -56,17 +56,17 @@ h2.title {
   padding-bottom: 10px;
   padding-top: 2em;
   font-family: var(--font-title);
+}
 
-  &::after {
-    position: absolute;
-    width: 50px;
-    height: 3px;
-    content: '';
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-    background-color: #000;
-  }
+h2.title::after {
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  content: '';
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  background-color: #000;
 }
 
 @media screen and (max-width: 1023px) {
