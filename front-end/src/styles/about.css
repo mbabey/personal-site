@@ -2,90 +2,91 @@
   min-height: 100vh;
   background: var(--col-grey-lt);
   background: linear-gradient(180deg, var(--col-grey-lt) 65%, var(--col-blue-lt) 90%, var(--col-blue-lt) 100%);
+}
 
-  & .spread {
-    margin-bottom: 5%;
-  }
+#about .spread {
+  margin-bottom: 5%;
+}
 
-  & .bio {
+#about .bio {
+  text-align: center;
+  font-size: 1.1em;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#about .proficiencies {
+  text-align: center;
+  margin: 0 10% 25%;
+
+}
+
+@media screen and (max-width: 425px) {
+  #about .proficiencies {
     text-align: center;
-    font-size: 1.1em;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 0 25%;
   }
+}
 
-  & .proficiencies {
-    text-align: center;
-    margin: 0 10% 25%;
+#about .proficiencies h4 {
+  position: relative;
+  padding-bottom: 5px;
+  font-family: var(--font-title);
+}
 
-    @media screen and (max-width: 425px) {
-      & {
-        text-align: center;
-        margin: 0 0 25%;
-      }
-    }
+#about .proficiencies h4::after {
+  position: absolute;
+  width: 35px;
+  height: 3px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  content: '';
+  background-color: #000;
+}
 
-    & h4 {
-      position: relative;
-      padding-bottom: 5px;
-      font-family: var(--font-title);
+#about .proficiencies .pillars {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
-      &::after {
-        position: absolute;
-        width: 35px;
-        height: 3px;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        content: '';
-        background-color: #000;
-      }
-    }
+#about .proficiencies .pillars div {
+  background-image: url(/public/hexagon.svg);
+  height: 150px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  filter: drop-shadow(0px 2px 5px #5ba45688);
+}
 
-    & .pillars {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-
-      & div {
-        background-image: url(/public/hexagon.svg);
-        height: 150px;
-        width: 150px;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        flex-wrap: wrap;
-        filter: drop-shadow(0px 2px 5px #5ba45688);
-  
-        @media screen and (max-width: 635px) {
-          & {
-            background-image: url(/public/hexagon-small.svg);
-            height: 88px;
-            width: 88px;
-            font-size: 0.8em;
-          }
-        }
-      }
-    }
-
-    & ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;      
-
-      & li {
-        border: 1px solid var(--col-grn-med);
-        padding: 5px 10px;
-        margin: 10px 5px;
-        background-color: var(--col-grn-brt);
-        font-size: 0.8em;
-        filter: drop-shadow(0px 2px 5px #5ba45688);
-      }
-    }
+@media screen and (max-width: 635px) {
+  #about .proficiencies .pillars div {
+    background-image: url(/public/hexagon-small.svg);
+    height: 88px;
+    width: 88px;
+    font-size: 0.8em;
   }
+}
+
+#about .proficiencies ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#about .proficiencies ul li {
+  border: 1px solid var(--col-grn-med);
+  padding: 5px 10px;
+  margin: 10px 5px;
+  background-color: var(--col-grn-brt);
+  font-size: 0.8em;
+  filter: drop-shadow(0px 2px 5px #5ba45688);
 }
