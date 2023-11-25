@@ -8,6 +8,17 @@ const Projects = forwardRef(function Projects(props, ref) {
 
   const project_info = [
     {
+      title: "math - A Command Line Calculator",
+      abbreviation: "math",
+      demolink: "",
+      srclink: "https://github.com/mbabey/cli-calculator",
+      description: "'math' implements a lexer and recursive descent parser to interpret and calculate complex mathematical expression strings. Along with it comes a dedicated functional testing program and an automated build and installation script.",
+      outcomes: "",
+      technologies: "C",
+      images: ["projects-images/math/math-build.png", "projects-images/math/math-runnin.png"],
+      imagealts: ["Math Build Script Executing", "Math in Use"]
+    },
+    {
       title: "Opendata Developer Network - ODEN",
       abbreviation: "ODEN",
       demolink: "https://terratap-oden-client-v2.web.app",
@@ -72,18 +83,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       technologies: "C++",
       images: ["projects-images/tsp/graph.png", "projects-images/tsp/running-tsp.png"],
       imagealts: ["Connected Graph", "Genetic TSP Output"]
-    },
-    // {
-    //   title: "This Website",
-    //   abbreviation: "This Website",
-    //   demolink: "",
-    //   srclink: "https://github.com/mbabey/personal-site",
-    //   description: "This website is for displaying my portfolio and to allow others to get in touch. It hosts, in its header, a dynamic pathfinding animation. The colour of the tiles represents the altitude; darker colour is higher altitude. The red square traces a path to the yellow square with the minimum change in altitude. Djikstra's algorithm is used to find the best path.",
-    //   outcomes: "",
-    //   technologies: "JavaScript, React, HTML, and CSS",
-    //   images: [],
-    //   imagealts: []
-    // }
+    }
   ]
 
   const [selectedProject, setSelectedProject] = useState(<Project
