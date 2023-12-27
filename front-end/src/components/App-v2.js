@@ -18,21 +18,30 @@ export default function App2() {
   return (
     <>
       {/* <Pathfind size_x={PATHFIND_SETTINGS.size_x} size_y={PATHFIND_SETTINGS.size_y} /> */}
-      <div className='pathfind-placeholder'>
-        Pathfind placeholder
+
+      <div className='pathfind-box'>
+        <div className='pathfind-placeholder'>
+          Pathfind placeholder
+        </div>
       </div>
       <div className='h-text'>
         <div className='name'>
-          Maxwell Babey
+          <div className='text-content'>
+            Maxwell Babey
+          </div>
         </div>
         <div className='tag'>
-          Structure.<br />Software.<br />Solutions
+          <div className='text-content'>
+            Structure.<br />Software.<br />Solutions.
+          </div>
         </div>
         <div className='statement'>
-          I do end-to-end organization, planning, and delivery of web applications.
+          <div className='text-content'>
+            I do end-to-end organization, planning, and delivery of web applications.
+          </div>
         </div>
       </div>
-      <div className='buttons'>
+      {/* <div className='buttons'>
         <button className='btn github' onClick={() => openUrl(URLS.github)}>
           <img src='github.svg' alt='GitHub' />
         </button>
@@ -42,7 +51,7 @@ export default function App2() {
         <button className='btn contact'>
           Contact Me &gt;
         </button>
-      </div>
+      </div> */}
       {/* <div className='pathfind-bar'>
         <div className=''></div>
       </div> */}
