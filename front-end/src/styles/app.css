@@ -1,0 +1,52 @@
+body {
+  margin: 0 auto;
+}
+
+:root {
+  --pillar-height: 300px;
+  --pillar-width: 200px;
+}
+
+.pathfind-placeholder {
+  width: 100px;
+  aspect-ratio: 1/1;
+  background-color: #ccc;
+  text-align: center;
+  margin: auto;
+}
+
+
+
+/* These styles are for a tall hexagon. */
+/* .pathfind-bar {
+  margin: auto;
+  margin-top: 100px;
+  width: var(--pillar-width);
+  height: var(--pillar-height);
+  background: #000000aa;
+  position: relative;
+}
+
+.pathfind-bar::before {
+  content: "";
+  position: absolute;
+  top: calc(-1 * (var(--pillar-width) * 0.287675));
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: calc(var(--pillar-width) * 0.5) solid transparent;
+  border-right: calc(var(--pillar-width) * 0.5) solid transparent;
+  border-bottom: calc(var(--pillar-width) * 0.287675) solid #000000aa;
+}
+
+.pathfind-bar::after {
+  content: "";
+  position: absolute;
+  bottom: calc(-1 * (var(--pillar-width) * 0.287675));
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: calc(var(--pillar-width) * 0.5) solid transparent;
+  border-right: calc(var(--pillar-width) * 0.5) solid transparent;
+  border-top: calc(var(--pillar-width) * 0.287675) solid #000000aa;
+} */
