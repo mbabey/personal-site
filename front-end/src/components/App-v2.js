@@ -1,6 +1,8 @@
 import React from 'react'
 import Pathfind from '../pathfind/Pathfind';
 
+import '../styles/app.css';
+
 export default function App2() {
   return (
     <>
@@ -15,6 +17,9 @@ export default function App2() {
         <div className='statement'>
           I do end-to-end organization, planning, and delivery of web applications.
         </div>
+      </div>
+      <div className='buttons'>
+        
       </div>
     </>
   )

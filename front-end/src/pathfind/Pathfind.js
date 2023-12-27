@@ -56,7 +56,7 @@ function Pathfind({ size_x, size_y }) {
 
     run();
     return () => clearInterval(interval_id);
-  }, []);
+  }, [SIZE_X, SIZE_Y]);
 
   return (
     <div
