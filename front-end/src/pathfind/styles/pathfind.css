@@ -1,11 +1,11 @@
 .grid-container {
   display: grid;
+  transform: rotateX(65deg) rotateZ(45deg);
 }
 
 .cell {
   width: 100%;
-  height: auto;
-  border-radius: 25%;
+  height: auto; 
 }
 
 .visited {

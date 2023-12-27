@@ -1,18 +1,18 @@
-import Grid from '../scripts/Grid.js'
-import Entity from '../scripts/Entity.js';
-import PriorityQueue from '../scripts/PriorityQueue.js';
 import React, { useState, useEffect } from 'react';
+import Grid from './scripts/Grid.js'
+import Entity from './scripts/Entity.js';
+import PriorityQueue from './scripts/PriorityQueue.js';
 
-import '../styles/pathfind.css'
+import './styles/pathfind.css'
 
-function Pathfind() {
+function Pathfind({ size_x, size_y }) {
 
   // The millisecond interval at which the Entity will move from Cell to Cell.
   const INTERVAL_MS = 100;
 
   // The size of the world grid.
-  const SIZE_X = 20;
-  const SIZE_Y = 20;
+  const SIZE_X = size_x;
+  const SIZE_Y = size_y;
 
   // CSS for the grid.
   const GRID_CONTAINER_SIZE = { gridTemplateColumns: `repeat(${SIZE_X}, 1fr)`, gridTemplateRows: `repeat(${SIZE_Y}, 1fr)` };
@@ -25,33 +25,33 @@ function Pathfind() {
     async function run() {
       // Create the Grid.
       const world = await Grid.async_create_grid(SIZE_X, SIZE_Y);
-      
+
       // Create the Entity and it's target (opposite the Entity).
       const entity = await create_entity_and_target(SIZE_X, SIZE_Y, world);
-    
+
       // Draw the world.
       setWorldImage(world.draw());
-      
+
       // Fade in the world.
       const pf = document.getElementById('pathfind');
       pf.style.opacity = 1;
-      
+
       // Run the Dijkstra pathfinding algorithm.
       const path_info = await dijkstra_pathfind(entity, entity.get_target(), world);
-      
+
       // Set the path for the Entity to follow.
       entity.set_path(path_info.s_path);
-      
+
       interval_id = setInterval(() => {
         // Move the Entity along the path and redraw the World.
         entity.move();
         setWorldImage(world.draw());
-        
+
         // If the entity is at the target location, stop the iteration.
         if (entity.get_location().get_targeted() === true) {
           clearInterval(interval_id);
         }
-      }, INTERVAL_MS);      
+      }, INTERVAL_MS);
     }
 
     run();

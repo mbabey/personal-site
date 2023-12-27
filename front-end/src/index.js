@@ -4,7 +4,7 @@ import App2 from './components/App-v2';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <App2 />
-  </React.StrictMode>
+  // </React.StrictMode>
 );
