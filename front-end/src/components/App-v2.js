@@ -1,5 +1,6 @@
 import React from 'react'
 import Pathfind from '../pathfind/Pathfind';
+import SVGLibrary from './svg';
 
 import '../styles/app.css';
 
@@ -27,7 +28,7 @@ export default function App2() {
       <div className='h-text'>
         <div className='name'>
           <div className='text-content'>
-            Maxwell Babey
+            Maxwell<br />Babey
           </div>
         </div>
         <div className='tag'>
@@ -41,17 +42,19 @@ export default function App2() {
           </div>
         </div>
       </div>
-      {/* <div className='buttons'>
-        <button className='btn github' onClick={() => openUrl(URLS.github)}>
-          <img src='github.svg' alt='GitHub' />
+      <div className='buttons'>
+        <button className='btn github' onClick={() => openUrlNewTab(URLS.github)}>
+          <SVGLibrary.GitHub />
         </button>
-        <button className='btn linkedin' onClick={() => openUrl(URLS.linkedin)}>
-          <img src='linkedin.svg' alt='LinkedIn' />
+        <button className='btn linkedin' onClick={() => openUrlNewTab(URLS.linkedin)}>
+          <SVGLibrary.LinkedIn />
         </button>
         <button className='btn contact'>
-          Contact Me &gt;
+          <div>
+            Contact Me &gt;
+          </div>
         </button>
-      </div> */}
+      </div>
       {/* <div className='pathfind-bar'>
         <div className=''></div>
       </div> */}
@@ -59,6 +62,6 @@ export default function App2() {
   )
 }
 
-function openUrl(url) {
+function openUrlNewTab(url) {
   window.open(url, '_blank');
 }
