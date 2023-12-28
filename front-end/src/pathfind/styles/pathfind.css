@@ -1,9 +1,14 @@
-.grid-container {
-  display: grid;
-  transform: rotateX(65deg) rotateZ(45deg);
+:root {
+  --view-angle: 60deg;
 }
 
-.cell {
+.grid-container {
+  display: grid;
+  width: calc(10 * var(--pillar-width));
+  aspect-ratio: 1/1;
+}
+
+/* .cell {
   width: 100%;
   height: auto; 
 }
@@ -18,4 +23,37 @@
 
 .populated {
   background-color: #ff0000 !important;
+} */
+
+.cell.box {
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+.cell.top {
+  position: absolute;
+  /* top: calc(-1 * var(--pillar-height)); */
+  width: var(--pillar-width);
+  aspect-ratio: 1/1;
+  transform: rotateX(var(--view-angle)) rotate(45deg);
+  background-color: #ffffff;
+}
+
+.cell.tower.left {
+  position: absolute;
+  bottom: calc(-0.678 * var(--pillar-width));
+  left: calc(-0.205 * var(--pillar-width));
+  width: calc(0.705 * var(--pillar-width));
+  transform: skewY(26.5deg);
+  background-color: #00ff00;
+}
+
+.cell.tower.right {
+  position: absolute;
+  bottom: calc(-0.678 * var(--pillar-width));
+  left: calc(0.5 * var(--pillar-width));
+  width: calc(0.705 * var(--pillar-width));
+  transform: skewY(-26.5deg);
+  background-color: #ff0000;
 }

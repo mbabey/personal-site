@@ -5,17 +5,10 @@ import PriorityQueue from './scripts/PriorityQueue.js';
 
 import './styles/pathfind.css'
 
-function Pathfind({ size_x, size_y }) {
-
-  // The millisecond interval at which the Entity will move from Cell to Cell.
-  const INTERVAL_MS = 100;
-
-  // The size of the world grid.
-  const SIZE_X = size_x;
-  const SIZE_Y = size_y;
+function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms }) {
 
   // CSS for the grid.
-  const GRID_CONTAINER_SIZE = { gridTemplateColumns: `repeat(${SIZE_X}, 1fr)`, gridTemplateRows: `repeat(${SIZE_Y}, 1fr)` };
+  const GRID_CONTAINER_SIZE = { gridTemplateColumns: `repeat(${size_x}, 1fr)`, gridTemplateRows: `repeat(${size_y}, 1fr)` };
 
   const [worldImage, setWorldImage] = useState('hmm');
 
@@ -24,13 +17,13 @@ function Pathfind({ size_x, size_y }) {
 
     async function run() {
       // Create the Grid.
-      const world = await Grid.async_create_grid(SIZE_X, SIZE_Y);
+      const world = await Grid.async_create_grid(size_x, size_y);
 
       // Create the Entity and it's target (opposite the Entity).
-      const entity = await create_entity_and_target(SIZE_X, SIZE_Y, world);
+      const entity = await create_entity_and_target(size_x, size_y, world);
 
       // Draw the world.
-      setWorldImage(world.draw());
+      setWorldImage(world.draw(max_height_px, width_px));
 
       // Fade in the world.
       const pf = document.getElementById('pathfind');
@@ -45,18 +38,18 @@ function Pathfind({ size_x, size_y }) {
       interval_id = setInterval(() => {
         // Move the Entity along the path and redraw the World.
         entity.move();
-        setWorldImage(world.draw());
+        setWorldImage(world.draw(max_height_px, width_px));
 
         // If the entity is at the target location, stop the iteration.
         if (entity.get_location().get_targeted() === true) {
           clearInterval(interval_id);
         }
-      }, INTERVAL_MS);
+      }, update_interval_ms);
     }
 
     run();
     return () => clearInterval(interval_id);
-  }, [SIZE_X, SIZE_Y]);
+  }, [size_x, size_y, max_height_px, update_interval_ms]);
 
   return (
     <div

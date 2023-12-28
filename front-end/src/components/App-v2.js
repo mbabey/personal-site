@@ -7,8 +7,11 @@ import '../styles/app.css';
 export default function App2() {
 
   const PATHFIND_SETTINGS = {
-    size_x: 20,
-    size_y: 20
+    size_x: 5,
+    size_y: 5,
+    max_height_px: 15,
+    width_px: 30,
+    update_interval_ms: 100
   };
 
   const URLS = {
@@ -18,15 +21,23 @@ export default function App2() {
 
   return (
     <>
-      {/* <Pathfind size_x={PATHFIND_SETTINGS.size_x} size_y={PATHFIND_SETTINGS.size_y} /> */}
-
       <div className='pathfind-box'>
+        <Pathfind
+          size_x={PATHFIND_SETTINGS.size_x}
+          size_y={PATHFIND_SETTINGS.size_y}
+          max_height_px={PATHFIND_SETTINGS.max_height_px}
+          width_px={PATHFIND_SETTINGS.width_px}
+          update_interval_ms={PATHFIND_SETTINGS.update_interval_ms}
+        />
+      </div>
+
+      {/* <div className='pathfind-box'>
         <div className='pathfind-placeholder box'>
           <div className='pathfind-placeholder tower left'></div>
           <div className='pathfind-placeholder tower right'></div>
           <div className='pathfind-placeholder top'></div>
         </div>
-      </div>
+      </div> */}
       <div className='h-text'>
         <div className='name'>
           <div className='text-content'>
