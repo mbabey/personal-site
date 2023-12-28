@@ -104,9 +104,7 @@ class Grid {
    * For each Cell in the Grid, create an HTML element.
    * @returns the array of HTML elements.
    */
-  draw(max_height_px, width_px) {
-    document.documentElement.style.setProperty('--pillar-width', `${width_px}px`);
-
+  draw(max_height_px) {
     const image = this.#arr.map(row => {
       return row.map(cell => {
         const location = cell.get_coordinates();
@@ -116,8 +114,10 @@ class Grid {
         const visited = cell.get_visited();
 
         const cell_class = `cell${populated ? ' populated' : ''}${targeted ? ' targeted' : ''}${visited ? ' visited' : ''}`;
+        
         const cell_height = (altitude / Cell.MAX_ALTITUDE) * max_height_px;
         const cell_top = -cell_height;
+
         const top_style = {top: `${cell_top}px`}
         const tower_style = {height: `${cell_height}px`}
 

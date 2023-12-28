@@ -7,6 +7,10 @@ import './styles/pathfind.css'
 
 function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms }) {
 
+  document.documentElement.style.setProperty('--pillar-width', `${width_px}px`);
+  document.documentElement.style.setProperty('--grid-size-x', `${size_x}`);
+  document.documentElement.style.setProperty('--grid-size-y', `${size_y}`);
+
   // CSS for the grid.
   const GRID_CONTAINER = { display: 'grid', gridTemplateColumns: `repeat(${size_x}, 1fr)`, gridTemplateRows: `repeat(${size_y}, 1fr)` };
 

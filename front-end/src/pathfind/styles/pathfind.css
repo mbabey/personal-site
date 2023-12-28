@@ -1,10 +1,12 @@
 :root {
   --view-angle: 60deg;
+  --skew-angle: 26.5deg;
 }
 
 .grid-container {
-  width: calc(5 * var(--pillar-width));
-  aspect-ratio: 1/1;
+  transform: rotateZ(45deg);
+  width: calc(var(--grid-size-x) * var(--pillar-width));
+  height: calc(var(--grid-size-y) * var(--pillar-width));
 }
 
 .visited.top {
@@ -23,6 +25,7 @@
   position: relative;
   width: 0;
   height: 0;
+  transform: rotateZ(-45deg);
 }
 
 .cell.top {
@@ -30,7 +33,7 @@
   /* top: calc(-1 * var(--pillar-height)); */
   width: var(--pillar-width);
   aspect-ratio: 1/1;
-  transform: rotateX(var(--view-angle)) rotate(45deg);
+  transform: rotateX(var(--view-angle)) rotateZ(45deg);
   background-color: #5050ee;
   border: 1px solid black;
 }
@@ -40,7 +43,7 @@
   bottom: calc(-0.678 * var(--pillar-width) - 2px);
   left: calc(-0.205 * var(--pillar-width));
   width: calc(0.705 * var(--pillar-width) - 1px);
-  transform: skewY(26.5deg);
+  transform: skewY(var(--skew-angle));
   background-color: #5050ee;
   border: 1px solid black;
 }
@@ -50,7 +53,7 @@
   bottom: calc(-0.678 * var(--pillar-width) - 2px);
   left: calc(0.5 * var(--pillar-width));
   width: calc(0.705 * var(--pillar-width) - 1px);
-  transform: skewY(-26.5deg);
+  transform: skewY(calc(-1 * var(--skew-angle)));
   background-color: #5050ee;
   border: 1px solid black;
 }

@@ -7,10 +7,10 @@ import '../styles/app.css';
 export default function App2() {
 
   const PATHFIND_SETTINGS = {
-    size_x: 5,
-    size_y: 5,
+    size_x: 20,
+    size_y: 20,
     max_height_px: 50,
-    width_px: 50,
+    width_px: 20,
     update_interval_ms: 500
   };
 
