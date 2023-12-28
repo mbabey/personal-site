@@ -9,9 +9,9 @@ export default function App2() {
   const PATHFIND_SETTINGS = {
     size_x: 5,
     size_y: 5,
-    max_height_px: 15,
-    width_px: 30,
-    update_interval_ms: 100
+    max_height_px: 50,
+    width_px: 50,
+    update_interval_ms: 500
   };
 
   const URLS = {

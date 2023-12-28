@@ -3,27 +3,21 @@
 }
 
 .grid-container {
-  display: grid;
-  width: calc(10 * var(--pillar-width));
+  width: calc(5 * var(--pillar-width));
   aspect-ratio: 1/1;
 }
 
-/* .cell {
-  width: 100%;
-  height: auto; 
+.visited.top {
+  background-color: rgba(167, 0, 0) !important;
 }
 
-.visited {
-  background-color: rgba(167, 0, 0, 0.67) !important;
-}
-
-.targeted {
+.targeted.top {
   background-color: #ffff00 !important;
 }
 
-.populated {
+.populated.top {
   background-color: #ff0000 !important;
-} */
+}
 
 .cell.box {
   position: relative;
@@ -37,23 +31,26 @@
   width: var(--pillar-width);
   aspect-ratio: 1/1;
   transform: rotateX(var(--view-angle)) rotate(45deg);
-  background-color: #ffffff;
+  background-color: #5050ee;
+  border: 1px solid black;
 }
 
 .cell.tower.left {
   position: absolute;
-  bottom: calc(-0.678 * var(--pillar-width));
+  bottom: calc(-0.678 * var(--pillar-width) - 2px);
   left: calc(-0.205 * var(--pillar-width));
-  width: calc(0.705 * var(--pillar-width));
+  width: calc(0.705 * var(--pillar-width) - 1px);
   transform: skewY(26.5deg);
-  background-color: #00ff00;
+  background-color: #5050ee;
+  border: 1px solid black;
 }
 
 .cell.tower.right {
   position: absolute;
-  bottom: calc(-0.678 * var(--pillar-width));
+  bottom: calc(-0.678 * var(--pillar-width) - 2px);
   left: calc(0.5 * var(--pillar-width));
-  width: calc(0.705 * var(--pillar-width));
+  width: calc(0.705 * var(--pillar-width) - 1px);
   transform: skewY(-26.5deg);
-  background-color: #ff0000;
+  background-color: #5050ee;
+  border: 1px solid black;
 }

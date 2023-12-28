@@ -115,7 +115,7 @@ class Grid {
         const targeted = cell.get_targeted();
         const visited = cell.get_visited();
 
-        const cell_class = `cell ${populated ? 'populated' : ''} ${targeted ? 'targeted' : ''} ${visited ? 'visited' : ''}`;
+        const cell_class = `cell${populated ? ' populated' : ''}${targeted ? ' targeted' : ''}${visited ? ' visited' : ''}`;
         const cell_height = (altitude / Cell.MAX_ALTITUDE) * max_height_px;
         const cell_top = -cell_height;
         const top_style = {top: `${cell_top}px`}
@@ -123,9 +123,9 @@ class Grid {
 
         return (
           <div key={[location.x, location.y]} className={`${cell_class} box`}>
-            <div className={`${cell_class} top`} style={top_style}></div>
-            <div className={`${cell_class} tower left`} style={tower_style}></div>
             <div className={`${cell_class} tower right`} style={tower_style}></div>
+            <div className={`${cell_class} tower left`} style={tower_style}></div>
+            <div className={`${cell_class} top`} style={top_style}></div>
           </div>
         );
       })

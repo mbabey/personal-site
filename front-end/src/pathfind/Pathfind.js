@@ -8,7 +8,7 @@ import './styles/pathfind.css'
 function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms }) {
 
   // CSS for the grid.
-  const GRID_CONTAINER_SIZE = { gridTemplateColumns: `repeat(${size_x}, 1fr)`, gridTemplateRows: `repeat(${size_y}, 1fr)` };
+  const GRID_CONTAINER = { display: 'grid', gridTemplateColumns: `repeat(${size_x}, 1fr)`, gridTemplateRows: `repeat(${size_y}, 1fr)` };
 
   const [worldImage, setWorldImage] = useState('hmm');
 
@@ -26,7 +26,7 @@ function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms 
       setWorldImage(world.draw(max_height_px, width_px));
 
       // Fade in the world.
-      const pf = document.getElementById('pathfind');
+      const pf = document.querySelector('.pathfind');
       pf.style.opacity = 1;
 
       // Run the Dijkstra pathfinding algorithm.
@@ -49,13 +49,12 @@ function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms 
 
     run();
     return () => clearInterval(interval_id);
-  }, [size_x, size_y, max_height_px, update_interval_ms]);
+  }, [size_x, size_y, max_height_px, width_px, update_interval_ms]);
 
   return (
     <div
-      id='pathfind'
-      className='grid-container'
-      style={GRID_CONTAINER_SIZE}
+      className='pathfind grid-container'
+      style={GRID_CONTAINER}
     >
       {worldImage}
     </div>
