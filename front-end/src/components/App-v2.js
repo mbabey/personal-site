@@ -22,7 +22,9 @@ export default function App2() {
 
       <div className='pathfind-box'>
         <div className='pathfind-placeholder'>
-          Pathfind placeholder
+          <div className='pathfind-placeholder top'></div>
+          <div className='pathfind-placeholder tower left'></div>
+          <div className='pathfind-placeholder tower right'></div>
         </div>
       </div>
       <div className='h-text'>

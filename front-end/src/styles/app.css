@@ -1,7 +1,9 @@
 :root {
   --pillar-height: 300px;
   --pillar-width: 200px;
-  --bg-colour: #000028
+  --bg-colour: #000028;
+  --view-angle: 60deg;
+  --pillar-height: 150px;
 }
 
 body {
@@ -12,25 +14,44 @@ body {
 
 #root {
   height: 100%;
+  position: relative;
 }
 
 .pathfind-box {
   position: absolute;
   z-index: -1;
   top: 50%;
-  left: 50%;
-  width: 100vw;
-  transform: translate(-50%, -50%);
-  overflow: hidden;
+  left: 30%;
 }
 
-.pathfind-placeholder {
-  transform: translate(-18%) rotateX(60deg) rotateZ(45deg);
-  margin: auto;
-  width: 500px;
+.pathfind-placeholder.top {
+  position: absolute;
+  /* top: -20px; */
+  top: calc(-1 * var(--pillar-height));
+  width: 100px;
   aspect-ratio: 1/1;
-  background-color: #cccccc78;
-  text-align: center; 
+  transform: rotateX(var(--view-angle)) rotate(45deg);
+  background-color: #ffffff;
+}
+
+.pathfind-placeholder.tower.left {
+  position: absolute;
+  bottom: -67.5px;
+  left: -21px;
+  height: var(--pillar-height);
+  width: 71px;
+  transform: skewY(26.5deg);
+  background-color: #00ff00;
+}
+
+.pathfind-placeholder.tower.right {
+  position: absolute;
+  bottom: -67.5px;
+  left: 50px;
+  height: var(--pillar-height);
+  width: 71px;
+  transform: skewY(-26.5deg);
+  background-color: #ff0000;
 }
 
 .h-text {
@@ -61,7 +82,7 @@ body {
   justify-content: left;
   align-items: flex-end;
   margin-left: 20px;
-  
+
   text-align: right;
   font-size: 36px;
   font-weight: 600;

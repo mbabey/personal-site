@@ -27,11 +27,9 @@ class Grid {
     }
   }
 
-  static async async_create_grid(size_x, size_y)
-  {
+  static async async_create_grid(size_x, size_y) {
     return new Promise((resolve, reject) => {
-      if (size_x > 0 && size_y > 0)
-      {
+      if (size_x > 0 && size_y > 0) {
         resolve(new Grid(size_x, size_y));
       } else {
         reject('Invalid Grid size; Grid dimensions must be positive.');
@@ -49,8 +47,7 @@ class Grid {
     let cell;
     try {
       cell = this.#arr[y][x];
-    } catch(e)
-    {
+    } catch (e) {
       cell = null;
     }
     return cell;
@@ -60,8 +57,7 @@ class Grid {
    * Get the x-dimension size of this Grid.
    * @returns the x-dimension size of this Grid.
    */
-  get_size_x()
-  {
+  get_size_x() {
     return this.#arr[0].length;
   }
 
@@ -69,8 +65,7 @@ class Grid {
    * Get the y-dimension size of this Grid.
    * @returns the y-dimension size of this Grid.
    */
-  get_size_y()
-  {
+  get_size_y() {
     return this.#arr.length;
   }
 
@@ -88,13 +83,13 @@ class Grid {
    * @returns the neighbours of the parameter Cell.
    */
   get_neighbours(cell) {
-    const {x, y} = cell.get_coordinates();
- 
+    const { x, y } = cell.get_coordinates();
+
     const left_n = this.get_cell(x - 1, y);
     const top_n = this.get_cell(x, y + 1);
     const right_n = this.get_cell(x + 1, y);
     const bottom_n = this.get_cell(x, y - 1);
-    
+
     const neighbours = {};
 
     if (left_n) neighbours.left = left_n;
@@ -121,7 +116,12 @@ class Grid {
         const cell_class = `cell ${populated ? 'populated' : ''} ${targeted ? 'targeted' : ''} ${visited ? 'visited' : ''}`;
         const cell_style = { backgroundColor: `rgba(53, 54, 72, ${(altitude / Cell.MAX_ALTITUDE) * 0.8})`, aspectRatio: 1 };
 
-        return <div key={[location.x, location.y]} className={cell_class} style={cell_style}></div>
+        return (
+          <div key={[location.x, location.y]} className={cell_class} style={cell_style}>
+            <div className={``}></div>
+            <div className={``}></div>
+          </div>
+        );
       })
     });
 
