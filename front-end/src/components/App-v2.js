@@ -43,10 +43,10 @@ export default function App2() {
         </div>
       </div>
       <div className='buttons'>
-        <button className='btn github' onClick={() => openUrlNewTab(URLS.github)}>
+        <button className='btn svg-btn' onClick={() => openUrlNewTab(URLS.github)}>
           <SVGLibrary.GitHub />
         </button>
-        <button className='btn linkedin' onClick={() => openUrlNewTab(URLS.linkedin)}>
+        <button className='btn svg-btn' onClick={() => openUrlNewTab(URLS.linkedin)}>
           <SVGLibrary.LinkedIn />
         </button>
         <button className='btn contact'>

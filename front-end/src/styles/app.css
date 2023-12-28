@@ -1,12 +1,13 @@
 :root {
   --pillar-height: 300px;
   --pillar-width: 200px;
+  --bg-colour: #000028
 }
 
 body {
   margin: 0 auto;
   height: 100vh;
-  background-color: #000028;
+  background-color: var(--bg-colour);
 }
 
 #root {
@@ -33,7 +34,7 @@ body {
 }
 
 .h-text {
-  height: 80%;
+  height: 90%;
 
   display: grid;
   grid-template-columns: repeat(2, 50%);
@@ -90,21 +91,44 @@ body {
 
 .btn {
   background: none;
-  border: 3px solid #fff;
-  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:not(.svg-btn) {
+  margin: 0 15px;
+  border: 1px solid #fff;
   padding: 5px 10px;
-  margin: 0 10px;
-}
-
-.btn svg {
-  fill: #fff;
-  height: 24px;
-}
-
-.btn div {
   color: #fff;
-  font-size: 13px;
+  font-size: 18px;
+  transition: all 0.1s ease-out;
 }
+
+.btn:not(.svg-btn):hover {
+  border-color: var(--bg-colour);
+  background-color: #ffffffcc;
+  color: var(--bg-colour);
+}
+
+.svg-btn {
+  margin: 0 7.5px;
+}
+
+.svg-btn svg {
+  fill: #ffffffcc;
+  width: 40px;
+  height: 40px;
+}
+
+.svg-btn svg {
+  transition: all 0.1s ease-out;
+}
+
+.svg-btn:hover svg {
+  fill: #fff;
+}
+
+
 
 /* These styles are for a tall hexagon. */
 /* .pathfind-bar {
