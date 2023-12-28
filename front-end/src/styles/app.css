@@ -38,9 +38,9 @@ body {
 
 .pathfind-placeholder.tower.left {
   position: absolute;
-  bottom: calc(-0.67 * var(--pillar-width));
-  left: calc(-0.2 * var(--pillar-width));
-  width: calc(0.7 * var(--pillar-width));
+  bottom: calc(-0.678 * var(--pillar-width));
+  left: calc(-0.205 * var(--pillar-width));
+  width: calc(0.705 * var(--pillar-width));
   height: var(--pillar-height);
   transform: skewY(26.5deg);
   background-color: #00ff00;
@@ -48,9 +48,9 @@ body {
 
 .pathfind-placeholder.tower.right {
   position: absolute;
-  bottom: calc(-0.67 * var(--pillar-width));
+  bottom: calc(-0.678 * var(--pillar-width));
   left: calc(0.5 * var(--pillar-width));
-  width: calc(0.7 * var(--pillar-width));
+  width: calc(0.705 * var(--pillar-width));
   height: var(--pillar-height);
   transform: skewY(-26.5deg);
   background-color: #ff0000;
