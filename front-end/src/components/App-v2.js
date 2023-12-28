@@ -21,10 +21,10 @@ export default function App2() {
       {/* <Pathfind size_x={PATHFIND_SETTINGS.size_x} size_y={PATHFIND_SETTINGS.size_y} /> */}
 
       <div className='pathfind-box'>
-        <div className='pathfind-placeholder'>
-          <div className='pathfind-placeholder top'></div>
+        <div className='pathfind-placeholder box'>
           <div className='pathfind-placeholder tower left'></div>
           <div className='pathfind-placeholder tower right'></div>
+          <div className='pathfind-placeholder top'></div>
         </div>
       </div>
       <div className='h-text'>

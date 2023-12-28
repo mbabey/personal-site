@@ -1,9 +1,8 @@
 :root {
-  --pillar-height: 300px;
-  --pillar-width: 200px;
   --bg-colour: #000028;
   --view-angle: 60deg;
-  --pillar-height: 150px;
+  --pillar-height: 69px;
+  --pillar-width: 50px;
 }
 
 body {
@@ -24,11 +23,14 @@ body {
   left: 30%;
 }
 
+.pathfind-placeholder.box {
+  position: relative;
+}
+
 .pathfind-placeholder.top {
   position: absolute;
-  /* top: -20px; */
   top: calc(-1 * var(--pillar-height));
-  width: 100px;
+  width: var(--pillar-width);
   aspect-ratio: 1/1;
   transform: rotateX(var(--view-angle)) rotate(45deg);
   background-color: #ffffff;
@@ -36,20 +38,20 @@ body {
 
 .pathfind-placeholder.tower.left {
   position: absolute;
-  bottom: -67.5px;
-  left: -21px;
+  bottom: calc(-0.67 * var(--pillar-width));
+  left: calc(-0.2 * var(--pillar-width));
+  width: calc(0.7 * var(--pillar-width));
   height: var(--pillar-height);
-  width: 71px;
   transform: skewY(26.5deg);
   background-color: #00ff00;
 }
 
 .pathfind-placeholder.tower.right {
   position: absolute;
-  bottom: -67.5px;
-  left: 50px;
+  bottom: calc(-0.67 * var(--pillar-width));
+  left: calc(0.5 * var(--pillar-width));
+  width: calc(0.7 * var(--pillar-width));
   height: var(--pillar-height);
-  width: 71px;
   transform: skewY(-26.5deg);
   background-color: #ff0000;
 }
