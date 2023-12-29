@@ -15,7 +15,7 @@ function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms 
   // CSS for the grid.
   const GRID_CONTAINER = { display: 'grid', gridTemplateColumns: `repeat(${size_x}, 1fr)`, gridTemplateRows: `repeat(${size_y}, 1fr)` };
   
-  const [worldImage, setWorldImage] = useState('hmm');
+  const [gridImage, setGridImage] = useState('hmm');
   const pfRef = useRef(null);
 
   useEffect(() => {
@@ -23,28 +23,29 @@ function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms 
     
     async function run() {
       // Create the Grid.
-      const world = await Grid.async_create_grid(size_x, size_y);
+      const grid = await Grid.async_create_grid(size_x, size_y);
       
       // Create the Entity and it's target (opposite the Entity).
-      const entity = await create_entity_and_target(size_x, size_y, world);
+      const entity = await create_entity_and_target(size_x, size_y, grid);
       
-      // Draw the world.
+      // Draw the grid.
       const min_height_px = 0.35 * width_px;
-      setWorldImage(world.draw(max_height_px, min_height_px));
+      setGridImage(grid.draw(max_height_px, min_height_px));
 
-      // Fade in the world.
+      // Fade in the grid.
       pfRef.current.style.opacity = 1;
 
       // Run the Dijkstra pathfinding algorithm.
-      const path_info = await dijkstra_pathfind(entity, entity.get_target(), world);
+      const path_info = await dijkstra_pathfind(entity, entity.get_target(), grid);
 
       // Set the path for the Entity to follow.
       entity.set_path(path_info.s_path);
 
       interval_id = setInterval(() => {
-        // Move the Entity along the path and redraw the World.
+        // Move the Entity along the path and redraw the Grid.
         entity.move();
-        setWorldImage(world.draw(max_height_px, min_height_px));
+        entity.get_location();
+        setGridImage(grid.draw(max_height_px, min_height_px));
 
         // If the entity is at the target location, stop the iteration.
         if (entity.get_location().get_targeted() === true) {
@@ -63,7 +64,7 @@ function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms 
       className='pathfind grid-container'
       style={GRID_CONTAINER}
     >
-      {worldImage}
+      {gridImage}
     </div>
   );
 }

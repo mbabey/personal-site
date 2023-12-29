@@ -10,8 +10,8 @@
 
 .grid-container {
   transform: rotateZ(45deg);
-  width: calc(var(--grid-size-x) * var(--pillar-width));
-  height: calc(var(--grid-size-y) * var(--pillar-width));
+  min-width: calc(var(--grid-size-x) * var(--pillar-width));
+  min-height: calc(var(--grid-size-y) * var(--pillar-width));
 }
 
 .cell.box {
