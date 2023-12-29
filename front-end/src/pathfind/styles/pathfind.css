@@ -24,36 +24,48 @@
 
 .cell.top {
   position: absolute;
-  width: var(--pillar-width);
-  left: calc(-0.15 * var(--pillar-width));
+  width: calc(0.98 * var(--pillar-width));
+  left: calc(-0.135 * var(--pillar-width));
   aspect-ratio: 1/1;
   transform: rotateX(var(--view-angle)) rotateZ(45deg);
-  background-color: #5050ee;
+  background-color: #7676fb;
   border: 1px solid #000;
 }
 
 .cell.tower.left {
   position: absolute;
-  bottom: calc(-0.678 * var(--pillar-width) - 2px);
-  left: calc(-0.355 * var(--pillar-width));
+  bottom: calc(-0.688 * var(--pillar-width) - 2px);
+  left: calc(-0.335 * var(--pillar-width));
   width: calc(0.705 * var(--pillar-width) - 1px);
   transform: skewY(var(--skew-angle));
-  background-color: #5050ee;
+  background-color: #4141d7;
   border: 1px solid #000;
 }
 
 .cell.tower.right {
   position: absolute;
-  bottom: calc(-0.678 * var(--pillar-width) - 2px);
-  left: calc(0.35 * var(--pillar-width));
-  width: calc(0.705 * var(--pillar-width) - 1px);
+  bottom: calc(-0.688 * var(--pillar-width) - 2px);
+  left: calc(0.355 * var(--pillar-width));
+  width: calc(0.715 * var(--pillar-width) - 1px);
   transform: skewY(calc(-1 * var(--skew-angle)));
-  background-color: #5050ee;
+  background-color: #3030bd;
   border: 1px solid #000;
 }
 
+.targeted {
+  filter: contrast(200%);
+}
+
 .targeted.top {
-  background-color: #a4a4ff;
+  background-color: #ababff;
+}
+
+.targeted.tower.left {
+  background-color: #8585ee;
+}
+
+.targeted.tower.right {
+  background-color: #7676e9;
 }
 
 .visited.top {
