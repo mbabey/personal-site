@@ -56,22 +56,22 @@
   filter: contrast(200%);
 }
 
-.targeted.top {
+.targeted .top {
   background-color: #ababff;
 }
 
-.targeted.tower.left {
+.targeted .tower.left {
   background-color: #8585ee;
 }
 
-.targeted.tower.right {
+.targeted .tower.right {
   background-color: #7676e9;
 }
 
-.visited.top {
+.visited .top {
   background-color: rgb(224, 130, 63);
 }
 
-.populated.top {
+.populated .top {
   background-color: rgb(255, 106, 0);
 }

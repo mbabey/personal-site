@@ -135,7 +135,7 @@ class Cell {
     const tower_style = {height: `${this.#physical_height}px`};
 
     return (
-      <div key={[this.#coordinate_x, this.#coordinate_y]} className={`${this.id} ${cell_class} box `}>
+      <div key={[this.#coordinate_x, this.#coordinate_y]} className={`_${this.id} ${cell_class} box `}>
         <div className={`${cell_class} tower right`} style={tower_style}></div>
         <div className={`${cell_class} tower left`} style={tower_style}></div>
         <div className={`${cell_class} top`} style={top_style}></div>

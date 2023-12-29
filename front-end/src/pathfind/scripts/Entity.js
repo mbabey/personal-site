@@ -28,7 +28,7 @@ class Entity {
     this.#world = grid;
     this.#location = cell;
     this.#location.toggle_populated();
-    this.#location.toggle_visited(false);
+    this.#location.toggle_visited();
     this.#target = target;
     this.#target.toggle_targeted();
   }
@@ -66,7 +66,8 @@ class Entity {
   }
 
   /**
-   * Move to a new Cell using a list returned from a pathfinding algorithm that minimizes change in altitude.
+   * Move to a new Cell using a list returned from a pathfinding algorithm
+   * that minimizes change in altitude.
    */
   move() {
     const new_cell = this.#path.shift();
@@ -76,6 +77,26 @@ class Entity {
     this.#location.toggle_visited();
     this.set_location(new_cell);
     this.#location.toggle_populated();
+  }
+
+  /**
+   * Move to a new Cell using a list returned from a pathfinding algorithm
+   * that minimizes change in altitude. Update the DOM.
+   * @param {Document} DOM A Document Object Model.
+   */
+  move_and_update_DOM(DOM) {
+    const old_cell = this.#location;
+    const new_cell = this.#path.shift();
+
+    // Leave the old cell and enter the new cell.
+    old_cell.toggle_populated();
+    old_cell.toggle_visited();
+    DOM.querySelector(`._${old_cell.id}`).classList.remove('populated');
+    DOM.querySelector(`._${old_cell.id}`).classList.add('visited');
+    
+    this.set_location(new_cell);
+    new_cell.toggle_populated();
+    DOM.querySelector(`._${new_cell.id}`).classList.add('populated');
   }
 
 }
