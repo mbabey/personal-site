@@ -102,8 +102,8 @@ class Grid {
 
   /**
    * Draw each Cell in the Grid.
-   * @param {*} max_height_px the maximum height of the column.
-   * @param {*} min_height_px the minimum height of the column.
+   * @param {Number} max_height_px the maximum height of the column.
+   * @param {Number} min_height_px the minimum height of the column.
    * @returns the array of HTML elements.
    */
   draw(max_height_px, min_height_px) {

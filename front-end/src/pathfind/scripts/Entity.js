@@ -84,8 +84,10 @@ class Entity {
    * Move to a new Cell using a list returned from a pathfinding algorithm
    * that minimizes change in altitude. Update the DOM.
    * @param {Document} DOM A Document Object Model.
+   * @param {Number} max_height_px the maximum height of the column.
+   * @param {Number} min_height_px the minimum height of the column.
    */
-  move_and_update_DOM(DOM) {
+  move_and_update_DOM(DOM, max_height_px, min_height_px) {
     const old_cell = this.#location;
     const new_cell = this.#path.shift();
 
@@ -101,7 +103,7 @@ class Entity {
     this.set_location(new_cell);
     new_cell.toggle_populated();
     new_cell_DOM.classList.add('populated');
-    CellAnimator.bounce(new_cell_DOM);
+    CellAnimator.bounce(new_cell, new_cell_DOM, max_height_px, min_height_px);
   }
 
 }
