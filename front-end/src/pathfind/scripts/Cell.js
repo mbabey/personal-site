@@ -17,6 +17,9 @@ class Cell {
   // The altitude of the Cell, from 0 to MAX_ALTITUDE.
   #altitude;
 
+  // The physical height in pixels of the Cell when drawn.
+  #physical_height;
+
   // Whether the Cell has something inside of it.
   #populated;
 
@@ -32,7 +35,7 @@ class Cell {
    * @param {Integer} coord_y the Y coordniate
    */
   constructor(coord_x, coord_y) {
-    this.id = `${coord_x}:${coord_y}`;
+    this.id = `${coord_x}-${coord_y}`;
     this.#coordinate_x = coord_x;
     this.#coordinate_y = coord_y;
     this.#altitude = Math.floor(Math.random() * Cell.MAX_ALTITUDE);
@@ -62,6 +65,14 @@ class Cell {
    */
   get_altitude() {
     return this.#altitude;
+  }
+
+  /**
+   * Get the physical height in pixels of this Cell.
+   * @returns the physical height in pixels
+   */
+  get_physical_height() {
+    return this.#physical_height;
   }
 
   /**
@@ -111,27 +122,20 @@ class Cell {
 
   /**
    * Draw the cell as a column with a specified size.
-   * @param {*} max_height_px the maximum height of the column.
-   * @param {*} min_height_px the minimum height of the column.
+   * @param {Number} max_height_px the maximum height of the column.
+   * @param {Number} min_height_px the minimum height of the column.
    * @returns an Element with the properties and classes of the cell.
    */
   draw(max_height_px, min_height_px) {
-    const location = this.get_coordinates();
-    const altitude = this.get_altitude();
-    const populated = this.get_populated();
-    const targeted = this.get_targeted();
-    const visited = this.get_visited();
-
-    const cell_class = `cell${populated ? ' populated' : ''}${targeted ? ' targeted' : ''}${visited ? ' visited' : ''}`;
+    const cell_class = `cell${this.#populated ? ' populated' : ''}${this.#targeted ? ' targeted' : ''}${this.#visited ? ' visited' : ''}`;
     
-    const cell_height = (altitude / Cell.MAX_ALTITUDE) * max_height_px + min_height_px;
-    const cell_top = -cell_height;
+    this.#physical_height = (this.#altitude / Cell.MAX_ALTITUDE) * max_height_px + min_height_px;
 
-    const top_style = {top: `${cell_top}px`};
-    const tower_style = {height: `${cell_height}px`};
+    const top_style = {top: `${-this.#physical_height}px`};
+    const tower_style = {height: `${this.#physical_height}px`};
 
     return (
-      <div key={[location.x, location.y]} className={`${cell_class} box ${location.x}-${location.y}`}>
+      <div key={[this.#coordinate_x, this.#coordinate_y]} className={`${this.id} ${cell_class} box `}>
         <div className={`${cell_class} tower right`} style={tower_style}></div>
         <div className={`${cell_class} tower left`} style={tower_style}></div>
         <div className={`${cell_class} top`} style={top_style}></div>

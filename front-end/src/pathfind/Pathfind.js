@@ -44,7 +44,6 @@ function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms 
       interval_id = setInterval(() => {
         // Move the Entity along the path and redraw the Grid.
         entity.move();
-        entity.get_location();
         setGridImage(grid.draw(max_height_px, min_height_px));
 
         // If the entity is at the target location, stop the iteration.

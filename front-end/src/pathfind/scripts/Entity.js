@@ -28,7 +28,7 @@ class Entity {
     this.#world = grid;
     this.#location = cell;
     this.#location.toggle_populated();
-    this.#location.toggle_visited();
+    this.#location.toggle_visited(false);
     this.#target = target;
     this.#target.toggle_targeted();
   }
