@@ -10,7 +10,7 @@ export default function App2() {
     grid_size_x: 10,
     grid_size_y: 10,
     max_column_height_px: 50,
-    column_width_px: 60,
+    column_width_px: 45,
     entity_move_interval_ms: 250,
     animation_duration_ms: 2000,
     animation_bounce_distance_px: 10
