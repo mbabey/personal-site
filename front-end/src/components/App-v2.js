@@ -11,7 +11,7 @@ export default function App2() {
     size_y: 10,
     max_height_px: 50,
     width_px: 50,
-    update_interval_ms: 500
+    update_interval_ms: 250
   };
 
   const URLS = {

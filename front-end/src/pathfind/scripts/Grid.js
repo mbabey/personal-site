@@ -116,7 +116,6 @@ class Grid {
         const cell_class = `cell${populated ? ' populated' : ''}${targeted ? ' targeted' : ''}${visited ? ' visited' : ''}`;
         
         const cell_height = (altitude / Cell.MAX_ALTITUDE) * max_height_px + min_height_px;
-        // const cell_height = (altitude / Cell.MAX_ALTITUDE) * max_height_px;
         const cell_top = -cell_height;
 
         const top_style = {top: `${cell_top}px`};

@@ -9,20 +9,9 @@
   height: calc(var(--grid-size-y) * var(--pillar-width));
 }
 
-.visited.top {
-  background-color: rgb(224, 130, 63) !important;
-}
-
-.targeted.top {
-  background-color: #a4a4ff !important;
-}
-
-.populated.top {
-  background-color: rgb(255, 106, 0) !important;
-}
-
 .cell.box {
   position: relative;
+  margin: auto 0;
   width: 0;
   height: 0;
   transform: rotateZ(-45deg);
@@ -30,30 +19,42 @@
 
 .cell.top {
   position: absolute;
-  /* top: calc(-1 * var(--pillar-height)); */
   width: var(--pillar-width);
+  left: calc(-0.15 * var(--pillar-width));
   aspect-ratio: 1/1;
   transform: rotateX(var(--view-angle)) rotateZ(45deg);
   background-color: #5050ee;
-  border: 1px solid black;
+  border: 1px solid #000;
 }
 
 .cell.tower.left {
   position: absolute;
   bottom: calc(-0.678 * var(--pillar-width) - 2px);
-  left: calc(-0.205 * var(--pillar-width));
+  left: calc(-0.355 * var(--pillar-width));
   width: calc(0.705 * var(--pillar-width) - 1px);
   transform: skewY(var(--skew-angle));
   background-color: #5050ee;
-  border: 1px solid black;
+  border: 1px solid #000;
 }
 
 .cell.tower.right {
   position: absolute;
   bottom: calc(-0.678 * var(--pillar-width) - 2px);
-  left: calc(0.5 * var(--pillar-width));
+  left: calc(0.35 * var(--pillar-width));
   width: calc(0.705 * var(--pillar-width) - 1px);
   transform: skewY(calc(-1 * var(--skew-angle)));
   background-color: #5050ee;
-  border: 1px solid black;
+  border: 1px solid #000;
+}
+
+.targeted.top {
+  background-color: #a4a4ff;
+}
+
+.visited.top {
+  background-color: rgb(224, 130, 63);
+}
+
+.populated.top {
+  background-color: rgb(255, 106, 0);
 }
