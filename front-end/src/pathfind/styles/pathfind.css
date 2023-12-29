@@ -3,6 +3,11 @@
   --skew-angle: 26.5deg;
 }
 
+.pathfind {
+  opacity: 0;
+  transition: opacity 100ms ease-out;
+}
+
 .grid-container {
   transform: rotateZ(45deg);
   width: calc(var(--grid-size-x) * var(--pillar-width));

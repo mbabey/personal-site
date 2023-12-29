@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Grid from './scripts/Grid.js'
 import Entity from './scripts/Entity.js';
 import PriorityQueue from './scripts/PriorityQueue.js';
@@ -7,15 +7,17 @@ import './styles/pathfind.css'
 
 function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms }) {
 
-  document.documentElement.style.setProperty('--pillar-width', `${width_px}px`);
-  document.documentElement.style.setProperty('--grid-size-x', `${size_x}`);
-  document.documentElement.style.setProperty('--grid-size-y', `${size_y}`);
+  const docElementStyle = document.documentElement.style;
+  docElementStyle.setProperty('--pillar-width', `${width_px}px`);
+  docElementStyle.setProperty('--grid-size-x', `${size_x}`);
+  docElementStyle.setProperty('--grid-size-y', `${size_y}`);
 
   // CSS for the grid.
   const GRID_CONTAINER = { display: 'grid', gridTemplateColumns: `repeat(${size_x}, 1fr)`, gridTemplateRows: `repeat(${size_y}, 1fr)` };
   
   const [worldImage, setWorldImage] = useState('hmm');
-  
+  const pfRef = useRef(null);
+
   useEffect(() => {
     let interval_id;
     
@@ -31,8 +33,7 @@ function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms 
       setWorldImage(world.draw(max_height_px, min_height_px));
 
       // Fade in the world.
-      const pf = document.querySelector('.pathfind');
-      pf.style.opacity = 1;
+      pfRef.current.style.opacity = 1;
 
       // Run the Dijkstra pathfinding algorithm.
       const path_info = await dijkstra_pathfind(entity, entity.get_target(), world);
@@ -58,6 +59,7 @@ function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms 
 
   return (
     <div
+      ref={pfRef}
       className='pathfind grid-container'
       style={GRID_CONTAINER}
     >
