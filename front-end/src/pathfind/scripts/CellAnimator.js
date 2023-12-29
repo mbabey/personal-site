@@ -5,14 +5,14 @@ export default class CellAnimator {
     const top = cell_DOM.querySelector('.top');
 
     const default_height = cell.get_physical_height();
-    const height_modifier = max_height_px - min_height_px;
+    const height_mod = 10;
     
     const animation_settings = {
       timing: CellAnimator.make_animation_ease_out(CellAnimator.timing_elastic),
       draw: function (progress) {
-        tower_left.style.height = Math.max(default_height * progress, min_height_px) + 'px';
-        tower_right.style.height = Math.max(default_height * progress, min_height_px) + 'px';
-        top.style.top = Math.min(-(default_height * progress), -(min_height_px)) + 'px';
+        tower_left.style.height = Math.max(default_height - height_mod * (1 - progress), min_height_px) + 'px';
+        tower_right.style.height = Math.max(default_height - height_mod * (1 - progress), min_height_px) + 'px';
+        top.style.top = Math.min(-(default_height - height_mod * (1 - progress)), -(min_height_px)) + 'px';
       },
       duration: 2000,
     }
