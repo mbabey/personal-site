@@ -17,6 +17,9 @@ class Cell {
   // The altitude of the Cell, from 0 to MAX_ALTITUDE.
   #altitude;
 
+  // The physical height, in pixels, of the Cell.
+  #physical_height;
+
   // Whether the Cell has something inside of it.
   #populated;
 
@@ -62,6 +65,14 @@ class Cell {
    */
   get_altitude() {
     return this.#altitude;
+  }
+
+  /**
+   * Get the physical height, in pixels, of this Cell.
+   * @returns the physical height, in pixels
+   */
+  get_physical_height() {
+    return this.#physical_height;
   }
 
   /**
@@ -118,16 +129,16 @@ class Cell {
   draw(max_height_px, min_height_px) {
     const cell_class = `cell${this.#populated ? ' populated' : ''}${this.#targeted ? ' targeted' : ''}${this.#visited ? ' visited' : ''}`;
     
-    const height_px = (this.#altitude / Cell.MAX_ALTITUDE) * max_height_px + min_height_px;
+    this.#physical_height = (this.#altitude / Cell.MAX_ALTITUDE) * max_height_px + min_height_px;
 
-    const top_style = {top: `${-height_px}px`};
-    const tower_style = {height: `${height_px}px`};
+    const top_style = {top: `${-this.#physical_height}px`};
+    const tower_style = {height: `${this.#physical_height}px`};
 
     return (
       <div key={[this.#coordinate_x, this.#coordinate_y]} className={`_${this.id} ${cell_class} box `}>
-        <div className={`${cell_class} tower right`} style={tower_style}></div>
-        <div className={`${cell_class} tower left`} style={tower_style}></div>
-        <div className={`${cell_class} top`} style={top_style}></div>
+        <div className={`cell tower right`} style={tower_style}></div>
+        <div className={`cell tower left`} style={tower_style}></div>
+        <div className={`cell top`} style={top_style}></div>
       </div>
     );
   }

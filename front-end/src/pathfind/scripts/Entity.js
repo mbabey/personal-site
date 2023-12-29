@@ -1,3 +1,4 @@
+import CellAnimator from './CellAnimator';
 
 /**
  * Entity.
@@ -88,15 +89,19 @@ class Entity {
     const old_cell = this.#location;
     const new_cell = this.#path.shift();
 
+    const old_cell_DOM = DOM.querySelector(`._${old_cell.id}`);
+    const new_cell_DOM = DOM.querySelector(`._${new_cell.id}`);
+
     // Leave the old cell and enter the new cell.
     old_cell.toggle_populated();
     old_cell.toggle_visited();
-    DOM.querySelector(`._${old_cell.id}`).classList.remove('populated');
-    DOM.querySelector(`._${old_cell.id}`).classList.add('visited');
+    old_cell_DOM.classList.remove('populated');
+    old_cell_DOM.classList.add('visited');
     
     this.set_location(new_cell);
     new_cell.toggle_populated();
-    DOM.querySelector(`._${new_cell.id}`).classList.add('populated');
+    new_cell_DOM.classList.add('populated');
+    CellAnimator.bounce(new_cell_DOM);
   }
 
 }
