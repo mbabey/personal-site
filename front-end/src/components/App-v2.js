@@ -10,7 +10,7 @@ export default function App2() {
     size_x: 10,
     size_y: 10,
     max_height_px: 50,
-    width_px: 50,
+    width_px: 45,
     update_interval_ms: 250
   };
 
