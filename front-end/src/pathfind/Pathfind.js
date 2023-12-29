@@ -13,21 +13,22 @@ function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms 
 
   // CSS for the grid.
   const GRID_CONTAINER = { display: 'grid', gridTemplateColumns: `repeat(${size_x}, 1fr)`, gridTemplateRows: `repeat(${size_y}, 1fr)` };
-
+  
   const [worldImage, setWorldImage] = useState('hmm');
-
+  
   useEffect(() => {
     let interval_id;
-
+    
     async function run() {
       // Create the Grid.
       const world = await Grid.async_create_grid(size_x, size_y);
-
+      
       // Create the Entity and it's target (opposite the Entity).
       const entity = await create_entity_and_target(size_x, size_y, world);
-
+      
       // Draw the world.
-      setWorldImage(world.draw(max_height_px, width_px));
+      const min_height_px = 0.35 * width_px;
+      setWorldImage(world.draw(max_height_px, min_height_px));
 
       // Fade in the world.
       const pf = document.querySelector('.pathfind');
@@ -42,7 +43,7 @@ function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms 
       interval_id = setInterval(() => {
         // Move the Entity along the path and redraw the World.
         entity.move();
-        setWorldImage(world.draw(max_height_px, width_px));
+        setWorldImage(world.draw(max_height_px, min_height_px));
 
         // If the entity is at the target location, stop the iteration.
         if (entity.get_location().get_targeted() === true) {

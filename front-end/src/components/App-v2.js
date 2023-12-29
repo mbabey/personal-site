@@ -7,10 +7,10 @@ import '../styles/app.css';
 export default function App2() {
 
   const PATHFIND_SETTINGS = {
-    size_x: 20,
-    size_y: 20,
+    size_x: 10,
+    size_y: 10,
     max_height_px: 50,
-    width_px: 20,
+    width_px: 50,
     update_interval_ms: 500
   };
 
@@ -30,14 +30,6 @@ export default function App2() {
           update_interval_ms={PATHFIND_SETTINGS.update_interval_ms}
         />
       </div>
-
-      {/* <div className='pathfind-box'>
-        <div className='pathfind-placeholder box'>
-          <div className='pathfind-placeholder tower left'></div>
-          <div className='pathfind-placeholder tower right'></div>
-          <div className='pathfind-placeholder top'></div>
-        </div>
-      </div> */}
       <div className='h-text'>
         <div className='name'>
           <div className='text-content'>
@@ -68,9 +60,6 @@ export default function App2() {
           </div>
         </button>
       </div>
-      {/* <div className='pathfind-bar'>
-        <div className=''></div>
-      </div> */}
     </>
   )
 }

@@ -10,15 +10,15 @@
 }
 
 .visited.top {
-  background-color: rgba(167, 0, 0) !important;
+  background-color: rgb(224, 130, 63) !important;
 }
 
 .targeted.top {
-  background-color: #ffff00 !important;
+  background-color: #a4a4ff !important;
 }
 
 .populated.top {
-  background-color: #ff0000 !important;
+  background-color: rgb(255, 106, 0) !important;
 }
 
 .cell.box {
