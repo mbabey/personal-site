@@ -5,32 +5,33 @@ import PriorityQueue from './scripts/PriorityQueue.js';
 
 import './styles/pathfind.css'
 
-function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms }) {
+function Pathfind({ grid_size_x, grid_size_y, max_column_height_px, column_width_px, entity_move_interval_ms,
+  animation_bounce_distance_px, animation_duration_ms }) {
 
   const docElementStyle = document.documentElement.style;
-  docElementStyle.setProperty('--pillar-width', `${width_px}px`);
-  docElementStyle.setProperty('--grid-size-x', `${size_x}`);
-  docElementStyle.setProperty('--grid-size-y', `${size_y}`);
+  docElementStyle.setProperty('--pillar-width', `${column_width_px}px`);
+  docElementStyle.setProperty('--grid-size-x', `${grid_size_x}`);
+  docElementStyle.setProperty('--grid-size-y', `${grid_size_y}`);
 
   // CSS for the grid.
-  const GRID_CONTAINER = { display: 'grid', gridTemplateColumns: `repeat(${size_x}, 1fr)`, gridTemplateRows: `repeat(${size_y}, 1fr)` };
-  
+  const GRID_CONTAINER = { display: 'grid', gridTemplateColumns: `repeat(${grid_size_x}, 1fr)`, gridTemplateRows: `repeat(${grid_size_y}, 1fr)` };
+
   const [gridImage, setGridImage] = useState('hmm');
   const pfRef = useRef(null);
 
   useEffect(() => {
     let interval_id;
-    
+
     async function run() {
       // Create the Grid.
-      const grid = await Grid.async_create_grid(size_x, size_y);
-      
+      const grid = await Grid.async_create_grid(grid_size_x, grid_size_y);
+
       // Create the Entity and it's target (opposite the Entity).
-      const entity = await create_entity_and_target(size_x, size_y, grid);
-      
+      const entity = await create_entity_and_target(grid_size_x, grid_size_y, grid);
+
       // Draw the grid.
-      const min_height_px = 0.35 * width_px;
-      setGridImage(grid.draw(max_height_px, min_height_px));
+      const min_column_height_px = 0.35 * column_width_px;
+      setGridImage(grid.draw(max_column_height_px, min_column_height_px));
 
       // Fade in the grid.
       pfRef.current.style.opacity = 1;
@@ -41,20 +42,31 @@ function Pathfind({ size_x, size_y, max_height_px, width_px, update_interval_ms 
       // Set the path for the Entity to follow.
       entity.set_path(path_info.s_path);
 
+      // Compile bounce animation information.
+      const bounce_animation_info = {
+        min_height_px: min_column_height_px,
+        bounce_distance_px: animation_bounce_distance_px,
+        duration_ms: animation_duration_ms
+      }
+
+      // Move the Entity along the path at the specified interval.
       interval_id = setInterval(() => {
-        // Move the Entity along the path and redraw the Grid.
-        entity.move_and_update_DOM(document, max_height_px, min_height_px);
+        entity.move_and_update_DOM(document, bounce_animation_info);
 
         // If the entity is at the target location, stop the iteration.
         if (entity.get_location().get_targeted() === true) {
           clearInterval(interval_id);
         }
-      }, update_interval_ms);
+      }, entity_move_interval_ms);
     }
 
     run();
     return () => clearInterval(interval_id);
-  }, [size_x, size_y, max_height_px, width_px, update_interval_ms]);
+  },
+    [grid_size_x, grid_size_y,
+      max_column_height_px, column_width_px,
+      entity_move_interval_ms,
+      animation_bounce_distance_px, animation_duration_ms]);
 
   return (
     <div

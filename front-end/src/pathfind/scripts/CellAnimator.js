@@ -1,20 +1,19 @@
 export default class CellAnimator {
-  static bounce(cell, cell_DOM, max_height_px, min_height_px) {
+  static bounce(cell, cell_DOM, min_height_px, bounce_distance_px, duration_ms) {
     const tower_left = cell_DOM.querySelector('.tower.left');
     const tower_right = cell_DOM.querySelector('.tower.right');
     const top = cell_DOM.querySelector('.top');
 
     const default_height = cell.get_physical_height();
-    const height_mod = 10;
     
     const animation_settings = {
       timing: CellAnimator.make_animation_ease_out(CellAnimator.timing_elastic),
       draw: function (progress) {
-        tower_left.style.height = Math.max(default_height - height_mod * (1 - progress), min_height_px) + 'px';
-        tower_right.style.height = Math.max(default_height - height_mod * (1 - progress), min_height_px) + 'px';
-        top.style.top = Math.min(-(default_height - height_mod * (1 - progress)), -(min_height_px)) + 'px';
+        tower_left.style.height = default_height - bounce_distance_px * (1 - progress) + 'px';
+        tower_right.style.height = default_height - bounce_distance_px * (1 - progress) + 'px';
+        top.style.top = -(default_height - bounce_distance_px * (1 - progress)) + 'px';
       },
-      duration: 2000,
+      duration: duration_ms,
     }
 
     CellAnimator.animate(animation_settings);

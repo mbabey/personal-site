@@ -7,11 +7,13 @@ import '../styles/app.css';
 export default function App2() {
 
   const PATHFIND_SETTINGS = {
-    size_x: 10,
-    size_y: 10,
-    max_height_px: 50,
-    width_px: 60,
-    update_interval_ms: 250
+    grid_size_x: 10,
+    grid_size_y: 10,
+    max_column_height_px: 50,
+    column_width_px: 60,
+    entity_move_interval_ms: 250,
+    animation_duration_ms: 2000,
+    animation_bounce_distance_px: 10
   };
 
   const URLS = {
@@ -23,11 +25,13 @@ export default function App2() {
     <>
       <div className='pathfind-box'>
         <Pathfind
-          size_x={PATHFIND_SETTINGS.size_x}
-          size_y={PATHFIND_SETTINGS.size_y}
-          max_height_px={PATHFIND_SETTINGS.max_height_px}
-          width_px={PATHFIND_SETTINGS.width_px}
-          update_interval_ms={PATHFIND_SETTINGS.update_interval_ms}
+          grid_size_x={PATHFIND_SETTINGS.grid_size_x}
+          grid_size_y={PATHFIND_SETTINGS.grid_size_y}
+          max_column_height_px={PATHFIND_SETTINGS.max_column_height_px}
+          column_width_px={PATHFIND_SETTINGS.column_width_px}
+          entity_move_interval_ms={PATHFIND_SETTINGS.entity_move_interval_ms}
+          animation_duration_ms={PATHFIND_SETTINGS.animation_duration_ms}
+          animation_bounce_distance_px={PATHFIND_SETTINGS.animation_bounce_distance_px}
         />
       </div>
       <div className='h-text'>

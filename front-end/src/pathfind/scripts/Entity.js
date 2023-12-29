@@ -84,10 +84,10 @@ class Entity {
    * Move to a new Cell using a list returned from a pathfinding algorithm
    * that minimizes change in altitude. Update the DOM.
    * @param {Document} DOM A Document Object Model.
-   * @param {Number} max_height_px the maximum height of the column.
-   * @param {Number} min_height_px the minimum height of the column.
+   * @param {JSONObject} bounce_animation_info An object containing necessary information for the bounce animation,
+   *  includes: minimum column height in pixels, bounce distance in pixels, and animation duration in ms.
    */
-  move_and_update_DOM(DOM, max_height_px, min_height_px) {
+  move_and_update_DOM(DOM, bounce_animation_info) {
     const old_cell = this.#location;
     const new_cell = this.#path.shift();
 
@@ -99,11 +99,14 @@ class Entity {
     old_cell.toggle_visited();
     old_cell_DOM.classList.remove('populated');
     old_cell_DOM.classList.add('visited');
-    
+
     this.set_location(new_cell);
     new_cell.toggle_populated();
     new_cell_DOM.classList.add('populated');
-    CellAnimator.bounce(new_cell, new_cell_DOM, max_height_px, min_height_px);
+    CellAnimator.bounce(new_cell, new_cell_DOM,
+      bounce_animation_info.min_height_px,
+      bounce_animation_info.bounce_distance_px,
+      bounce_animation_info.duration_ms);
   }
 
 }
