@@ -156,10 +156,14 @@ body {
   transition: all 0.1s ease-out;
 }
 
-.btn:not(.svg-btn):hover {
+.btn:not(.svg-btn):is(:hover, :focus) {
   border-color: var(--bg-colour);
   background-color: #ffffffcc;
   color: var(--bg-colour);
+}
+
+.btn:not(.svg-btn):active {
+  transform: scale(0.95);
 }
 
 .svg-btn {
@@ -273,7 +277,7 @@ body {
 
 .contact-form .errmsg {
   position: absolute;
-  top: -10%;
+  top: -5%;
   left: 50%;
   transform: translateX(-50%);
   color: #FF343B;
@@ -288,9 +292,16 @@ body {
   margin: 0 auto 10px;
 }
 
-.btn.btn-submit:hover {
+.btn.btn-submit:is(:hover, :focus) {
   background-color: #00c020;
+}
+
+.btn.btn-submit:hover {
   transform: scale(1.05);
+}
+
+.btn.btn-submit:active {
+  transform: scale(0.95);
 }
 
 .btn.btn-close {
