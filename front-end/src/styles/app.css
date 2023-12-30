@@ -191,7 +191,7 @@ body {
   flex-direction: column;
   justify-content: center;
   color: #fff;
-  background-color: #060665;
+  background-color: #030337;
   text-align: center;
   transition: right 500ms cubic-bezier(.61,0,0,-0.63);
 }
@@ -203,6 +203,7 @@ body {
 @media screen and (min-width: 600px) {
   .contact-form-box {
     width: 50%;
+    transition: right 600ms cubic-bezier(.39,0,0,-0.46);
   }
 }
 
