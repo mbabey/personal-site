@@ -223,8 +223,15 @@ body {
   }
 }
 
+.contact-form-box .errmsg {
+  text-align: center;
+  opacity: 0;
+  color: #FF343B;
+  font-size: 0.8em;
+  transition: opacity 250ms ease-out;
+}
+
 .contact-form {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -273,15 +280,6 @@ body {
 .contact-form :is(input.valid, textarea.valid) {
   padding-bottom: 2px;
   border-bottom: 3px solid #00c020;
-}
-
-.contact-form .errmsg {
-  position: absolute;
-  top: -5%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #FF343B;
-  font-size: 0.8em;
 }
 
 .btn.btn-submit {

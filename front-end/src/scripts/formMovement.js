@@ -1,5 +1,6 @@
 export function showContactForm(formDOM) {
   formDOM.classList.add('out');
+  toggleTabIndex(formDOM);
 }
 
 export function hideContactForm(formDOM, form_inputs, errmsgDOM) {
@@ -8,5 +9,12 @@ export function hideContactForm(formDOM, form_inputs, errmsgDOM) {
     input.classList.remove('valid');
     input.classList.remove('invalid');
   });
-  errmsgDOM.hidden = true;
+  errmsgDOM.style.opacity = 0;
+  toggleTabIndex(formDOM);
+}
+
+function toggleTabIndex(formDOM)
+{
+  const form_inputs = formDOM.querySelector('.contact-form').children;
+  console.log(form_inputs);
 }

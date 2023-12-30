@@ -1,6 +1,6 @@
 import React, { forwardRef, useRef, useState } from 'react';
 import handleEnterReturnKeypress from '../scripts/handleEnterKeypress';
-import { hideContactForm } from '../scripts/formMovement'; 
+import { hideContactForm } from '../scripts/formMovement';
 import validator from 'validator';
 import emailjs from '@emailjs/browser';
 
@@ -34,11 +34,11 @@ const Contact = forwardRef(function Contact(props, ref) {
       validateName(name);
       validateEmail(email);
       validateMessage(message);
-      errmsg.current.hidden = false;
+      errmsg.current.style.opacity = 1;
       return;
     }
 
-    errmsg.current.hidden = true;
+    errmsg.current.style.opacity = 0;
     submitBtn.current.style.backgroundColor = '#4C6F61'; // Dark green.
     setBtnContent(USER_MSG_SENDING);
 
@@ -63,23 +63,23 @@ const Contact = forwardRef(function Contact(props, ref) {
 
   return (
     <div className='contact-form-box' ref={ref}>
-        <h2 className='title'>Contact Me</h2>
-        <form className='contact-form' autoComplete='on' ref={form}>
-          <input ref={name} type='name' placeholder='Name' name='name'
-            onKeyUp={() => validateName(name)}></input>
-          <input ref={email} type='email' placeholder='Email' name='email'
-            onKeyUp={() => validateEmail(email)}></input>
-          <textarea ref={message} type='text' placeholder='Message' name='message'
-            onKeyUp={() => validateMessage(message)}></textarea>
-          <div ref={errmsg} className='errmsg' hidden>Invalid form input; please fill all fields correctly.</div>
-          <button className='btn btn-submit' ref={submitBtn} type='submit'
-            onClick={handleSubmit}
-            onKeyDown={(e) => handleEnterReturnKeypress(e, () => handleSubmit(e))}
-          >
-            {btnContent}
-          </button>
-          <button type='button' className='btn btn-close' onClick={() => hideContactForm(ref.current, {nameDOM: name.current, emailDOM: email.current, messageDOM: message.current}, errmsg.current)}>Close</button>
-        </form>
+      <h2 className='title'>Contact Me</h2>
+      <div ref={errmsg} className='errmsg'>Invalid form input; please fill all fields correctly.</div>
+      <form className='contact-form' autoComplete='on' ref={form}>
+        <input tabIndex={-1} ref={name} type='name' placeholder='Name' name='name'
+          onKeyUp={() => validateName(name)}></input>
+        <input tabIndex={-1} ref={email} type='email' placeholder='Email' name='email'
+          onKeyUp={() => validateEmail(email)}></input>
+        <textarea tabIndex={-1} ref={message} type='text' placeholder='Message' name='message'
+          onKeyUp={() => validateMessage(message)}></textarea>
+        <button tabIndex={-1} className='btn btn-submit' ref={submitBtn} type='submit'
+          onClick={handleSubmit}
+          onKeyDown={(e) => handleEnterReturnKeypress(e, () => handleSubmit(e))}
+        >
+          {btnContent}
+        </button>
+        <button tabIndex={-1} type='button' className='btn btn-close' onClick={() => hideContactForm(ref.current, { nameDOM: name.current, emailDOM: email.current, messageDOM: message.current }, errmsg.current)}>Close</button>
+      </form>
     </div>
   )
 });
