@@ -39,14 +39,14 @@ const Contact = forwardRef(function Contact(props, ref) {
     }
 
     errmsg.current.style.opacity = 0;
-    submitBtn.current.style.backgroundColor = '#4C6F61'; // Dark green.
+    submitBtn.current.style.backgroundColor = 'rgb(193, 80, 0)'; // Dark orange.
     setBtnContent(USER_MSG_SENDING);
 
     const handleSubmitSuccess = (result) => {
       name.current.value = '';
       email.current.value = '';
       message.current.value = '';
-      submitBtn.current.style.backgroundColor = '#5ba456'; // Bright green; original colour.
+      submitBtn.current.style.backgroundColor = 'rgb(224, 130, 63)'; // Orange; original colour.
       setBtnContent(USER_MSG_SUCCESS);
     }
 

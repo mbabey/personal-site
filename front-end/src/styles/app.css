@@ -1,3 +1,13 @@
+@font-face {
+  font-family: makisupa;
+  src: url('../../public/fonts/MAKISUPA.TTF');
+}
+
+@font-face {
+  font-family: monofonto;
+  src: url('../../public/fonts/monofonto\ rg.otf');
+}
+
 :root {
   --bg-colour: #000028;
 }
@@ -68,7 +78,8 @@ body {
 
   text-align: right;
   font-size: 36px;
-  font-weight: 600;
+  font-family: makisupa;
+  font-weight: 100;
 }
 
 @media screen and (min-width: 600px) {
@@ -92,7 +103,7 @@ body {
 
   text-align: left;
   font-size: 24px;
-  font-weight: 600;
+  font-family: makisupa;
 }
 
 @media screen and (min-width: 600px) {
@@ -112,6 +123,7 @@ body {
   align-items: flex-end;
   text-align: center;
   margin: 0 20% 10%;
+  font-family: monofonto;
 }
 
 @media screen and (min-width: 600px) {
@@ -145,6 +157,8 @@ body {
   background: none;
   border: none;
   cursor: pointer;
+  font-family: monofonto;
+  font-weight: 100;
 }
 
 .btn:not(.svg-btn) {
@@ -215,6 +229,8 @@ body {
   font-size: 36px;
   height: 10%;
   margin: 0;
+  font-family: monofonto;
+  font-weight: 100;
 }
 
 @media screen and (min-width: 600px) {
@@ -228,6 +244,7 @@ body {
   opacity: 0;
   color: #FF343B;
   font-size: 0.8em;
+  font-family: monofonto;
   transition: opacity 250ms ease-out;
 }
 
@@ -246,7 +263,6 @@ body {
   padding-bottom: 3px;
   border-bottom: 2px solid #ddddddcc;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 500;
   font-size: 14px;
   line-height: 21px;
   color: #fff;
@@ -256,6 +272,8 @@ body {
 
 .contact-form :is(input, textarea)::placeholder {
   color: #ffffffcc;
+  font-family: monofonto;
+  font-weight: 100;
   transition: color 250ms linear;
 }
 
@@ -283,15 +301,16 @@ body {
 }
 
 .btn.btn-submit {
-  background-color: #5ba456;
+  background-color: rgb(224, 130, 63);
   border: none;
   width: 50%;
   height: 40px;
   margin: 0 auto 10px;
+  color: #000;
 }
 
 .btn.btn-submit:is(:hover, :focus) {
-  background-color: #00c020;
+  background-color: rgb(255, 106, 0);
 }
 
 .btn.btn-submit:hover {
