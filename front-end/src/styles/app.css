@@ -217,21 +217,41 @@ body {
 }
 
 .contact-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
 .contact-form :is(input, textarea) {
-  font-family: Arial, Helvetica, sans-serif;
   margin: 5px 5% 10px;
-  background: #fefefe;
+  padding: 10px;
+  background: none;
   border: none;
   outline: none;
-  padding: 10px;
+  padding-bottom: 3px;
+  border-bottom: 2px solid #ddddddcc;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
+  color: #fff;
+  transition: border-bottom 250ms linear,
+    padding-bottom 250ms linear;
+}
+
+.contact-form :is(input, textarea)::placeholder {
+  color: #ffffffcc;
+  transition: color 250ms linear;
+}
+
+.contact-form :is(input, textarea):focus {
+  padding-bottom: 2px;
+  border-bottom: 3px solid #ddddddff;
+}
+
+.contact-form :is(input, textarea):focus::placeholder {
+  color: #00000000;
 }
 
 .contact-form textarea {
@@ -239,11 +259,20 @@ body {
 }
 
 .contact-form :is(input.invalid, textarea.invalid) {
-  padding: 5px;
-  border: 5px solid #FF343B;
+  padding-bottom: 0px;
+  border-bottom: 5px solid #FF343B;
+}
+
+.contact-form :is(input.valid, textarea.valid) {
+  padding-bottom: 2px;
+  border-bottom: 3px solid #00c020;
 }
 
 .contact-form .errmsg {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
   color: #FF343B;
   font-size: 0.8em;
 }
