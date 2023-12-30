@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import Pathfind from '../pathfind/Pathfind';
+import ContactForm from './Contact';
 import SVGLibrary from './svg';
+import { showContactForm } from '../scripts/formMovement';
 
 import '../styles/app.css';
 
@@ -20,6 +22,8 @@ export default function App2() {
     github: 'https://github.com/mbabey',
     linkedin: 'https://www.linkedin.com/in/maxwell-babey'
   };
+
+  const formRef = useRef(null);
 
   return (
     <>
@@ -58,12 +62,13 @@ export default function App2() {
         <button className='btn svg-btn' onClick={() => openUrlNewTab(URLS.linkedin)}>
           <SVGLibrary.LinkedIn />
         </button>
-        <button className='btn contact'>
+        <button className='btn contact' onClick={() => showContactForm(formRef.current)}>
           <div>
             Contact Me &gt;
           </div>
         </button>
       </div>
+      <ContactForm ref={formRef}/>
     </>
   )
 }

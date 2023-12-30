@@ -1,5 +1,6 @@
 import React, { forwardRef, useRef, useState } from 'react';
 import handleEnterReturnKeypress from '../scripts/handleEnterKeypress';
+import { hideContactForm } from '../scripts/formMovement'; 
 import validator from 'validator';
 import emailjs from '@emailjs/browser';
 
@@ -77,8 +78,8 @@ const Contact = forwardRef(function Contact(props, ref) {
           >
             {btnContent}
           </button>
+          <button type='button' className='btn btn-close' onClick={() => hideContactForm(ref.current)}>Close</button>
         </form>
-        <button className='btn btn-close'>Close</button>
     </div>
   )
 });
