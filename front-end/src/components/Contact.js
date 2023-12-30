@@ -1,9 +1,7 @@
 import React, { forwardRef, useRef, useState } from 'react';
-import { handleEnterReturnKeypress } from '../scripts/util';
+import handleEnterReturnKeypress from '../scripts/handleEnterKeypress';
 import validator from 'validator';
 import emailjs from '@emailjs/browser';
-
-import '../styles/contact.css';
 
 const Contact = forwardRef(function Contact(props, ref) {
 
@@ -63,11 +61,9 @@ const Contact = forwardRef(function Contact(props, ref) {
   }
 
   return (
-    <section id='contact' ref={ref}>
-      <div className='width-wrapper'>
-        <h2 className='title'>Contact</h2>
-        <p>Reach out to me through the form below with your name, email, and message:</p>
-        <form autoComplete='on' ref={form}>
+    <div className='contact-form-box' ref={ref}>
+        <h2 className='title'>Contact Me</h2>
+        <form className='contact-form' autoComplete='on' ref={form}>
           <input ref={name} type='name' placeholder='Your Name' name='name'
             onKeyUp={() => validateName(name)}></input>
           <input ref={email} type='email' placeholder='Your Email' name='email'
@@ -75,19 +71,15 @@ const Contact = forwardRef(function Contact(props, ref) {
           <textarea ref={message} type='text' placeholder='Message' name='message'
             onKeyUp={() => validateMessage(message)}></textarea>
           <div ref={errmsg} className='errmsg' hidden>Invalid form input; please fill all fields correctly.</div>
-          <button ref={submitBtn} type='submit'
+          <button className='btn btn-submit' ref={submitBtn} type='submit'
             onClick={handleSubmit}
             onKeyDown={(e) => handleEnterReturnKeypress(e, () => handleSubmit(e))}
           >
             {btnContent}
           </button>
         </form>
-        <div className='socials'>
-          <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/maxwell-babey'><img src='linkedin.svg' alt='LinkedIn' /></a>
-          <a target='_blank' rel='noreferrer' href='https://github.com/mbabey'><img src='github.svg' alt='GitHub' /></a>
-        </div>
-      </div>
-    </section>
+        <button className='btn btn-close'>Close</button>
+    </div>
   )
 });
 

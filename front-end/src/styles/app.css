@@ -180,38 +180,68 @@ body {
   fill: #fff;
 }
 
+.contact-form-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* bottom: -100%; */
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background-color: #060665dd;
+  background: linear-gradient(180deg, #060665dd 50%, #060665ff 75%);
+  border-top: 1px solid #fff;
+  text-align: center;
+}
 
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-/* These styles are for a tall hexagon. */
-/* .pathfind-bar {
-  margin: auto;
-  margin-top: 100px;
-  width: var(--pillar-width);
-  height: var(--pillar-height);
-  background: #000000aa;
+.contact-form :is(input, textarea) {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 5px 5%;
+  background: #fefefe;
+  border: none;
+  outline: none;
+  margin-top: 10px;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
   position: relative;
 }
 
-.pathfind-bar::before {
-  content: "";
-  position: absolute;
-  top: calc(-1 * (var(--pillar-width) * 0.287675));
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: calc(var(--pillar-width) * 0.5) solid transparent;
-  border-right: calc(var(--pillar-width) * 0.5) solid transparent;
-  border-bottom: calc(var(--pillar-width) * 0.287675) solid #000000aa;
+.contact-form textarea {
+  height: 12em;
 }
 
-.pathfind-bar::after {
-  content: "";
-  position: absolute;
-  bottom: calc(-1 * (var(--pillar-width) * 0.287675));
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: calc(var(--pillar-width) * 0.5) solid transparent;
-  border-right: calc(var(--pillar-width) * 0.5) solid transparent;
-  border-top: calc(var(--pillar-width) * 0.287675) solid #000000aa;
-} */
+.contact-form :is(input.invalid, textarea.invalid) {
+  padding: 5px;
+  border: 5px solid #FF343B;
+}
+
+.contact-form .errmsg {
+  color: #FF343B;
+  font-size: 0.8em;
+}
+
+.btn.btn-submit {
+  background-color: #5ba456;
+  border: none;
+  width: 50%;
+  height: 40px;
+  margin: auto;
+}
+
+.btn.btn-submit:hover {
+  background-color: #00c020;
+  transform: scale(1.05);
+}
+
+.btn.btn-close {
+  margin-top: 40px;
+  font-size: 16px;
+}
