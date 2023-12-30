@@ -7,10 +7,10 @@ import emailjs from '@emailjs/browser';
 const Contact = forwardRef(function Contact(props, ref) {
 
   const USER_MSG_SEND = 'Send';
-  const USER_MSG_SENDING = 'Message sending...';
-  const USER_MSG_SUCCESS = 'Success! Message sent';
-  const USER_MSG_FAILURE = 'Message failed to send; try again later';
-  const USER_MSG_RESEND = 'You\'ve already pressed this; try again later';
+  const USER_MSG_SENDING = 'Sending...';
+  const USER_MSG_SUCCESS = 'Sent!';
+  const USER_MSG_FAILURE = 'Message failed to send';
+  const USER_MSG_RESEND = 'Already sent';
 
   const form = useRef(null);
   const submitBtn = useRef(null);
