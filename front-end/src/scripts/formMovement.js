@@ -16,5 +16,8 @@ export function hideContactForm(formDOM, form_inputs, errmsgDOM) {
 function toggleTabIndex(formDOM)
 {
   const form_inputs = formDOM.querySelector('.contact-form').children;
-  console.log(form_inputs);
+  for (const input of form_inputs)
+  {
+    input.tabIndex = (input.tabIndex) ? 0 : -1;
+  }
 }
