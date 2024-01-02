@@ -1,15 +1,12 @@
 @font-face {
-  font-family: makisupa;
-  src: url('../../public/fonts/MAKISUPA.TTF');
-}
-
-@font-face {
-  font-family: monofonto;
-  src: url('../../public/fonts/monofonto\ rg.otf');
+  font-family: "Belgiano Serif";
+  src: url('../../public/fonts/Belgiano\ Serif\ 2.ttf');
 }
 
 :root {
   --bg-colour: #000028;
+  --family-serif: "Belgiano Serif", serif;
+  --family-sans: sans-serif;
 }
 
 body {
@@ -75,10 +72,9 @@ body {
   justify-content: right;
   align-items: flex-end;
   margin-right: 15%;
-
+  font-family: var(--family-serif);
   text-align: right;
   font-size: 36px;
-  font-family: makisupa;
   font-weight: 100;
 }
 
@@ -100,10 +96,9 @@ body {
   align-items: flex-end;
   justify-content: left;
   margin-left: 20%;
-
+  font-family: var(--family-serif);
   text-align: left;
   font-size: 24px;
-  font-family: makisupa;
 }
 
 @media screen and (min-width: 600px) {
@@ -123,7 +118,7 @@ body {
   align-items: flex-end;
   text-align: center;
   margin: 0 20% 10%;
-  font-family: monofonto;
+  font-family: var(--family-sans);
 }
 
 @media screen and (min-width: 600px) {
@@ -157,7 +152,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  font-family: monofonto;
+  font-family: var(--family-sans);
   font-weight: 100;
 }
 
@@ -229,7 +224,7 @@ body {
   font-size: 36px;
   height: 10%;
   margin: 0;
-  font-family: monofonto;
+  font-family: var(--family-serif);
   font-weight: 100;
 }
 
@@ -244,7 +239,7 @@ body {
   opacity: 0;
   color: #FF343B;
   font-size: 0.8em;
-  font-family: monofonto;
+  font-family: var(--family-sans);
   transition: opacity 250ms ease-out;
 }
 
@@ -262,7 +257,7 @@ body {
   outline: none;
   padding-bottom: 3px;
   border-bottom: 2px solid #ddddddcc;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--family-sans);
   font-size: 14px;
   line-height: 21px;
   color: #fff;
@@ -272,7 +267,7 @@ body {
 
 .contact-form :is(input, textarea)::placeholder {
   color: #ffffffcc;
-  font-family: monofonto;
+  font-family: var(--family-sans);
   font-weight: 100;
   transition: color 250ms linear;
 }
