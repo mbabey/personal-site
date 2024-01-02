@@ -24,9 +24,9 @@
 
 .cell.top {
   position: absolute;
-  width: calc(0.98 * var(--pillar-width));
   left: calc(-0.135 * var(--pillar-width));
-  aspect-ratio: 1/1;
+  width: calc(0.98 * var(--pillar-width));
+  height: calc(0.98 * var(--pillar-width));
   transform: rotateX(var(--view-angle)) rotateZ(45deg);
   background-color: #7676fb;
   border: 1px solid #000;
