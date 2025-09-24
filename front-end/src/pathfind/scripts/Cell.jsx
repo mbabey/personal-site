@@ -1,3 +1,5 @@
+import React from "react";
+
 /** 
  * Cell.
  * A Cell in a Grid.
@@ -128,14 +130,15 @@ class Cell {
    */
   draw(max_height_px, min_height_px) {
     const cell_class = `cell${this.#populated ? ' populated' : ''}${this.#targeted ? ' targeted' : ''}${this.#visited ? ' visited' : ''}`;
-    
+
     this.#physical_height = (this.#altitude / Cell.MAX_ALTITUDE) * max_height_px + min_height_px;
 
-    const top_style = {top: `${-this.#physical_height}px`};
-    const tower_style = {height: `${this.#physical_height}px`};
+    const top_style = { top: `${-this.#physical_height}px` };
+    const tower_style = { height: `${this.#physical_height}px` };
+    const key = [this.#coordinate_x, this.#coordinate_y].join(",");
 
     return (
-      <div key={[this.#coordinate_x, this.#coordinate_y]} className={`_${this.id} ${cell_class} box `}>
+      <div key={key} className={`_${this.id} ${cell_class} box `}>
         <div className={`cell tower right`} style={tower_style}></div>
         <div className={`cell tower left`} style={tower_style}></div>
         <div className={`cell top`} style={top_style}></div>
