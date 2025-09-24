@@ -1,10 +1,12 @@
-import React, {useRef} from 'react'
+import React from 'react'
 import Pathfind from '../pathfind/Pathfind';
-import ContactForm from './Contact';
 import SVGLibrary from './svg';
-import { showContactForm } from '../scripts/formMovement';
 
 import '../styles/app.css';
+
+function openUrlNewTab(url) {
+  window.open(url, '_blank');
+}
 
 export default function App2() {
 
@@ -20,10 +22,9 @@ export default function App2() {
 
   const URLS = {
     github: 'https://github.com/mbabey',
-    linkedin: 'https://www.linkedin.com/in/maxwell-babey'
+    linkedin: 'https://www.linkedin.com/in/maxwell-babey',
+    resumeForm: '/maxwell-babey-resume.pdf',
   };
-
-  const formRef = useRef(null);
 
   return (
     <>
@@ -62,17 +63,12 @@ export default function App2() {
         <button className='btn svg-btn' onClick={() => openUrlNewTab(URLS.linkedin)}>
           <SVGLibrary.LinkedIn />
         </button>
-        <button className='btn contact' onClick={() => showContactForm(formRef.current)}>
+        <button className='btn contact' onClick={() => openUrlNewTab(URLS.resumeFile)}>
           <div>
-            Contact Me &gt;
+            View Resume {<SVGLibrary.ExternalLink />}
           </div>
         </button>
       </div>
-      <ContactForm ref={formRef}/>
     </>
   )
-}
-
-function openUrlNewTab(url) {
-  window.open(url, '_blank');
 }

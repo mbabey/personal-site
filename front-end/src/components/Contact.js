@@ -120,4 +120,4 @@ function validateMessage(message) {
   }
 }
 
-export default Contact
+export default Contact;
