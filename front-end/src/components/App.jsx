@@ -1,6 +1,6 @@
 import React from 'react'
 import Pathfind from '../pathfind/Pathfind';
-import SVGLibrary from './svg';
+import SVGLibrary from './SVGLibrary';
 
 import '../styles/app.css';
 
@@ -8,7 +8,7 @@ function openUrlNewTab(url) {
   window.open(url, '_blank');
 }
 
-export default function App2() {
+export default function App() {
 
   const PATHFIND_SETTINGS = {
     grid_size_x: 10,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Grid from './scripts/Grid.js'
+import Grid from './scripts/Grid.jsx'
 import Entity from './scripts/Entity.js';
 import PriorityQueue from './scripts/PriorityQueue.js';
 
