@@ -47,12 +47,12 @@ export default function App() {
         </div>
         <div className='tag'>
           <div className='text-content'>
-            Structure.<br />Software.<br />Solutions.
+            Software.<br />Solutions.<br />Simplicity.
           </div>
         </div>
         <div className='statement'>
           <div className='text-content'>
-            I do end-to-end organization, planning, and delivery of web applications.
+            I build and experiment with software to make life easier.
           </div>
         </div>
       </div>
