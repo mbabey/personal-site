@@ -1,4 +1,6 @@
-FROM nginx:stable-alpine3.19-slim
+FROM nginx
+
 COPY front-end/build /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 CMD ["nginx", "-g", "daemon off;"]
