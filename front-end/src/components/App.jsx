@@ -23,7 +23,7 @@ export default function App() {
   const URLS = {
     github: 'https://github.com/mbabey',
     linkedin: 'https://www.linkedin.com/in/maxwell-babey',
-    resumeForm: '/maxwell-babey-resume.pdf',
+    resumeFile: '/maxwell-babey-resume.pdf',
   };
 
   return (
