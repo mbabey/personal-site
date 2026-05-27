@@ -47,7 +47,7 @@ export default function App() {
         </div>
         <div className='tag'>
           <div className='text-content'>
-            Software.<br />Solutions.<br />Simplicity.
+            Software Developer
           </div>
         </div>
         <div className='statement'>
